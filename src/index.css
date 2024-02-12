@@ -5,3 +5,11 @@
 button {
   cursor: pointer;
 }
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding: 0;
+}
