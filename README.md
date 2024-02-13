@@ -6,4 +6,6 @@ This is the front-end repository of an ongoing project for the construction indu
 
 ## Tech Stack
 
-This project is written in TypeScript and has been built with React, using Redux Toolkit (including RTK query).
+This project is written in TypeScript and vanilla CSS. The application is built in React using Redux Toolkit to write the requisite Redux logic, with RTK Query being used for data fetching and caching.
+
+The back end is being developed by Krasen Hristov in C#.
