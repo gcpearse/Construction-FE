@@ -6,10 +6,10 @@ const Header: React.FC = () => {
     <header>
       <ul>
         <li>
-          <FaPhone className="header-icon" />&nbsp; +44 (0) 7890 123 456
+          <FaPhone className="header-icon" />&nbsp; +44 (0) 1234 567 890
         </li>
         <li>
-          <FaEnvelope className="header-icon" />&nbsp; info@construction.co.uk
+          <FaEnvelope className="header-icon" />&nbsp; info@example.example
         </li>
       </ul>
     </header>
