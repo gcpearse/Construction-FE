@@ -7,6 +7,7 @@ import Nav from "./common/Nav"
 import Sidebar from "./features/sidebar/Sidebar"
 import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
+import AdminLogin from "./features/admin/AdminLogin"
 
 const App: React.FC = () => {
 
@@ -22,6 +23,10 @@ const App: React.FC = () => {
           <Route
             path="/"
             element={<Home />}
+          />
+          <Route
+            path="/admin"
+            element={<AdminLogin />}
           />
         </Routes>
       </main>
