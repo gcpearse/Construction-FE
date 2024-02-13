@@ -5,6 +5,7 @@
 
 #root {
   position: relative;
+  /* Display and flex-direction ensure background image covers desired area */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -22,14 +23,14 @@
 @media only screen and (max-width: 479px) {
   .sidebar {
     position: absolute;
-    left: -65vw;
-    /* 100% - combined height of header, nav, and footer */
+    left: -50vw;
+    /* Height of sidebar is 100% - combined height of header, nav, and footer */
     height: calc(100% - 208px);
-    width: 65vw;
+    width: 50vw;
     background: #000814;
     text-align: start;
     transition: 0.7s;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #FEFEFE;
   }
 
