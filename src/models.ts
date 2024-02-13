@@ -9,14 +9,14 @@ export type job = {
   "location": string
 }
 
-export type jobType = {
+export type service = {
   "name": string,
   "description": string,
   "image": string,
   "icon": string
 }
 
-export type personalInfo = {
+export type businessInfo = {
   "info_id": number,
 	"name": string,
 	"email": string,
