@@ -1,4 +1,5 @@
 import { useAppSelector } from "../../app/hooks"
+import NavMenu from "../../common/NavMenu"
 
 const Sidebar: React.FC = () => {
 
@@ -10,12 +11,7 @@ const Sidebar: React.FC = () => {
     ) : (
       "sidebar"
     )}>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Jobs</li>
-        <li>Admin</li>
-      </ul>
+      <NavMenu />
     </div>
   )
 }
