@@ -1,6 +1,6 @@
-import { useAppSelector } from "../app/hooks"
+import { useAppSelector } from "../../app/hooks"
 
-const Home: React.FC = () => {
+const Sidebar: React.FC = () => {
 
   const isSidebarVisible = useAppSelector((state) => state.sidebar.visibleSidebar)
 
@@ -20,4 +20,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default Sidebar
