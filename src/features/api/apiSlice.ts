@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { job, jobType, personalInfo } from "../../models"
+import { job, service, businessInfo } from "../../models"
 
 export const apiSlice = createApi({
   reducerPath: "api",
@@ -10,10 +10,10 @@ export const apiSlice = createApi({
     getJobs: builder.query<job[], void>({
       query: () => "/jobs"
     }),
-    getJobTypes: builder.query<jobType[], void>({
-      query: () => "/jobtypes"
+    getServices: builder.query<service[], void>({
+      query: () => "/services"
     }),
-    getPersonalInfo: builder.query<personalInfo, void>({
+    getBusinessInfo: builder.query<businessInfo, void>({
       query: () => "/info"
     })
   })
@@ -21,6 +21,6 @@ export const apiSlice = createApi({
 
 export const {
   useGetJobsQuery,
-  useGetJobTypesQuery,
-  useGetPersonalInfoQuery
+  useGetServicesQuery,
+  useGetBusinessInfoQuery
 } = apiSlice
