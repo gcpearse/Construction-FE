@@ -1,6 +1,6 @@
 import { IoClose, IoMenu } from "react-icons/io5"
 import { useAppDispatch, useAppSelector } from "../app/hooks"
-import { toggle } from "../features/sidebar/sidebarSlice"
+import { toggleSidebar } from "../features/sidebar/sidebarSlice"
 
 const Nav: React.FC = () => {
 
@@ -19,11 +19,11 @@ const Nav: React.FC = () => {
       {isSidebarVisible ? (
         <IoClose
           className="nav-icon"
-          onClick={() => dispatch(toggle())} />
+          onClick={() => dispatch(toggleSidebar())} />
       ) : (
         <IoMenu
           className="nav-icon"
-          onClick={() => dispatch(toggle())} />
+          onClick={() => dispatch(toggleSidebar())} />
       )}
     </nav>
   )
