@@ -1,6 +1,6 @@
 import { job } from "../../models"
 import { useGetJobsQuery } from "../api/apiSlice"
-import Job from "./job"
+import Job from "./Job"
 
 const Jobs: React.FC = () => {
 
