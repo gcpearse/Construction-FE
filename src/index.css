@@ -1,9 +1,39 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color: #000814;
 }
 
 button {
   cursor: pointer;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4em;
+  background: #000814;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 5em;
+  width: 100%;
+  background: #FFD60A;
+}
+
+main {
+  flex-grow: 1;
+  padding-bottom: 5em;
+  background-image: url(/construction.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+nav {
+  height: 4em;
 }
 
 li {
