@@ -1,4 +1,4 @@
-export type job = {
+export type Job = {
   job_Id: number,
   title: string,
   tagline: string,
@@ -9,14 +9,14 @@ export type job = {
   location: string
 }
 
-export type service = {
+export type Service = {
   name: string,
   description: string,
   image: string,
   icon: string
 }
 
-export type businessInfo = {
+export type BusinessInfo = {
   info_id: number,
 	name: string,
 	email: string,
@@ -32,12 +32,12 @@ export type businessInfo = {
 	linkedin: string
 }
 
-export type loginRequest = {
+export type LoginRequest = {
   name: string,
   password: string
 }
 
-export type loginResponse = {
+export type LoginResponse = {
   name: string,
   token: string,
   role: string
