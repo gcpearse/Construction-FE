@@ -1,6 +1,6 @@
-import { job } from "../../models"
+import { Job } from "../../models"
 import { useGetJobsQuery } from "../api/apiSlice"
-import Job from "./Job"
+import SingleJob from "./SingleJob"
 
 const Jobs: React.FC = () => {
 
@@ -19,9 +19,9 @@ const Jobs: React.FC = () => {
   }
   if (isSuccess) return (
     <ul>
-      {jobs?.map((job: job) => {
+      {jobs?.map((job: Job) => {
         return (
-          <li key={job.job_Id}><Job job={job} /></li>
+          <li key={job.job_Id}><SingleJob job={job} /></li>
         )
       })}
     </ul>
