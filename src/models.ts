@@ -31,3 +31,14 @@ export type businessInfo = {
 	tiktok: string,
 	linkedin: string
 }
+
+export type loginRequest = {
+  name: string,
+  password: string
+}
+
+export type loginResponse = {
+  name: string,
+  token: string,
+  role: string
+}
