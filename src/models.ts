@@ -42,3 +42,15 @@ export type LoginResponse = {
   token: string
   role: string
 }
+
+export type User = {
+  name: string
+  role: string
+}
+
+export type ValidationError = {
+  data: string
+  error: string
+  originalStatus: number
+  status: string
+}
