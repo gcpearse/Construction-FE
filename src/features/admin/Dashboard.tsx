@@ -16,7 +16,7 @@ const Dashboard: React.FC = () => {
   }
 
   return (
-    <div className="logout-wrapper">
+    <div className="dashboard-wrapper">
 
       <h2>Dashboard</h2>
 

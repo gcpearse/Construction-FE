@@ -189,21 +189,21 @@ nav {
   background: #FFC300;
 }
 
-/* || Logout */
+/* || Dashboard */
 
-.logout-wrapper {
+.dashboard-wrapper {
   margin: 0.5em;
   border-radius: 4px;
   padding: 2em;
   background: #FEFEFE;
 }
 
-.logout-wrapper h2 {
+.dashboard-wrapper h2 {
   margin-bottom: 32px;
   font-weight: 500;
 }
 
-.logout-wrapper button {
+.dashboard-wrapper button {
   border: none;
   border-radius: 50px;
   height: 3em;
@@ -212,6 +212,6 @@ nav {
   transition: 0.6s;
 }
 
-.logout-wrapper button:hover {
+.dashboard-wrapper button:hover {
   background: #FFC300;
 }
