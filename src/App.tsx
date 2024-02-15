@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import "./App.css"
+import Admin from "./pages/Admin"
 import Home from "./pages/Home"
 import Header from "./common/Header"
 import Footer from "./common/Footer"
@@ -7,7 +8,6 @@ import Nav from "./common/Nav"
 import Sidebar from "./features/sidebar/Sidebar"
 import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
-import AdminLogin from "./features/admin/AdminLogin"
 
 const App: React.FC = () => {
 
@@ -26,7 +26,7 @@ const App: React.FC = () => {
           />
           <Route
             path="/admin"
-            element={<AdminLogin />}
+            element={<Admin />}
           />
         </Routes>
       </main>
