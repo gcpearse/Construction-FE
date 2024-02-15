@@ -117,6 +117,10 @@ nav {
   nav ul {
     display: none;
   }
+
+  nav h1 {
+    padding-left: 16px;
+  }
 }
 
 /* || NavMenu */
@@ -192,10 +196,9 @@ nav {
 /* || Dashboard */
 
 .dashboard-wrapper {
-  margin: 0.5em;
-  border-radius: 4px;
+  margin: 1em 0;
   padding: 2em;
-  background: #FEFEFE;
+  background: rgba(254, 254, 254, 1);
 }
 
 .dashboard-wrapper h2 {
