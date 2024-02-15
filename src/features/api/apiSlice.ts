@@ -17,10 +17,10 @@ export const apiSlice = createApi({
       query: () => "/info"
     }),
     login: builder.mutation<LoginResponse, LoginRequest>({
-      query: ({ name, password }) => ({
+      query: (loginDetails) => ({
         url: "/login-admin",
         method: "POST",
-        body: { name, password }
+        body: loginDetails
       })
     })
   })
