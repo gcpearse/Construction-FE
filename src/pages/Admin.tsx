@@ -1,5 +1,5 @@
 import Login from "../features/admin/Login"
-import Logout from "../features/admin/Logout"
+import Dashboard from "../features/admin/Dashboard"
 import { useCookies } from "react-cookie"
 
 const Admin: React.FC = () => {
@@ -11,7 +11,7 @@ const Admin: React.FC = () => {
       {!cookies.token ? (
         <Login />
       ) : (
-        <Logout />
+        <Dashboard />
       )}
     </section>
   )
