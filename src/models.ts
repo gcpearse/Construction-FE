@@ -17,7 +17,7 @@ export type Service = {
 }
 
 export type BusinessInfo = {
-  info_id: number
+  info_id?: number
 	name: string
 	email: string
 	phone: string
