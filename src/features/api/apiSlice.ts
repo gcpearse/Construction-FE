@@ -16,6 +16,16 @@ export const apiSlice = createApi({
     getBusinessInfo: builder.query<BusinessInfo, void>({
       query: () => "/info"
     }),
+    updateBusinessInfo: builder.mutation<BusinessInfo, { businessInfo: BusinessInfo, token: string }>({
+      query: ({ businessInfo, token }) => ({
+        url: "/info",
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: businessInfo
+      })
+    }),
     login: builder.mutation<LoginResponse, LoginRequest>({
       query: (loginDetails) => ({
         url: "/login-admin",
@@ -30,5 +40,6 @@ export const {
   useGetJobsQuery,
   useGetServicesQuery,
   useGetBusinessInfoQuery,
+  useUpdateBusinessInfoMutation,
   useLoginMutation
 } = apiSlice
