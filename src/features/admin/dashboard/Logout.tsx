@@ -14,9 +14,11 @@ const Logout: React.FC = () => {
     localStorage.removeItem("name")
     localStorage.removeItem("role")
   }
-  
+
   return (
-    <button onClick={() => handleLogout()}>
+    <button
+      className="logout-btn"
+      onClick={() => handleLogout()}>
       Log out
     </button>
   )
