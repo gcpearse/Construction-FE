@@ -6,6 +6,7 @@ export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: "http://4.234.160.181:8080/construction/api"
   }),
+  tagTypes: ["businessInfo"],
   endpoints: builder => ({
     getJobs: builder.query<Job[], void>({
       query: () => "/jobs"
@@ -14,7 +15,8 @@ export const apiSlice = createApi({
       query: () => "/jobtypes"
     }),
     getBusinessInfo: builder.query<BusinessInfo, void>({
-      query: () => "/info"
+      query: () => "/info",
+      providesTags: ["businessInfo"]
     }),
     updateBusinessInfo: builder.mutation<BusinessInfo, { businessInfo: BusinessInfo, token: string }>({
       query: ({ businessInfo, token }) => ({
@@ -24,7 +26,8 @@ export const apiSlice = createApi({
           Authorization: `Bearer ${token}`
         },
         body: businessInfo
-      })
+      }),
+      invalidatesTags: ["businessInfo"]
     }),
     login: builder.mutation<LoginResponse, LoginRequest>({
       query: (loginDetails) => ({
