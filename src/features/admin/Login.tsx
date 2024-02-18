@@ -7,11 +7,6 @@ import { setCredentials } from "./authSlice"
 import { useCookies } from "react-cookie"
 import { RiAdminFill } from "react-icons/ri"
 
-type FormValues = {
-  name: string
-  password: string
-}
-
 const Login: React.FC = () => {
 
   const dispatch = useAppDispatch()
@@ -23,11 +18,11 @@ const Login: React.FC = () => {
   const {
     register,
     handleSubmit
-  } = useForm<FormValues>()
+  } = useForm<LoginRequest>()
 
   const [login] = useLoginMutation()
 
-  const submitForm: SubmitHandler<FormValues> = async (request: LoginRequest) => {
+  const submitForm: SubmitHandler<LoginRequest> = async (request: LoginRequest) => {
     try {
       const response: LoginResponse = await login(request).unwrap()
       dispatch(setCredentials(response))
@@ -48,7 +43,9 @@ const Login: React.FC = () => {
   return (
     <div className="login-wrapper">
 
-      <h2>Admin Portal&nbsp;<RiAdminFill /></h2>
+      <h2>
+        Admin Portal&nbsp;<RiAdminFill />
+      </h2>
 
       <form
         className="login-form"
@@ -61,7 +58,7 @@ const Login: React.FC = () => {
           autoComplete="true"
           placeholder="Admin name"
           required
-          {...register("name", { required: true })}
+          {...register("name")}
           onFocus={() => setErrorMsg("")}
         />
 
@@ -70,7 +67,7 @@ const Login: React.FC = () => {
           id="admin-password-input"
           placeholder="Password"
           required
-          {...register("password", { required: true })}
+          {...register("password")}
           onFocus={() => setErrorMsg("")}
         />
 
