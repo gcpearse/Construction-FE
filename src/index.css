@@ -16,7 +16,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 4em;
+  min-height: 4em;
   background: #000814;
 }
 
