@@ -1,6 +1,7 @@
 import Logout from "./Logout"
 import BusinessInfoDisplay from "./businessInfo/BusinessInfoDisplay"
 import BusinessInfoUpdater from "./businessInfo/BusinessInfoUpdater"
+import JobsDisplay from "./jobs/JobsDisplay"
 
 const Dashboard: React.FC = () => {
 
@@ -12,7 +13,10 @@ const Dashboard: React.FC = () => {
         <Logout />
       </div>
 
-      <BusinessInfoDisplay />
+      <div className="dashboard-components">
+        <BusinessInfoDisplay />
+        <JobsDisplay />
+      </div>
 
       <BusinessInfoUpdater />
 
