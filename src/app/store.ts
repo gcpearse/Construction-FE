@@ -2,11 +2,13 @@ import { configureStore } from "@reduxjs/toolkit"
 import { apiSlice } from "../features/api/apiSlice"
 import sidebarReducer from "../features/sidebar/sidebarSlice"
 import authReducer from "../features/admin/authSlice"
+import businessInfoReducer from "../features/admin/dashboard/businessInfo/businessInfoSlice"
 
 export const store = configureStore({
   reducer: {
     sidebar: sidebarReducer,
     auth: authReducer,
+    businessInfo: businessInfoReducer,
     [apiSlice.reducerPath]: apiSlice.reducer
   },
   middleware: getDefaultMiddleware =>
