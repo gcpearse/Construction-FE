@@ -1,7 +1,11 @@
 import { FaEnvelope, FaFacebook, FaInfo, FaInstagramSquare, FaLinkedin, FaMapMarkerAlt, FaPen, FaPhone, FaTiktok, FaYoutube } from "react-icons/fa"
 import { useGetBusinessInfoQuery } from "../../../api/apiSlice"
+import { useAppDispatch } from "../../../../app/hooks"
+import { openBusinessInfoForm } from "./businessInfoSlice"
 
 const BusinessInfoDisplay: React.FC = () => {
+
+  const dispatch = useAppDispatch()
 
   const {
     data: businessInfo,
@@ -13,11 +17,11 @@ const BusinessInfoDisplay: React.FC = () => {
 
   let content
 
-  if (isLoading) content = <p>Loading content...</p>
+  if (isLoading) content = <p className="rtk-query-msg">Loading content...</p>
 
   if (isError) {
     console.log(error)
-    content = <p>Oops! Something went wrong...</p>
+    content = <p className="rtk-query-msg">Oops! Something went wrong...</p>
   }
 
   if (isSuccess) content = (
@@ -70,7 +74,14 @@ const BusinessInfoDisplay: React.FC = () => {
     <div className="business-info-wrapper">
       <h3>Your Business Details</h3>
       {content}
-      <button className="dashboard-btn">Update</button>
+      <button
+        className="dashboard-btn"
+        onClick={() => {
+          dispatch(openBusinessInfoForm())
+          document.body.style.overflow = "hidden"
+        }}>
+        Update
+      </button>
     </div>
   )
 }
