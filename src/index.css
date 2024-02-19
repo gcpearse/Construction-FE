@@ -21,8 +21,8 @@ header {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
+  /* position: fixed;
+  bottom: 0; */
   height: 5em;
   width: 100%;
   background: #FFD60A;
@@ -30,7 +30,7 @@ footer {
 
 main {
   flex-grow: 1;
-  padding-bottom: 5em;
+  /* padding-bottom: 5em; */
   background-image: url(/construction.jpg);
   background-position: center center;
   background-repeat: no-repeat;
