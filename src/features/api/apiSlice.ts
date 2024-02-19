@@ -35,6 +35,16 @@ export const apiSlice = createApi({
         method: "POST",
         body: loginDetails
       })
+    }),
+    // Back end not returning valid JSON. Query currently unusable. Type will need changing.
+    testAuth: builder.query<any, { token: string }>({
+      query: (token) => ({
+        url: "/test-auth",
+        method: "GET",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
     })
   })
 })
@@ -44,5 +54,6 @@ export const {
   useGetServicesQuery,
   useGetBusinessInfoQuery,
   useUpdateBusinessInfoMutation,
-  useLoginMutation
+  useLoginMutation,
+  useTestAuthQuery
 } = apiSlice
