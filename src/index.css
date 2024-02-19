@@ -45,6 +45,11 @@ li {
   list-style-type: none;
 }
 
+textarea {
+  resize: none;
+  font-family: "Manrope", sans-serif;
+}
+
 ul {
   padding: 0;
 }
