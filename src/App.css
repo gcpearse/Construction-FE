@@ -221,6 +221,34 @@ nav h1 {
   padding: 1.5em 2em 1.5em;
 }
 
+.dashboard-components {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* || Dashboard (Components) */
+
+.dash-comp-wrapper {
+  margin: 1.5em 2em;
+  box-shadow: 0 0 4px #222222;
+  border-radius: 8px;
+  height: fit-content;
+  max-width: 480px;
+  background: #FEFEFE;
+}
+
+.dash-comp-wrapper h3 {
+  border-radius: 8px 8px 0 0;
+  padding: 1.5em;
+  background: #FFD60A;
+  font-weight: 500;
+}
+
+.dash-comp-content {
+  margin: 1.5em 1em 0.5em;
+  overflow-wrap: break-word;
+}
+
 /* || Logout */
 
 .logout-btn {
@@ -238,28 +266,8 @@ nav h1 {
 
 /* || BusinessInfoDisplay */
 
-.business-info-wrapper {
-  margin: 1.5em 2em;
-  box-shadow: 0 0 4px #222222;
-  border-radius: 8px;
-  max-width: 480px;
-  background: #FEFEFE;
-}
-
-.business-info-wrapper h3 {
-  border-radius: 8px 8px 0 0;
-  padding: 1.5em;
-  background: #FFD60A;
-  font-weight: 500;
-}
-
 .rtk-query-msg {
-  margin: 1em auto;
-}
-
-.business-info-table {
-  margin: 1.5em 1em;
-  overflow-wrap: break-word;
+  margin: 1em auto 0;
 }
 
 .business-info-table>*:not(:last-child) {
@@ -289,7 +297,7 @@ nav h1 {
 
 .dashboard-btn {
   transition: 0.6s;
-  margin: 0 0 1em;
+  margin: 1em 0;
   border: none;
   border-radius: 50px;
   height: 3em;
@@ -444,4 +452,10 @@ nav h1 {
 .rtk-query-form-msg {
   margin-top: 1em;
   color: #FF4300;
+}
+
+/* || JobsDisplay */
+
+.jobs-display-content p {
+  font-size: 0.9rem;
 }
