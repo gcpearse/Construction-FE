@@ -66,8 +66,10 @@
   header ul {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
-    height: 90%;
+  }
+
+  header ul li {
+    padding: 1% 0;
   }
 }
 
