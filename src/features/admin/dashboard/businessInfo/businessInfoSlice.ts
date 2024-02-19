@@ -12,18 +12,18 @@ const businessInfoSlice = createSlice({
   name: "businessInfo",
   initialState,
   reducers: {
-    openForm: (state) => {
+    openBusinessInfoForm: (state) => {
       state.isFormToggled = true
     },
-    closeForm: (state) => {
+    closeBusinessInfoForm: (state) => {
       state.isFormToggled = false
     }
   }
 })
 
 export const {
-  openForm,
-  closeForm
+  openBusinessInfoForm,
+  closeBusinessInfoForm
 } = businessInfoSlice.actions
 
 export default businessInfoSlice.reducer
