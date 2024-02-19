@@ -1,5 +1,5 @@
 import Login from "../features/admin/Login"
-import Dashboard from "../features/admin/Dashboard"
+import Dashboard from "../features/admin/dashboard/Dashboard"
 import { useCookies } from "react-cookie"
 
 const Admin: React.FC = () => {
