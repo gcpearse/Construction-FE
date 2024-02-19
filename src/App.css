@@ -244,6 +244,10 @@ nav {
   font-weight: 500;
 }
 
+.rtk-query-msg {
+  margin: 1em auto;
+}
+
 .business-info-table {
   margin: 1em;
   overflow-wrap: break-word;
