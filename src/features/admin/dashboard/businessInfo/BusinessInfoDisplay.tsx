@@ -25,7 +25,7 @@ const BusinessInfoDisplay: React.FC = () => {
   }
 
   if (isSuccess) content = (
-    <div className="business-info-table">
+    <div className="dash-comp-content business-info-table">
       <div className="business-info-row">
         <FaInfo className="business-info-icon" />
         <p>{businessInfo.name}</p>
@@ -71,7 +71,7 @@ const BusinessInfoDisplay: React.FC = () => {
   )
 
   return (
-    <div className="business-info-wrapper">
+    <div className="dash-comp-wrapper">
       <h3>Your Business Details</h3>
       {content}
       <button
