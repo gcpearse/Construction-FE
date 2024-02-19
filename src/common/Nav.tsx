@@ -2,15 +2,20 @@ import { IoClose, IoMenu } from "react-icons/io5"
 import { useAppDispatch, useAppSelector } from "../app/hooks"
 import { toggleSidebar } from "../features/sidebar/sidebarSlice"
 import NavMenu from "./NavMenu"
+import { useGetBusinessInfoQuery } from "../features/api/apiSlice"
 
 const Nav: React.FC = () => {
 
   const isSidebarVisible = useAppSelector((state) => state.sidebar.visibleSidebar)
   const dispatch = useAppDispatch()
 
+  const {
+    data: businessInfo
+  } = useGetBusinessInfoQuery()
+
   return (
     <nav>
-      <h1>Construction</h1>
+      <h1>{businessInfo?.name}</h1>
       <NavMenu />
       {isSidebarVisible ? (
         <IoClose
