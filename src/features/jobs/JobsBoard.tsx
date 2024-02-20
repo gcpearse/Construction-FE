@@ -26,7 +26,9 @@ const JobsBoard: React.FC = () => {
     <ul>
       {jobs?.map((job: Job) => {
         return (
-          <li key={job.job_Id}><SingleJob job={job} /></li>
+          <li key={job.job_Id}>
+            <SingleJob job={job} />
+          </li>
         )
       })}
     </ul>
