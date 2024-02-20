@@ -2,7 +2,7 @@ import Login from "../features/admin/Login"
 import Dashboard from "../features/admin/dashboard/Dashboard"
 import { useCookies } from "react-cookie"
 
-const Admin: React.FC = () => {
+const AdminPage: React.FC = () => {
 
   const [cookies] = useCookies(["token"])
 
@@ -17,4 +17,4 @@ const Admin: React.FC = () => {
   )
 }
 
-export default Admin
+export default AdminPage

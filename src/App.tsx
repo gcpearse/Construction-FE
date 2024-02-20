@@ -1,14 +1,14 @@
 import { Route, Routes } from "react-router-dom"
 import "./App.css"
-import Admin from "./pages/Admin"
-import Home from "./pages/Home"
+import AdminPage from "./pages/AdminPage"
+import JobsPage from "./pages/JobsPage"
+import HomePage from "./pages/HomePage"
 import Header from "./common/Header"
 import Footer from "./common/Footer"
 import Nav from "./common/Nav"
 import Sidebar from "./features/sidebar/Sidebar"
 import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
-import JobsPage from "./pages/JobsPage"
 
 const App: React.FC = () => {
 
@@ -23,11 +23,11 @@ const App: React.FC = () => {
         <Routes>
           <Route
             path="/"
-            element={<Home />}
+            element={<HomePage />}
           />
           <Route
             path="/admin"
-            element={<Admin />}
+            element={<AdminPage />}
           />
           <Route
             path="/admin/jobs"
