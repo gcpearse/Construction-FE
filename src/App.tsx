@@ -8,6 +8,7 @@ import Nav from "./common/Nav"
 import Sidebar from "./features/sidebar/Sidebar"
 import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
+import JobsBoard from "./pages/JobsBoard"
 
 const App: React.FC = () => {
 
@@ -27,6 +28,10 @@ const App: React.FC = () => {
           <Route
             path="/admin"
             element={<Admin />}
+          />
+          <Route
+            path="/admin/jobs"
+            element={<JobsBoard />}
           />
         </Routes>
       </main>
