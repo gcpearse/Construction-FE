@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { useGetJobsQuery } from "../../../api/apiSlice"
 
 const JobsDisplay: React.FC = () => {
@@ -27,9 +28,17 @@ const JobsDisplay: React.FC = () => {
 
   return (
     <div className="dash-comp-wrapper">
+
       <h3>Jobs Overview</h3>
+
       {content}
-      <button className="dashboard-btn">Manage jobs</button>
+
+      <Link to="/admin/jobs">
+        <button className="dashboard-btn">
+          Manage jobs
+        </button>
+      </Link>
+
     </div>
   )
 }
