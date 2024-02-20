@@ -125,10 +125,6 @@ nav h1 {
   nav ul {
     display: none;
   }
-
-  /* nav h1 {
-    padding-left: 16px;
-  } */
 }
 
 /* || NavMenu */
@@ -144,7 +140,7 @@ nav h1 {
   box-shadow: 0 0 4px #222222;
   border-radius: 4px;
   width: 360px;
-  max-width: calc(90vw - 24vw);
+  max-width: 66vw;
   padding: 2em;
   background: #FEFEFE;
 }
@@ -205,7 +201,7 @@ nav h1 {
 
 .dashboard-wrapper {
   margin: 1em 0;
-  padding-bottom: 0.5em;
+  padding: 0 1em 1em;
   background: rgba(254, 254, 254, 0.7);
 }
 
@@ -217,8 +213,9 @@ nav h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1em;
   border-bottom: 4px solid #f4f5f7;
-  padding: 1.5em 2em 1.5em;
+  padding: 1.5em 1em;
 }
 
 .dashboard-components {
@@ -229,7 +226,7 @@ nav h1 {
 /* || Dashboard (Components) */
 
 .dash-comp-wrapper {
-  margin: 1.5em 2em;
+  margin: 1em;
   box-shadow: 0 0 4px #222222;
   border-radius: 8px;
   height: fit-content;
@@ -282,7 +279,7 @@ nav h1 {
 
 .business-info-icon {
   grid-column: 1;
-  /* Ensures marker for address is centered between two cells */
+  /* Ensures icon for address is centered between two cells */
   grid-row: span 2;
   justify-self: center;
   font-size: 1.1rem;
