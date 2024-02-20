@@ -6,9 +6,9 @@ import JobsDisplay from "./jobs/JobsDisplay"
 const Dashboard: React.FC = () => {
 
   return (
-    <div className="dashboard-wrapper">
+    <div className="page-wrapper">
 
-      <div className="dashboard-top">
+      <div className="page-top">
         <h2>Dashboard</h2>
         <Logout />
       </div>
