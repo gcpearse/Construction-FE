@@ -12,11 +12,7 @@ const NavMenu: React.FC = () => {
       </li>
 
       <li>
-        About
-      </li>
-
-      <li>
-        Jobs
+        Services
       </li>
 
       <li>
