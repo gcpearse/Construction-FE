@@ -8,7 +8,7 @@ import Nav from "./common/Nav"
 import Sidebar from "./features/sidebar/Sidebar"
 import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
-import JobsBoard from "./pages/JobsBoard"
+import JobsPage from "./pages/JobsPage"
 
 const App: React.FC = () => {
 
@@ -31,7 +31,7 @@ const App: React.FC = () => {
           />
           <Route
             path="/admin/jobs"
-            element={<JobsBoard />}
+            element={<JobsPage />}
           />
         </Routes>
       </main>
