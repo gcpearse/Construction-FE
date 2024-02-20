@@ -26,7 +26,10 @@ const Login: React.FC = () => {
     try {
       const response: LoginResponse = await login(request).unwrap()
       dispatch(setCredentials(response))
-      setCookie("token", response.token, { maxAge: 3600, sameSite: "strict" })
+      setCookie("token", response.token, {
+        maxAge: 3600,
+        sameSite: "strict"
+      })
       localStorage.setItem("name", response.name)
       localStorage.setItem("role", response.role)
       setErrorMsg("")
@@ -49,8 +52,7 @@ const Login: React.FC = () => {
 
       <form
         className="login-form"
-        onSubmit={handleSubmit(submitForm)}
-      >
+        onSubmit={handleSubmit(submitForm)}>
 
         <input
           type="text"
@@ -59,8 +61,7 @@ const Login: React.FC = () => {
           placeholder="Admin name"
           required
           {...register("name")}
-          onFocus={() => setErrorMsg("")}
-        />
+          onFocus={() => setErrorMsg("")} />
 
         <input
           type="text"
@@ -68,8 +69,7 @@ const Login: React.FC = () => {
           placeholder="Password"
           required
           {...register("password")}
-          onFocus={() => setErrorMsg("")}
-        />
+          onFocus={() => setErrorMsg("")} />
 
         {errorMsg ? <p>{errorMsg}</p> : null}
 
