@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom"
-import { useGetJobsQuery } from "../api/apiSlice"
-import { Job } from "../../models"
-import SingleJob from "./SingleJob"
+import { useGetServicesQuery } from "../api/apiSlice"
+import { Service } from "../../models"
 
 const JobsBoard: React.FC = () => {
 
   const {
-    data: jobs,
+    data: services,
     isLoading,
     isSuccess,
     isError,
     error
-  } = useGetJobsQuery()
+  } = useGetServicesQuery()
 
   let content
 
@@ -24,10 +23,10 @@ const JobsBoard: React.FC = () => {
 
   if (isSuccess) content = (
     <ul>
-      {jobs?.map((job: Job) => {
+      {services?.map((service: Service) => {
         return (
-          <li key={job.job_Id}>
-            <SingleJob job={job} />
+          <li key={service.name}>
+            <p>{service.description}</p>
           </li>
         )
       })}
