@@ -14,17 +14,17 @@
 
 /* || Sidebar */
 
-@media only screen and (min-width: 480px) {
+@media only screen and (min-width: 560px) {
   .sidebar {
     display: none;
   }
 }
 
-@media only screen and (max-width: 479px) {
+@media only screen and (max-width: 559px) {
   .sidebar {
     position: absolute;
     left: -50vw;
-    /* Height of sidebar is 100% - combined height of header, nav, and footer */
+    /* Height of sidebar is 100% minus combined height of header, nav, and footer */
     height: calc(100% - 208px);
     width: 50vw;
     background: #000814;
@@ -87,22 +87,17 @@ header ul li {
 /* || Nav */
 
 nav {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding-left: 0.5em;
+  margin: 0 1em;
 }
 
 nav h1 {
-  margin: 0.5em;
   font-weight: 600;
 }
 
 .nav-icon {
-  position: absolute;
-  /* Possible mobile display fix */
-  top: 72px;
-  right: 14px;
   cursor: pointer;
   font-size: 3rem;
 }
@@ -111,7 +106,7 @@ nav h1 {
   nav ul {
     display: flex;
     justify-content: space-around;
-    width: 100%;
+    min-width: 50%;
   }
 
   .nav-icon {
@@ -120,10 +115,6 @@ nav h1 {
 }
 
 @media only screen and (max-width: 559px) {
-  nav {
-    grid-template-columns: 5fr 4fr;
-  }
-
   nav ul {
     display: none;
   }
