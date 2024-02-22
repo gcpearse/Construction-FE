@@ -223,6 +223,72 @@ nav h1 {
   flex-wrap: wrap;
 }
 
+/* || UserProfile */
+
+.user-profile-btn {
+  border: 1px solid #000814;
+  border-radius: 50px;
+  height: 3em;
+  width: 3em;
+  background: #FEFEFE;
+}
+
+.user-profile-btn-clicked {
+  box-shadow: inset 0 0 4px #222222;
+}
+
+.user-profile-icon {
+  font-size: 1.2rem;
+}
+
+.open-profile-wrapper {
+  position: absolute;
+  top: 220px;
+  right: 32px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 40px #222222;
+  border-radius: 14px;
+  max-width: calc(100% - 96px);
+  min-width: 140px;
+  padding: 1em;
+  background: #FEFEFE;
+}
+
+@media only screen and (min-width: 480px) {
+  .open-profile-wrapper {
+    max-width: 384px;
+  }
+}
+
+.open-profile-wrapper p {
+  margin: 0.4em auto 1em;
+  max-width: 100%;
+  text-align: start;
+  word-wrap: break-word;
+}
+
+.open-profile-btn {
+  align-self: flex-end;
+}
+
+/* || Logout */
+
+.logout-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 8px;
+  padding: 0.6em 0.8em;
+  background: #FFD60A;
+  transition: 0.6s;
+}
+
+.logout-btn:hover {
+  background: #FFC300;
+}
+
 /* || Dashboard (Components) */
 
 .dash-comp-wrapper {
@@ -244,20 +310,6 @@ nav h1 {
 .dash-comp-content {
   margin: 1.5em 1em 0.5em;
   overflow-wrap: break-word;
-}
-
-/* || Logout */
-
-.logout-btn {
-  border: none;
-  border-radius: 6px;
-  padding: 0.6em 0.8em;
-  background: #FFD60A;
-  transition: 0.6s;
-}
-
-.logout-btn:hover {
-  background: #FFC300;
 }
 
 /* || BusinessInfoDisplay */
