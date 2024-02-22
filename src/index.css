@@ -12,6 +12,12 @@ button {
   cursor: pointer;
 }
 
+/* Prevent unexpected issues with display on mobile */
+button,
+input {
+  appearance: none;
+}
+
 header {
   display: flex;
   justify-content: center;
