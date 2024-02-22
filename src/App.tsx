@@ -3,6 +3,7 @@ import "./App.css"
 import AdminPage from "./pages/AdminPage"
 import JobsPage from "./pages/JobsPage"
 import HomePage from "./pages/HomePage"
+import ServicesPage from "./pages/ServicesPage"
 import Header from "./common/Header"
 import Footer from "./common/Footer"
 import Nav from "./common/Nav"
@@ -24,6 +25,10 @@ const App: React.FC = () => {
           <Route
             path="/"
             element={<HomePage />}
+          />
+          <Route
+            path="/services"
+            element={<ServicesPage />}
           />
           <Route
             path="/admin"
