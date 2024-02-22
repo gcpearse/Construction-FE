@@ -10,11 +10,13 @@ a {
 
 button {
   cursor: pointer;
+  /* Prevent unexpected issues with display on mobile */
+  color: inherit;
+  font-weight: inherit;
 }
 
-/* Prevent unexpected issues with display on mobile */
-button,
 input {
+  /* Prevent unexpected issues with display on mobile */
   appearance: none;
 }
 
