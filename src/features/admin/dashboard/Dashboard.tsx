@@ -1,7 +1,7 @@
-import Logout from "./Logout"
 import BusinessInfoDisplay from "./businessInfo/BusinessInfoDisplay"
 import BusinessInfoUpdater from "./businessInfo/BusinessInfoUpdater"
 import JobsDisplay from "./jobs/JobsDisplay"
+import UserProfile from "./userProfile/UserProfile"
 
 const Dashboard: React.FC = () => {
 
@@ -10,7 +10,7 @@ const Dashboard: React.FC = () => {
 
       <div className="page-top">
         <h2>Dashboard</h2>
-        <Logout />
+        <UserProfile />
       </div>
 
       <div className="dashboard-components">
