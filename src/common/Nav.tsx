@@ -15,8 +15,11 @@ const Nav: React.FC = () => {
 
   return (
     <nav>
+
       <h1>{businessInfo?.name}</h1>
+
       <NavMenu />
+
       {isSidebarVisible ? (
         <IoClose
           className="nav-icon"
@@ -26,6 +29,7 @@ const Nav: React.FC = () => {
           className="nav-icon"
           onClick={() => dispatch(toggleSidebar())} />
       )}
+
     </nav>
   )
 }

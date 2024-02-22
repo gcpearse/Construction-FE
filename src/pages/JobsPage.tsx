@@ -1,8 +1,8 @@
-import Login from "../features/admin/Login"
-import Dashboard from "../features/admin/dashboard/Dashboard"
 import { useCookies } from "react-cookie"
+import Login from "../features/admin/Login"
+import JobsBoard from "../features/jobs/JobsBoard"
 
-const Admin: React.FC = () => {
+const JobsPage: React.FC = () => {
 
   const [cookies] = useCookies(["token"])
 
@@ -11,10 +11,10 @@ const Admin: React.FC = () => {
       {!cookies.token ? (
         <Login />
       ) : (
-        <Dashboard />
+        <JobsBoard />
       )}
     </section>
   )
 }
 
-export default Admin
+export default JobsPage

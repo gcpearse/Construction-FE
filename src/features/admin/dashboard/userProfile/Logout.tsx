@@ -1,6 +1,7 @@
 import { useCookies } from "react-cookie"
-import { useAppDispatch } from "../../../app/hooks"
-import { logout } from "../authSlice"
+import { useAppDispatch } from "../../../../app/hooks"
+import { logout } from "../../authSlice"
+import { MdLogout } from "react-icons/md"
 
 const Logout: React.FC = () => {
 
@@ -19,7 +20,7 @@ const Logout: React.FC = () => {
     <button
       className="logout-btn"
       onClick={() => handleLogout()}>
-      Log out
+      <MdLogout />&nbsp;Log out
     </button>
   )
 }

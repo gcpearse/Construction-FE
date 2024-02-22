@@ -1,7 +1,9 @@
 import { Route, Routes } from "react-router-dom"
 import "./App.css"
-import Admin from "./pages/Admin"
-import Home from "./pages/Home"
+import AdminPage from "./pages/AdminPage"
+import JobsPage from "./pages/JobsPage"
+import HomePage from "./pages/HomePage"
+import ServicesPage from "./pages/ServicesPage"
 import Header from "./common/Header"
 import Footer from "./common/Footer"
 import Nav from "./common/Nav"
@@ -22,11 +24,19 @@ const App: React.FC = () => {
         <Routes>
           <Route
             path="/"
-            element={<Home />}
+            element={<HomePage />}
+          />
+          <Route
+            path="/services"
+            element={<ServicesPage />}
           />
           <Route
             path="/admin"
-            element={<Admin />}
+            element={<AdminPage />}
+          />
+          <Route
+            path="/admin/jobs"
+            element={<JobsPage />}
           />
         </Routes>
       </main>

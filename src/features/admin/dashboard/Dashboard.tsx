@@ -1,18 +1,22 @@
-import Logout from "./Logout"
 import BusinessInfoDisplay from "./businessInfo/BusinessInfoDisplay"
 import BusinessInfoUpdater from "./businessInfo/BusinessInfoUpdater"
+import JobsDisplay from "./jobs/JobsDisplay"
+import UserProfile from "./userProfile/UserProfile"
 
 const Dashboard: React.FC = () => {
 
   return (
-    <div className="dashboard-wrapper">
+    <div className="page-wrapper">
 
-      <div className="dashboard-top">
+      <div className="page-top">
         <h2>Dashboard</h2>
-        <Logout />
+        <UserProfile />
       </div>
 
-      <BusinessInfoDisplay />
+      <div className="dashboard-components">
+        <BusinessInfoDisplay />
+        <JobsDisplay />
+      </div>
 
       <BusinessInfoUpdater />
 
