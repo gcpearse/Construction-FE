@@ -12,7 +12,9 @@ const NavMenu: React.FC = () => {
       </li>
 
       <li>
-        Services
+        <NavLink to="/services">
+          Services
+        </NavLink>
       </li>
 
       <li>
