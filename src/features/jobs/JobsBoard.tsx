@@ -1,32 +1,48 @@
 import { Link } from "react-router-dom"
-import { useGetServicesQuery } from "../api/apiSlice"
+import { useGetJobsQuery, useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
+import { formatJobsData } from "../../utils/formattingUtils"
 
 const JobsBoard: React.FC = () => {
 
   const {
     data: services,
-    isLoading,
-    isSuccess,
-    isError,
-    error
+    isLoading: isServicesLoading,
+    isSuccess: isServicesSuccess,
+    isError: isServicesError,
+    error: servicesError
   } = useGetServicesQuery()
+
+  const {
+    data: jobs,
+    isLoading: isJobsLoading,
+    isSuccess: isJobsSuccess,
+    isError: isJobsError,
+    error: jobsError
+  } = useGetJobsQuery()
 
   let content
 
-  if (isLoading) content = <p className="rtk-query-msg">Loading content...</p>
+  if (isServicesLoading || isJobsLoading) content = <p className="rtk-query-msg">Loading content...</p>
 
-  if (isError) {
-    console.log(error)
+  if (isServicesError || isJobsError) {
+    if (isServicesError) console.log(servicesError)
+    if (isJobsError) console.log(jobsError)
     content = <p className="rtk-query-msg">Oops! Something went wrong...</p>
   }
 
-  if (isSuccess) content = (
+  if (isServicesSuccess && isJobsSuccess) content = (
     <ul>
       {services?.map((service: Service) => {
         return (
-          <li key={service.name}>
+          <li
+            key={service.name}
+            className="jobs-board-service">
+            <img src={service.image} alt={`Image for ${service.name}`} />
+            <h3>{service.name}</h3>
             <p>{service.description}</p>
+            <p>There are currently {formatJobsData(jobs, service)} listed under {service.name}.</p>
+            <button>View jobs</button>
           </li>
         )
       })}
