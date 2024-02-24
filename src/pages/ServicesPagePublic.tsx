@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const ServicesPage: React.FC = () => {
+const ServicesPagePublic: React.FC = () => {
   return (
     <div className="temp-wrapper">
       <h2>Hello</h2>
@@ -12,4 +12,4 @@ const ServicesPage: React.FC = () => {
   )
 }
 
-export default ServicesPage
+export default ServicesPagePublic

@@ -1,15 +1,16 @@
 import { Route, Routes } from "react-router-dom"
 import "./App.css"
 import AdminPage from "./pages/AdminPage"
-import JobsPage from "./pages/JobsPage"
+import JobsPagePrivate from "./pages/JobsPagePrivate"
 import HomePage from "./pages/HomePage"
-import ServicesPage from "./pages/ServicesPage"
+import ServicesPagePublic from "./pages/ServicesPagePublic"
 import Header from "./common/Header"
 import Footer from "./common/Footer"
 import Nav from "./common/Nav"
 import Sidebar from "./features/sidebar/Sidebar"
 import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
+import ServicesPagePrivate from "./pages/ServicesPagePrivate"
 
 const App: React.FC = () => {
 
@@ -28,7 +29,7 @@ const App: React.FC = () => {
           />
           <Route
             path="/services"
-            element={<ServicesPage />}
+            element={<ServicesPagePublic />}
           />
           <Route
             path="/admin"
@@ -36,7 +37,11 @@ const App: React.FC = () => {
           />
           <Route
             path="/admin/jobs"
-            element={<JobsPage />}
+            element={<JobsPagePrivate />}
+          />
+          <Route
+            path="/admin/services"
+            element={<ServicesPagePrivate />}
           />
         </Routes>
       </main>

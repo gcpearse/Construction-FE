@@ -1,8 +1,8 @@
 import { useCookies } from "react-cookie"
 import Login from "../features/admin/Login"
-import JobsBoard from "../features/jobs/JobsBoard"
+import ServicesBoard from "../features/services/ServicesBoard"
 
-const JobsPage: React.FC = () => {
+const ServicesPagePrivate: React.FC = () => {
 
   const [cookies] = useCookies(["token"])
 
@@ -11,10 +11,10 @@ const JobsPage: React.FC = () => {
       {!cookies.token ? (
         <Login />
       ) : (
-        <JobsBoard />
+        <ServicesBoard />
       )}
     </section>
   )
 }
 
-export default JobsPage
+export default ServicesPagePrivate
