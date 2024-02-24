@@ -326,6 +326,7 @@ nav h1 {
 /* || Dashboard (Components) */
 
 .dash-comp-wrapper {
+  flex-grow: 1;
   margin: 1em;
   box-shadow: 0 0 4px #222222;
   border-radius: 8px;
