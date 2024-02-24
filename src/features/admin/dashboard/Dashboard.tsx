@@ -1,6 +1,7 @@
 import BusinessInfoDisplay from "./businessInfo/BusinessInfoDisplay"
 import BusinessInfoUpdater from "./businessInfo/BusinessInfoUpdater"
 import JobsDisplay from "./jobs/JobsDisplay"
+import ServicesDisplay from "./services/ServicesDisplay"
 import UserProfile from "./userProfile/UserProfile"
 
 const Dashboard: React.FC = () => {
@@ -16,6 +17,7 @@ const Dashboard: React.FC = () => {
       <div className="dashboard-components">
         <BusinessInfoDisplay />
         <JobsDisplay />
+        <ServicesDisplay />
       </div>
 
       <BusinessInfoUpdater />
