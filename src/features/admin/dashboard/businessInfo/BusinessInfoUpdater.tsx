@@ -13,7 +13,7 @@ const BusinessInfoUpdater: React.FC = () => {
 
   const isFormToggled = useAppSelector(state => state.businessInfo.isFormToggled)
 
-  const [cookies] = useCookies(["token"])
+  const [{ token }] = useCookies(["token"])
 
   const [errorMsg, setErrorMsg] = useState<string>("")
 
@@ -36,7 +36,7 @@ const BusinessInfoUpdater: React.FC = () => {
     try {
       await updateBusinessInfo({
         businessInfo: businessInfo,
-        token: cookies.token
+        token: token
       }).unwrap()
       dispatch(closeBusinessInfoForm())
       document.body.style.overflow = "auto"

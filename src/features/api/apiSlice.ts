@@ -36,8 +36,7 @@ export const apiSlice = createApi({
         body: loginDetails
       })
     }),
-    // Back end not returning valid JSON. Query currently unusable. Type will need changing.
-    testAuth: builder.query<any, { token: string }>({
+    testAuth: builder.query<{ message: string }, { token: string }>({
       query: (token) => ({
         url: "/test-auth",
         method: "GET",
