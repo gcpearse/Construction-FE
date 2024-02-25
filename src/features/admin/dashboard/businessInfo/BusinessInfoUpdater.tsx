@@ -49,14 +49,14 @@ const BusinessInfoUpdater: React.FC = () => {
 
   return (
     <div className={isFormToggled ? (
-      "business-info-form-overlay open-element"
+      "modal-form-overlay open-element"
     ) : (
-      "business-info-form-overlay closed-element"
+      "modal-form-overlay closed-element"
     )}>
 
-      <div className="business-info-form-wrapper">
+      <div className="modal-form-wrapper">
 
-        <div className="business-info-form-top">
+        <div className="modal-form-top">
           <h3>Edit Business Details</h3>
           <button
             className="window-close-btn"
