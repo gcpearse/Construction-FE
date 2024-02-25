@@ -5,7 +5,7 @@ import { useTestAuthQuery } from "../features/api/apiSlice"
 
 const ServicesPagePrivate: React.FC = () => {
 
-  const [{token}] = useCookies(["token"])
+  const [{ token }] = useCookies(["token"])
 
   const {
     isSuccess
