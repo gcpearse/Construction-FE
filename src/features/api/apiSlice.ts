@@ -22,7 +22,7 @@ export const apiSlice = createApi({
       providesTags: ["services"]
     }),
 
-    updateServiceDetails: builder.mutation<Service, { service: Service, token: string }>({
+    updateServiceDescription: builder.mutation<Service, { service: Service, token: string }>({
       query: ({ service, token }) => ({
         url: `/jobtypes/${service.name}`,
         method: "PATCH",
@@ -78,7 +78,7 @@ export const apiSlice = createApi({
 export const {
   useGetJobsQuery,
   useGetServicesQuery,
-  useUpdateServiceDetailsMutation,
+  useUpdateServiceDescriptionMutation,
   useGetBusinessInfoQuery,
   useUpdateBusinessInfoMutation,
   useLoginMutation,
