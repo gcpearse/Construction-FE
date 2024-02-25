@@ -1,7 +1,7 @@
 import { Job, Service } from "../models"
 
 export const formatJobsData = (jobs: Job[], service: Service): string => {
-  const res = jobs?.filter((job) => {
+  const res = jobs.filter((job) => {
     return job.job_Type === service.name
   }).length
   if (res === 0) return "no jobs"
