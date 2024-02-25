@@ -33,7 +33,7 @@ const JobsBoard: React.FC = () => {
 
   if (isServicesSuccess && isJobsSuccess) content = (
     <ul>
-      {services?.map((service: Service) => {
+      {services.map((service: Service) => {
         return (
           <li
             key={service.name}
