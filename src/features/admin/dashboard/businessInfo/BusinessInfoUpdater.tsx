@@ -64,8 +64,7 @@ const BusinessInfoUpdater: React.FC = () => {
               dispatch(closeBusinessInfoForm())
               document.body.style.overflow = "auto"
             }}>
-            <FaRegWindowClose
-              className="window-close-icon" />
+            <FaRegWindowClose className="window-close-icon" />
           </button>
         </div>
 
