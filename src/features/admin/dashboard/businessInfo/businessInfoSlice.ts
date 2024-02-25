@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 
-type businessInfoState = {
+type BusinessInfoState = {
   isFormToggled: boolean
 }
 
-const initialState: businessInfoState = {
+const initialState: BusinessInfoState = {
   isFormToggled: false
 }
 
