@@ -2,6 +2,7 @@ import { FaRegWindowClose } from "react-icons/fa"
 import { Service } from "../../models"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { closeServiceForm } from "./servicesSlice"
+import { formatHeader } from "../../utils/formattingUtils"
 
 type Props = {
   service: Service
@@ -23,7 +24,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
       <div className="modal-form-wrapper">
 
         <div className="modal-form-top">
-          <h3>Edit {service.name} Details</h3>
+          <h3>Edit {formatHeader(service.name)} Details</h3>
           <button
             className="window-close-btn"
             onClick={() => {
