@@ -57,6 +57,7 @@ li {
 }
 
 textarea {
+  appearance: none;
   resize: none;
   font-family: "Manrope", sans-serif;
   font-size: 16px;
