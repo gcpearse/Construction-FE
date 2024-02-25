@@ -20,6 +20,7 @@ button {
 input {
   /* Prevent unexpected issues with display on mobile */
   appearance: none;
+  font-size: 16px;
 }
 
 header {
@@ -58,6 +59,7 @@ li {
 textarea {
   resize: none;
   font-family: "Manrope", sans-serif;
+  font-size: 16px;
 }
 
 ul {

@@ -21,7 +21,7 @@ const JobsDisplay: React.FC = () => {
   }
 
   if (isSuccess) content = (
-    <div className="dash-comp-content jobs-display-content">
+    <div className="dash-comp-content">
       <p>There are currently {jobs.length} jobs listed.</p>
     </div>
   )
