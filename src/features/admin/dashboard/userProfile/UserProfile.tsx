@@ -10,9 +10,9 @@ const UserProfile: React.FC = () => {
     <>
       <button
         className={!isProfileOpen ? (
-          "user-profile-btn"
+          "user-profile-btn icon-btn"
         ) : (
-          "user-profile-btn user-profile-btn-clicked"
+          "user-profile-btn icon-btn user-profile-btn-clicked"
         )}
         onClick={() => setIsProfileOpen(!isProfileOpen)}>
         <FaUser className="user-profile-icon" />

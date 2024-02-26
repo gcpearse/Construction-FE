@@ -13,15 +13,20 @@ const SingleService: React.FC<Props> = ({ service }) => {
 
   return (
     <div className="service-wrapper">
+
       {/* <img src={service.image} alt={`Image for ${service.name}`} /> */}
       {/* Using construction.jpg as an example during development */}
       <img src="/construction.jpg" alt={`Image for ${service.name}`} />
-      <button className="edit-img-btn">
+      <button className="edit-img-btn icon-btn">
         <FaCamera className="edit-img-icon" />
       </button>
+
       <h3>{service.name}</h3>
+
       <p>{service.description}</p>
+
       <div className="service-btn-wrapper">
+
         <button
           className="blue-btn"
           onClick={() => {
@@ -30,11 +35,14 @@ const SingleService: React.FC<Props> = ({ service }) => {
           }}>
           Edit Description
         </button>
+
         <button
-          className="delete-btn">
+          className="delete-btn icon-btn">
           <FaTrashAlt className="delete-icon" />
         </button>
+        
       </div>
+
     </div>
   )
 }
