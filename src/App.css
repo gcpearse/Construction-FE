@@ -160,6 +160,16 @@
   height: 2.2rem;
 }
 
+.modal-form-wrapper>h4 {
+  margin: 1em 1em 0;
+  font-size: 1.2rem;
+}
+
+.modal-form-wrapper>p {
+  margin: 1em 1em 0;
+  text-align: justify;
+}
+
 .modal-form-wrapper>form>p {
   margin-bottom: 1em;
   font-size: 0.9rem;
