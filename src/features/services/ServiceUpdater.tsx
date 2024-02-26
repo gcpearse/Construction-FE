@@ -1,7 +1,7 @@
 import { FaRegWindowClose } from "react-icons/fa"
 import { Service } from "../../models"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { closeServiceForm } from "./servicesSlice"
+import { closeServiceUpdater } from "./servicesSlice"
 import { formatHeader } from "../../utils/formattingUtils"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useCookies } from "react-cookie"
@@ -54,7 +54,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
         },
         token: token
       }).unwrap()
-      dispatch(closeServiceForm())
+      dispatch(closeServiceUpdater())
       document.body.style.overflow = "auto"
       setErrorMsg("")
     } catch (error: any) {
@@ -77,7 +77,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
           <button
             className="window-close-btn"
             onClick={() => {
-              dispatch(closeServiceForm())
+              dispatch(closeServiceUpdater())
               document.body.style.overflow = "auto"
             }}>
             <FaRegWindowClose className="window-close-icon" />
