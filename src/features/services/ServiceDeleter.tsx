@@ -76,11 +76,11 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
           </button>
         </div>
 
-        <h4>Warning!</h4>
-
-        <p>Deleting this service will also delete <b>all</b> associated jobs. This process is irreversible.</p>
-
-        <p>If you are sure you wish to proceed, please enter your admin name and click delete.</p>
+        <div className="modal-form-text-wrapper">
+          <h4>Warning!</h4>
+          <p>Deleting this service will also delete <b>all</b> associated jobs. This process is irreversible.</p>
+          <p>If you are sure you wish to proceed, please enter your admin name and click delete.</p>
+        </div>
 
         <form
           onSubmit={handleSubmit(submitForm)}
