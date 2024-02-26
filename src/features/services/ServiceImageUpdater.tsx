@@ -6,6 +6,7 @@ import { closeImageUpdater } from "./servicesSlice"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useCookies } from "react-cookie"
 import { useUpdateServiceImageMutation } from "../api/apiSlice"
+import { useState } from "react"
 
 type Props = {
   service: Service
@@ -23,6 +24,8 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
 
   const [{ token }] = useCookies()
 
+  const [errorMsg, setErrorMsg] = useState<string>("")
+
   const [updateServiceImage] = useUpdateServiceImageMutation()
 
   const {
@@ -38,9 +41,13 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
         name: service.name,
         image: formData,
         token: token
-      })
+      }).unwrap()
+      dispatch(closeImageUpdater())
+      document.body.style.overflow = "auto"
+      setErrorMsg("")
     } catch (error: any) {
       console.log(error)
+      setErrorMsg("Oops! Something went wrong...")
     }
   }
 
@@ -88,6 +95,8 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
           <button className="modal-btn">
             Submit
           </button>
+
+          {errorMsg ? <p className="rtk-query-form-msg">{errorMsg}</p> : null}
 
         </form>
 
