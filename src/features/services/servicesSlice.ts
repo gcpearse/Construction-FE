@@ -14,11 +14,11 @@ const servicesSlice = createSlice({
   name: "services",
   initialState,
   reducers: {
-    openServiceForm: (state, action: PayloadAction<string>) => {
+    openServiceUpdater: (state, action: PayloadAction<string>) => {
       state.isFormToggled = true
       state.selectedService = action.payload
     },
-    closeServiceForm: (state) => {
+    closeServiceUpdater: (state) => {
       state.isFormToggled = false
       state.selectedService = undefined
     }
@@ -26,8 +26,8 @@ const servicesSlice = createSlice({
 })
 
 export const {
-  openServiceForm,
-  closeServiceForm
+  openServiceUpdater,
+  closeServiceUpdater
 } = servicesSlice.actions
 
 export default servicesSlice.reducer
