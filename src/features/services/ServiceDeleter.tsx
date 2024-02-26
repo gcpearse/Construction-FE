@@ -5,6 +5,8 @@ import { formatHeader } from "../../utils/formattingUtils"
 import { closeServiceDeleter } from "./servicesSlice"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useState } from "react"
+import { useCookies } from "react-cookie"
+import { useDeleteServiceMutation } from "../api/apiSlice"
 
 type Props = {
   service: Service
@@ -20,7 +22,11 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
 
   const { isDeleterToggled, selectedService } = useAppSelector(state => state.services)
 
+  const [{ token }] = useCookies(["token"])
+
   const [errorMsg, setErrorMsg] = useState<string>("")
+
+  const [deleteService] = useDeleteServiceMutation()
 
   const {
     register,
@@ -28,9 +34,18 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
     reset
   } = useForm<FormValues>()
 
-  const submitForm: SubmitHandler<FormValues> = ({ name }) => {
+  const submitForm: SubmitHandler<FormValues> = async ({ name }) => {
     const currentUser = localStorage.getItem("name")
     if (currentUser === name) {
+      try {
+        await deleteService({
+          name: service.name,
+          token: token
+        }).unwrap()
+      } catch (error: any) {
+        console.log(error)
+        setErrorMsg("Oops! Something went wrong...")
+      }
       reset()
       dispatch(closeServiceDeleter())
       document.body.style.overflow = "auto"
