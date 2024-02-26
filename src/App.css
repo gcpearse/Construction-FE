@@ -74,6 +74,12 @@
   background: #001D3D;
 }
 
+.icon-btn {
+  border-radius: 50px;
+  height: 3em;
+  width: 3em;
+}
+
 /* CSS rules for modal forms */
 .modal-form-overlay {
   position: fixed;
@@ -461,9 +467,6 @@ nav {
 
 .user-profile-btn {
   border: 1px solid #000814;
-  border-radius: 50px;
-  height: 3em;
-  width: 3em;
   background: #FEFEFE;
 }
 
@@ -590,9 +593,6 @@ nav {
   right: 0.6em;
   transition: 0.6s;
   border: none;
-  border-radius: 50px;
-  height: 3em;
-  width: 3em;
   background: #001D3D;
 }
 
@@ -626,9 +626,6 @@ nav {
 .delete-btn {
   transition: 0.6s;
   border: none;
-  border-radius: 50px;
-  height: 3em;
-  width: 3em;
   background: #FFD60A;
 }
 
