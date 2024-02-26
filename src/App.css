@@ -582,6 +582,9 @@ nav {
   margin: 1em;
   box-shadow: 0 0 4px #222222;
   border-radius: 8px;
+  /* height: fit-content; */
+  max-width: 380px;
+  background: #FEFEFE;
 }
 
 /* || SingleService */
@@ -591,6 +594,11 @@ nav {
   display: grid;
   grid-template-rows: auto auto;
   height: 100%;
+}
+
+.service-wrapper-top {
+  display: flex;
+  flex-direction: column;
 }
 
 .service-wrapper img {
@@ -630,6 +638,7 @@ nav {
 }
 
 .service-btn-wrapper {
+  align-self: flex-end;
   display: flex;
   justify-content: space-between;
   align-items: center;
