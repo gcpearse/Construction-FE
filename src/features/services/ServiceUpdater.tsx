@@ -65,9 +65,9 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
   return (
     <div className={isFormToggled && selectedService === service.name ? (
-      "modal-form-overlay open-element"
+      "modal-form-overlay"
     ) : (
-      "modal-form-overlay closed-element"
+      "modal-form-overlay closed-modal"
     )}>
 
       <div className="modal-form-wrapper">
