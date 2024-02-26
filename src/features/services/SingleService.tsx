@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../../app/hooks"
 import { Service } from "../../models"
-import { openServiceUpdater } from "./servicesSlice"
+import { openServiceDeleter, openServiceUpdater } from "./servicesSlice"
 import { FaCamera, FaTrashAlt } from "react-icons/fa"
 
 type Props = {
@@ -37,7 +37,11 @@ const SingleService: React.FC<Props> = ({ service }) => {
         </button>
 
         <button
-          className="delete-btn icon-btn">
+          className="delete-btn icon-btn"
+          onClick={() => {
+            dispatch(openServiceDeleter(service.name))
+            document.body.style.overflow = "hidden"
+          }}>
           <FaTrashAlt className="delete-icon" />
         </button>
 
