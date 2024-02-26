@@ -27,6 +27,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
   const [{ token }] = useCookies(["token"])
 
   const [errorMsg, setErrorMsg] = useState<string>("")
+  const [charLimit, setCharLimit] = useState<number>(service.description.length)
 
   const [updateServiceDescription] = useUpdateServiceDescriptionMutation()
 
@@ -59,7 +60,11 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
       setErrorMsg("")
     } catch (error: any) {
       console.log(error)
-      setErrorMsg("Oops! Something went wrong...")
+      if (error.status === 401) {
+        setErrorMsg("Authentication error. Your session has expired. Please log in again.")
+      } else {
+        setErrorMsg("Oops! Something went wrong...")
+      }
     }
   }
 
@@ -93,8 +98,15 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
             rows={5}
             id={`${service.name}-description-input`}
             autoComplete="true"
+            maxLength={200}
             required
-            {...register("description")} />
+            {...register("description", {
+              onChange: (e) => {
+                setCharLimit(e.target.value.length)
+              }
+            })} />
+
+          <p>{200 - charLimit} characters remaining.</p>
 
           <p>* Indicates a required field.</p>
 
@@ -103,15 +115,19 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
             <button
               type="button"
               className="modal-btn-small"
-              onClick={() => reset({
-                description: service.description
-              })}>
+              onClick={() => {
+                reset({
+                  description: service.description
+                })
+                setCharLimit(service.description.length)
+              }}>
               Reset
             </button>
 
             <button
               type="reset"
-              className="modal-btn-small">
+              className="modal-btn-small"
+              onClick={() => setCharLimit(0)}>
               Clear
             </button>
 

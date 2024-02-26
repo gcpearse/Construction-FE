@@ -32,13 +32,13 @@ const JobsBoard: React.FC = () => {
   }
 
   if (isServicesSuccess && isJobsSuccess) content = (
-    <ul>
+    <ul className="page-els-wrapper">
       {services.map((service: Service) => {
         return (
           <li
             key={service.name}
             className="jobs-board-el">
-            <img src={service.image} alt={`Image for ${service.name}`} />
+            {/* <img src={service.image} alt={`Image for ${service.name}`} /> */}
             <h3>{service.name}</h3>
             <p>{service.description}</p>
             <p>There are currently {formatJobsData(jobs, service)} listed under {service.name}.</p>

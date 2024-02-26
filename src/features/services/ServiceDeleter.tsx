@@ -42,14 +42,18 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
           name: service.name,
           token: token
         }).unwrap()
+        reset()
+        dispatch(closeServiceDeleter())
+        document.body.style.overflow = "auto"
+        setErrorMsg("")
       } catch (error: any) {
         console.log(error)
-        setErrorMsg("Oops! Something went wrong...")
+        if (error.status === 401) {
+          setErrorMsg("Authentication error. Your session has expired. Please log in again.")
+        } else {
+          setErrorMsg("Oops! Something went wrong...")
+        }
       }
-      reset()
-      dispatch(closeServiceDeleter())
-      document.body.style.overflow = "auto"
-      setErrorMsg("")
     } else {
       setErrorMsg("Incorrect admin name.")
     }
@@ -76,11 +80,11 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
           </button>
         </div>
 
-        <h4>Warning!</h4>
-
-        <p>Deleting this service will also delete <b>all</b> associated jobs. This process is irreversible.</p>
-
-        <p>If you are sure you wish to proceed, please enter your admin name and click delete.</p>
+        <div className="modal-form-text-wrapper">
+          <h4>Warning!</h4>
+          <p>Deleting this service will also delete <b>all</b> associated jobs. This process is irreversible.</p>
+          <p>If you are sure you wish to proceed, please enter your admin name and click delete.</p>
+        </div>
 
         <form
           onSubmit={handleSubmit(submitForm)}

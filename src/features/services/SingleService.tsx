@@ -1,6 +1,7 @@
 import { useAppDispatch } from "../../app/hooks"
 import { Service } from "../../models"
-import { openServiceDeleter, openServiceUpdater } from "./servicesSlice"
+import { formatHeader } from "../../utils/formattingUtils"
+import { openImageUpdater, openServiceDeleter, openServiceUpdater } from "./servicesSlice"
 import { FaCamera, FaTrashAlt } from "react-icons/fa"
 
 type Props = {
@@ -14,38 +15,38 @@ const SingleService: React.FC<Props> = ({ service }) => {
   return (
     <div className="service-wrapper">
 
-      {/* <img src={service.image} alt={`Image for ${service.name}`} /> */}
-      {/* Using construction.jpg as an example during development */}
-      <img src="/construction.jpg" alt={`Image for ${service.name}`} />
-      <button className="edit-img-btn icon-btn">
-        <FaCamera className="edit-img-icon" />
-      </button>
-
-      <h3>{service.name}</h3>
-
-      <p>{service.description}</p>
-
-      <div className="service-btn-wrapper">
-
+      <div className="service-wrapper-top">
+        <img src={service.image} alt={`An image representing ${service.name}.`} />
         <button
-          className="blue-btn"
+          className="edit-img-btn icon-btn"
           onClick={() => {
-            dispatch(openServiceUpdater(service.name))
+            dispatch(openImageUpdater(service.name))
             document.body.style.overflow = "hidden"
           }}>
-          Edit Description
+          <FaCamera className="edit-img-icon" />
         </button>
-
-        <button
-          className="delete-btn icon-btn"
-          onClick={() => {
-            dispatch(openServiceDeleter(service.name))
-            document.body.style.overflow = "hidden"
-          }}>
-          <FaTrashAlt className="delete-icon" />
-        </button>
-
+        <h3>{formatHeader(service.name)}</h3>
+        <p>{service.description}</p>
       </div>
+
+        <div className="service-btn-wrapper">
+          <button
+            className="blue-btn"
+            onClick={() => {
+              dispatch(openServiceUpdater(service.name))
+              document.body.style.overflow = "hidden"
+            }}>
+            Update
+          </button>
+          <button
+            className="delete-btn icon-btn"
+            onClick={() => {
+              dispatch(openServiceDeleter(service.name))
+              document.body.style.overflow = "hidden"
+            }}>
+            <FaTrashAlt className="delete-icon" />
+          </button>
+        </div>
 
     </div>
   )
