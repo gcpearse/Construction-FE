@@ -42,14 +42,18 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
           name: service.name,
           token: token
         }).unwrap()
+        reset()
+        dispatch(closeServiceDeleter())
+        document.body.style.overflow = "auto"
+        setErrorMsg("")
       } catch (error: any) {
         console.log(error)
-        setErrorMsg("Oops! Something went wrong...")
+        if (error.status === 401) {
+          setErrorMsg("Authentication error. Your session has expired. Please log in again.")
+        } else {
+          setErrorMsg("Oops! Something went wrong...")
+        }
       }
-      reset()
-      dispatch(closeServiceDeleter())
-      document.body.style.overflow = "auto"
-      setErrorMsg("")
     } else {
       setErrorMsg("Incorrect admin name.")
     }
