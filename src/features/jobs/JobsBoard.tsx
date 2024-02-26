@@ -32,7 +32,7 @@ const JobsBoard: React.FC = () => {
   }
 
   if (isServicesSuccess && isJobsSuccess) content = (
-    <ul>
+    <ul className="page-els-wrapper">
       {services.map((service: Service) => {
         return (
           <li
