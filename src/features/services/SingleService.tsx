@@ -1,5 +1,6 @@
 import { useAppDispatch } from "../../app/hooks"
 import { Service } from "../../models"
+import { formatHeader } from "../../utils/formattingUtils"
 import { openImageUpdater, openServiceDeleter, openServiceUpdater } from "./servicesSlice"
 import { FaCamera, FaTrashAlt } from "react-icons/fa"
 
@@ -26,7 +27,7 @@ const SingleService: React.FC<Props> = ({ service }) => {
         <FaCamera className="edit-img-icon" />
       </button>
 
-      <h3>{service.name}</h3>
+      <h3>{formatHeader(service.name)}</h3>
 
       <p>{service.description}</p>
 
