@@ -1,6 +1,6 @@
 import { useAppDispatch } from "../../app/hooks"
 import { Service } from "../../models"
-import { openServiceDeleter, openServiceUpdater } from "./servicesSlice"
+import { openImageUpdater, openServiceDeleter, openServiceUpdater } from "./servicesSlice"
 import { FaCamera, FaTrashAlt } from "react-icons/fa"
 
 type Props = {
@@ -17,7 +17,12 @@ const SingleService: React.FC<Props> = ({ service }) => {
       {/* <img src={service.image} alt={`Image for ${service.name}`} /> */}
       {/* Using construction.jpg as an example during development */}
       <img src="/construction.jpg" alt={`Image for ${service.name}`} />
-      <button className="edit-img-btn icon-btn">
+      <button
+        className="edit-img-btn icon-btn"
+        onClick={() => {
+          dispatch(openImageUpdater(service.name))
+          document.body.style.overflow = "hidden"
+        }}>
         <FaCamera className="edit-img-icon" />
       </button>
 
