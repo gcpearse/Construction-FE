@@ -55,7 +55,7 @@ const JobsBoard: React.FC = () => {
       <div className="page-top">
         <h2>Jobs</h2>
         <Link to="/admin">
-          <button className="dash-nav-btn">
+          <button className="blue-btn">
             Dashboard
           </button>
         </Link>

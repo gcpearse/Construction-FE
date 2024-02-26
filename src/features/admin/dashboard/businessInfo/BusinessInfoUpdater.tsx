@@ -49,9 +49,9 @@ const BusinessInfoUpdater: React.FC = () => {
 
   return (
     <div className={isFormToggled ? (
-      "modal-form-overlay open-element"
+      "modal-form-overlay"
     ) : (
-      "modal-form-overlay closed-element"
+      "modal-form-overlay closed-modal"
     )}>
 
       <div className="modal-form-wrapper">

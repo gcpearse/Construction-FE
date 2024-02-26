@@ -1,7 +1,7 @@
 import { FaRegWindowClose } from "react-icons/fa"
 import { Service } from "../../models"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { closeServiceForm } from "./servicesSlice"
+import { closeServiceUpdater } from "./servicesSlice"
 import { formatHeader } from "../../utils/formattingUtils"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useCookies } from "react-cookie"
@@ -22,7 +22,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
   const dispatch = useAppDispatch()
 
-  const { isFormToggled, selectedService } = useAppSelector(state => state.services)
+  const { isUpdaterToggled, selectedService } = useAppSelector(state => state.services)
 
   const [{ token }] = useCookies(["token"])
 
@@ -54,7 +54,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
         },
         token: token
       }).unwrap()
-      dispatch(closeServiceForm())
+      dispatch(closeServiceUpdater())
       document.body.style.overflow = "auto"
       setErrorMsg("")
     } catch (error: any) {
@@ -64,10 +64,10 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
   }
 
   return (
-    <div className={isFormToggled && selectedService === service.name ? (
-      "modal-form-overlay open-element"
+    <div className={isUpdaterToggled && selectedService === service.name ? (
+      "modal-form-overlay"
     ) : (
-      "modal-form-overlay closed-element"
+      "modal-form-overlay closed-modal"
     )}>
 
       <div className="modal-form-wrapper">
@@ -77,7 +77,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
           <button
             className="window-close-btn"
             onClick={() => {
-              dispatch(closeServiceForm())
+              dispatch(closeServiceUpdater())
               document.body.style.overflow = "auto"
             }}>
             <FaRegWindowClose className="window-close-icon" />
@@ -86,12 +86,12 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
         <form onSubmit={handleSubmit(submitForm)}>
 
-          <label htmlFor="service-description-input">
+          <label htmlFor={`${service.name}-description-input`}>
             Service description: <span>*</span>
           </label>
           <textarea
             rows={5}
-            id="service-description-input"
+            id={`${service.name}-description-input`}
             autoComplete="true"
             required
             {...register("description")} />

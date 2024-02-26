@@ -64,7 +64,7 @@ const Login: React.FC = () => {
           onFocus={() => setErrorMsg("")} />
 
         <input
-          type="text"
+          type="password"
           id="admin-password-input"
           placeholder="Password"
           required

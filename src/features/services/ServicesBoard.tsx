@@ -3,6 +3,7 @@ import { useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
 import SingleService from "./SingleService"
 import ServiceUpdater from "./ServiceUpdater"
+import ServiceDeleter from "./ServiceDeleter"
 
 const ServicesBoard: React.FC = () => {
 
@@ -24,7 +25,7 @@ const ServicesBoard: React.FC = () => {
   }
 
   if (isSuccess) content = (
-    <ul>
+    <ul className="page-els-wrapper">
       {services.map((service: Service) => {
         return (
           <li
@@ -32,6 +33,7 @@ const ServicesBoard: React.FC = () => {
             className="services-board-el">
             <SingleService service={service} />
             <ServiceUpdater service={service} />
+            <ServiceDeleter service={service} />
           </li>
         )
       })}
@@ -44,7 +46,7 @@ const ServicesBoard: React.FC = () => {
       <div className="page-top">
         <h2>Services</h2>
         <Link to="/admin">
-          <button className="dash-nav-btn">
+          <button className="blue-btn">
             Dashboard
           </button>
         </Link>

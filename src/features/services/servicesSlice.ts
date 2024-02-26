@@ -1,12 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type ServicesState = {
-  isFormToggled: boolean
+  isUpdaterToggled: boolean
+  isDeleterToggled: boolean
   selectedService: string | undefined
 }
 
 const initialState: ServicesState = {
-  isFormToggled: false,
+  isUpdaterToggled: false,
+  isDeleterToggled: false,
   selectedService: undefined
 }
 
@@ -14,20 +16,30 @@ const servicesSlice = createSlice({
   name: "services",
   initialState,
   reducers: {
-    openServiceForm: (state, action: PayloadAction<string>) => {
-      state.isFormToggled = true
+    openServiceUpdater: (state, action: PayloadAction<string>) => {
+      state.isUpdaterToggled = true
       state.selectedService = action.payload
     },
-    closeServiceForm: (state) => {
-      state.isFormToggled = false
+    closeServiceUpdater: (state) => {
+      state.isUpdaterToggled = false
+      state.selectedService = undefined
+    },
+    openServiceDeleter: (state, action: PayloadAction<string>) => {
+      state.isDeleterToggled = true
+      state.selectedService = action.payload
+    },
+    closeServiceDeleter: (state) => {
+      state.isDeleterToggled = false
       state.selectedService = undefined
     }
   }
 })
 
 export const {
-  openServiceForm,
-  closeServiceForm
+  openServiceUpdater,
+  closeServiceUpdater,
+  openServiceDeleter,
+  closeServiceDeleter
 } = servicesSlice.actions
 
 export default servicesSlice.reducer

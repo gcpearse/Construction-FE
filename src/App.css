@@ -15,14 +15,6 @@
   text-align: center;
 }
 
-.open-element {
-  display: inherit;
-}
-
-.closed-element {
-  display: none;
-}
-
 
 /* REUSABLE ELEMENTS */
 
@@ -30,13 +22,9 @@
 /* CSS rules for page area between nav and footer */
 .page-wrapper {
   margin: 1em 0;
-  padding: 0 1em 1em;
+  padding: 0 0 1em;
   height: 100%;
   background: rgba(254, 254, 254, 0.7);
-}
-
-.page-wrapper h2 {
-  font-weight: 500;
 }
 
 .page-top {
@@ -46,6 +34,12 @@
   margin-bottom: 1em;
   border-bottom: 4px solid #f4f5f7;
   padding: 1.5em 1em;
+}
+
+.page-els-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 1em;
 }
 
 /* CSS rules for unsuccessful RTK query responses e.g. isLoading, isError  */
@@ -66,21 +60,50 @@
   font-size: 1.6rem;
 }
 
+.blue-btn {
+  transition: 0.6s;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7em 1em;
+  background: #003566;
+  font-size: 1rem;
+  color: #FEFEFE;
+}
+
+.blue-btn:hover {
+  background: #001D3D;
+}
+
+.icon-btn {
+  border-radius: 50px;
+  height: 3em;
+  width: 3em;
+}
+
 /* CSS rules for modal forms */
 .modal-form-overlay {
   position: fixed;
+  /* Z-index revents later elements from stacking above this overlay */
+  z-index: 1;
   top: 0;
   left: 0;
+  /* Display and align-items allow centering of modal */
+  display: grid;
+  align-items: center;
   overflow: scroll;
   height: 100vh;
   width: 100vw;
   background: rgba(0, 8, 20, 0.7);
 }
 
+.closed-modal {
+  display: none;
+}
+
 .modal-form-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 1em auto 25vh;
+  margin: 1em auto;
   box-shadow: 0 0 4px #222222;
   border-radius: 8px;
   width: 480px;
@@ -95,10 +118,6 @@
   border-radius: 8px 8px 0 0;
   padding: 0.8em;
   background: #FFD60A;
-}
-
-.modal-form-top h3 {
-  font-weight: 500;
 }
 
 .modal-form-wrapper form {
@@ -139,6 +158,16 @@
 
 .modal-form-wrapper input:focus {
   height: 2.2rem;
+}
+
+.modal-form-wrapper>h4 {
+  margin: 1em 1em 0;
+  font-size: 1.2rem;
+}
+
+.modal-form-wrapper>p {
+  margin: 1em 1em 0;
+  text-align: justify;
 }
 
 .modal-form-wrapper>form>p {
@@ -201,6 +230,8 @@
 @media only screen and (max-width: 559px) {
   .sidebar {
     position: absolute;
+    /* Z-index needed to stack sidebar above positioned elements e.g. login  */
+    z-index: 1;
     left: -50vw;
     /* Height of sidebar is 100% minus combined height of header, nav, and footer */
     height: calc(100% - 208px);
@@ -273,10 +304,6 @@ nav {
   margin: 0 1em;
 }
 
-nav h1 {
-  font-weight: 600;
-}
-
 .nav-icon {
   cursor: pointer;
   font-size: 3rem;
@@ -315,7 +342,11 @@ nav h1 {
 
 /* For placeholder elements on pages with no current content. */
 .temp-wrapper {
-  margin: 8vw auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
   box-shadow: 0 0 4px #222222;
   border-radius: 4px;
   width: 360px;
@@ -339,7 +370,11 @@ nav h1 {
 /* || Login */
 
 .login-wrapper {
-  margin: 8vw auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
   box-shadow: 0 0 4px #222222;
   border-radius: 4px;
   width: 360px;
@@ -359,7 +394,6 @@ nav h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 500;
 }
 
 .login-form {
@@ -401,11 +435,6 @@ nav h1 {
 
 /* || Dashboard */
 
-.dashboard-components {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .dash-comp-wrapper {
   flex-grow: 1;
   margin: 1em;
@@ -420,7 +449,6 @@ nav h1 {
   border-radius: 8px 8px 0 0;
   padding: 1.5em;
   background: #FFD60A;
-  font-weight: 500;
 }
 
 .dash-comp-content {
@@ -449,9 +477,6 @@ nav h1 {
 
 .user-profile-btn {
   border: 1px solid #000814;
-  border-radius: 50px;
-  height: 3em;
-  width: 3em;
   background: #FEFEFE;
 }
 
@@ -542,20 +567,6 @@ nav h1 {
 
 /* || JobsBoard */
 
-.dash-nav-btn {
-  transition: 0.6s;
-  border: none;
-  border-radius: 50px;
-  padding: 0.6em 0.8em;
-  background: #003566;
-  font-size: 1rem;
-  color: #FEFEFE;
-}
-
-.dash-nav-btn:hover {
-  background: #001D3D;
-}
-
 .jobs-board-el {
   border: 2px solid #000814;
   background: #FEFEFE;
@@ -563,7 +574,71 @@ nav h1 {
 
 /* || ServicesBoard */
 
+/* Compare to dash-comp-wrapper */
 .services-board-el {
-  border: 2px solid #000814;
-  background: #FEFEFE;
+  margin: 1em;
+  box-shadow: 0 0 4px #222222;
+  border-radius: 8px;
+}
+
+/* || SingleService */
+
+.service-wrapper {
+  position: relative;
+  display: grid;
+  grid-template-rows: auto auto;
+  height: 100%;
+}
+
+.service-wrapper img {
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
+
+.edit-img-btn {
+  position: absolute;
+  top: 0.6em;
+  right: 0.6em;
+  transition: 0.6s;
+  border: none;
+  background: #001D3D;
+}
+
+.edit-img-btn:hover {
+  opacity: 0.7;
+}
+
+.edit-img-icon {
+  font-size: 1.4rem;
+  color: #FEFEFE;
+}
+
+.service-wrapper h3 {
+  background: #FFD60A;
+  padding: 0.8em;
+  text-align: start;
+}
+
+.service-wrapper p {
+  padding: 1.2em 0.8em;
+  text-align: justify;
+}
+
+.service-btn-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.8em 0.8em;
+}
+
+.delete-btn {
+  transition: 0.6s;
+  border: none;
+  background: #FFD60A;
+}
+
+.delete-icon {
+  font-size: 1.4rem;
 }
