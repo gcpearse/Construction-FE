@@ -3,6 +3,7 @@ import { useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
 import SingleService from "./SingleService"
 import ServiceUpdater from "./ServiceUpdater"
+import ServiceDeleter from "./ServiceDeleter"
 
 const ServicesBoard: React.FC = () => {
 
@@ -32,6 +33,7 @@ const ServicesBoard: React.FC = () => {
             className="services-board-el">
             <SingleService service={service} />
             <ServiceUpdater service={service} />
+            <ServiceDeleter service={service} />
           </li>
         )
       })}
