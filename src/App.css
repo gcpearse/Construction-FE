@@ -120,6 +120,19 @@
   background: #FFD60A;
 }
 
+.modal-form-text-wrapper {
+  margin: 1em 1em 0;
+}
+
+.modal-form-text-wrapper h4 {
+  font-size: 1.2rem;
+}
+
+.modal-form-text-wrapper p {
+  margin-top: 1em;
+  text-align: justify;
+}
+
 .modal-form-wrapper form {
   display: flex;
   flex-direction: column;
@@ -158,16 +171,6 @@
 
 .modal-form-wrapper input:focus {
   height: 2.2rem;
-}
-
-.modal-form-wrapper>h4 {
-  margin: 1em 1em 0;
-  font-size: 1.2rem;
-}
-
-.modal-form-wrapper>p {
-  margin: 1em 1em 0;
-  text-align: justify;
 }
 
 .modal-form-wrapper>form>p {
