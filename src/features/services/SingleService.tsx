@@ -23,7 +23,7 @@ const SingleService: React.FC<Props> = ({ service }) => {
       <p>{service.description}</p>
       <div className="service-btn-wrapper">
         <button
-          className="edit-service-btn"
+          className="blue-btn"
           onClick={() => {
             dispatch(openServiceForm(service.name))
             document.body.style.overflow = "hidden"
