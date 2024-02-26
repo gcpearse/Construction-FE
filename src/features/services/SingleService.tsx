@@ -36,7 +36,7 @@ const SingleService: React.FC<Props> = ({ service }) => {
               dispatch(openServiceUpdater(service.name))
               document.body.style.overflow = "hidden"
             }}>
-            Edit
+            Update
           </button>
           <button
             className="delete-btn icon-btn"
