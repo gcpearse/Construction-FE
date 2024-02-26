@@ -14,7 +14,7 @@ const Dashboard: React.FC = () => {
         <UserProfile />
       </div>
 
-      <div className="dashboard-components">
+      <div className="page-els-wrapper">
         <BusinessInfoDisplay />
         <JobsDisplay />
         <ServicesDisplay />
