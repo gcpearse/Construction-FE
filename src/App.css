@@ -651,6 +651,10 @@ nav {
   background: #FFD60A;
 }
 
+.delete-btn:hover {
+  background: #FFC300;
+}
+
 .delete-icon {
   font-size: 1.4rem;
 }
