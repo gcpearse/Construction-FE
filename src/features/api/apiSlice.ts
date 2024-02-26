@@ -30,7 +30,8 @@ export const apiSlice = createApi({
           Authorization: `Bearer ${token}`
         },
         body: image
-      })
+      }),
+      invalidatesTags: ["services"]
     }),
 
     updateServiceDescription: builder.mutation<Service, { service: Service, token: string }>({
