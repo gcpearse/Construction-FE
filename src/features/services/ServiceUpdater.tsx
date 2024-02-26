@@ -22,7 +22,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
   const dispatch = useAppDispatch()
 
-  const { isFormToggled, selectedService } = useAppSelector(state => state.services)
+  const { isUpdaterToggled, selectedService } = useAppSelector(state => state.services)
 
   const [{ token }] = useCookies(["token"])
 
@@ -64,7 +64,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
   }
 
   return (
-    <div className={isFormToggled && selectedService === service.name ? (
+    <div className={isUpdaterToggled && selectedService === service.name ? (
       "modal-form-overlay"
     ) : (
       "modal-form-overlay closed-modal"
@@ -86,12 +86,12 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
         <form onSubmit={handleSubmit(submitForm)}>
 
-          <label htmlFor="service-description-input">
+          <label htmlFor={`${service.name}-description-input`}>
             Service description: <span>*</span>
           </label>
           <textarea
             rows={5}
-            id="service-description-input"
+            id={`${service.name}-description-input`}
             autoComplete="true"
             required
             {...register("description")} />
