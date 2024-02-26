@@ -4,6 +4,7 @@ import { Service } from "../../models"
 import SingleService from "./SingleService"
 import ServiceUpdater from "./ServiceUpdater"
 import ServiceDeleter from "./ServiceDeleter"
+import ServiceImageUpdater from "./ServiceImageUpdater"
 
 const ServicesBoard: React.FC = () => {
 
@@ -32,6 +33,7 @@ const ServicesBoard: React.FC = () => {
             key={service.name}
             className="services-board-el">
             <SingleService service={service} />
+            <ServiceImageUpdater service={service} />
             <ServiceUpdater service={service} />
             <ServiceDeleter service={service} />
           </li>
