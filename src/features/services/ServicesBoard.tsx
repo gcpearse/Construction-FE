@@ -24,7 +24,7 @@ const ServicesBoard: React.FC = () => {
   }
 
   if (isSuccess) content = (
-    <ul>
+    <ul className="page-els-wrapper">
       {services.map((service: Service) => {
         return (
           <li
