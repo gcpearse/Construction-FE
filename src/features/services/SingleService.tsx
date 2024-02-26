@@ -1,6 +1,7 @@
 import { useAppDispatch } from "../../app/hooks"
 import { Service } from "../../models"
 import { openServiceForm } from "./servicesSlice"
+import { FaCamera, FaTrashAlt } from "react-icons/fa"
 
 type Props = {
   service: Service
@@ -11,21 +12,30 @@ const SingleService: React.FC<Props> = ({ service }) => {
   const dispatch = useAppDispatch()
 
   return (
-    <>
-      <img src={service.image} alt={`Image for ${service.name}`} />
+    <div className="service-wrapper">
+      {/* <img src={service.image} alt={`Image for ${service.name}`} /> */}
+      {/* Using construction.jpg as an example during development */}
+      <img src="/construction.jpg" alt={`Image for ${service.name}`} />
+      <button className="edit-img-btn">
+        <FaCamera className="edit-img-icon" />
+      </button>
       <h3>{service.name}</h3>
       <p>{service.description}</p>
-      <div>
+      <div className="service-btn-wrapper">
         <button
+          className="edit-service-btn"
           onClick={() => {
             dispatch(openServiceForm(service.name))
             document.body.style.overflow = "hidden"
           }}>
-          Edit
+          Edit Description
         </button>
-        <button>Delete</button>
+        <button
+          className="delete-btn">
+          <FaTrashAlt className="delete-icon" />
+        </button>
       </div>
-    </>
+    </div>
   )
 }
 
