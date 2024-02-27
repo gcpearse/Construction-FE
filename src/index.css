@@ -23,6 +23,10 @@ input {
   font-size: 16px;
 }
 
+h1 {
+  font-size: 1.65rem;
+}
+
 h1,
 h4 {
   font-weight: 600;
@@ -31,14 +35,6 @@ h4 {
 h2,
 h3 {
   font-weight: 500;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 4em;
-  background: #000814;
 }
 
 footer {
@@ -56,10 +52,6 @@ main {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-
-nav {
-  min-height: 4em;
 }
 
 li {
