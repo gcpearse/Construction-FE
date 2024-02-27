@@ -8,6 +8,7 @@ const AddServiceBtn: React.FC = () => {
 
   const handleClick = () => {
     dispatch(openServiceAdder())
+    document.body.style.overflow = "hidden"
   }
 
   return (
@@ -16,7 +17,7 @@ const AddServiceBtn: React.FC = () => {
         className="yellow-btn large-display-el"
         style={{ marginRight: "1em" }}
         onClick={() => handleClick()}>
-        Add Service
+        Create Service
       </button>
 
       <button
