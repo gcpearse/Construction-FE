@@ -1,9 +1,15 @@
 import { FaRegWindowClose } from "react-icons/fa"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { closeServiceAdder } from "./servicesSlice"
-import { Service } from "../../models"
-import { useForm } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 import { useState } from "react"
+
+type FormValues = {
+  name: string
+  description: string
+  image: FileList
+  icon: string
+}
 
 const ServiceAdder: React.FC = () => {
 
@@ -14,8 +20,13 @@ const ServiceAdder: React.FC = () => {
   const [charLimit, setCharLimit] = useState<number>(0)
 
   const {
-    register
-  } = useForm<Service>()
+    register,
+    handleSubmit
+  } = useForm<FormValues>()
+
+  const submitForm: SubmitHandler<FormValues> = (data) => {
+    console.log(data)
+  }
 
   return (
     <div className={isServiceAdderToggled ? (
@@ -38,7 +49,7 @@ const ServiceAdder: React.FC = () => {
           </button>
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit(submitForm)}>
 
           <label htmlFor="service-name-input">
             Service name: <span>*</span>
