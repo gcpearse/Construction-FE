@@ -92,7 +92,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
         <form onSubmit={handleSubmit(submitForm)}>
 
           <label htmlFor={`${service.name}-description-input`}>
-            Service description: <span>*</span>
+            Service description:
           </label>
           <textarea
             rows={5}
@@ -107,8 +107,6 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
             })} />
 
           <p>{200 - charLimit} characters remaining.</p>
-
-          <p>* Indicates a required field.</p>
 
           <div className="modal-btn-wrapper">
 
