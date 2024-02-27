@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom"
 import { useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
 import SingleService from "./SingleService"
 import ServiceUpdater from "./ServiceUpdater"
 import ServiceDeleter from "./ServiceDeleter"
 import ServiceImageUpdater from "./ServiceImageUpdater"
+import DashNavBtn from "../../common/DashNavBtn"
+import AddServiceBtn from "./AddServiceBtn"
+import ServiceAdder from "./ServiceAdder"
 
 const ServicesBoard: React.FC = () => {
 
@@ -47,12 +49,13 @@ const ServicesBoard: React.FC = () => {
 
       <div className="page-top">
         <h2>Services</h2>
-        <Link to="/admin">
-          <button className="blue-btn">
-            Dashboard
-          </button>
-        </Link>
+        <div style={{ display: "flex" }}>
+          <AddServiceBtn />
+          <DashNavBtn />
+        </div>
       </div>
+
+      <ServiceAdder />
 
       {content}
 

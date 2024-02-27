@@ -60,13 +60,21 @@
   font-size: 1.6rem;
 }
 
-.blue-btn {
+.blue-btn,
+.yellow-btn {
   transition: 0.6s;
   border: none;
   border-radius: 10px;
   padding: 0.7em 1em;
-  background: #003566;
   font-size: 1rem;
+}
+
+.yellow-btn {
+  background: #FFD60A;
+}
+
+.blue-btn {
+  background: #003566;
   color: #FEFEFE;
 }
 
@@ -74,10 +82,40 @@
   background: #001D3D;
 }
 
+.yellow-btn:hover {
+  background: #FFC300;
+}
+
 .icon-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.6s;
   border-radius: 50px;
-  height: 3em;
-  width: 3em;
+  padding: 0.6em;
+}
+
+.yellow-icon-btn {
+  border: none;
+  background: #FFD60A;
+}
+
+.yellow-icon-btn:hover {
+  background: #FFC300;
+}
+
+.blue-icon-btn {
+  border: none;
+  background: #003566;
+  color: #FEFEFE;
+}
+
+.blue-icon-btn:hover {
+  background: #001D3D;
+}
+
+.btn-icon {
+  font-size: 1.4rem;
 }
 
 /* CSS rules for modal forms */
@@ -216,6 +254,20 @@
 .rtk-query-form-msg {
   margin-top: 1em;
   color: #FF4300;
+}
+
+/* CSS rules for hiding / showing elements on a narrow display */
+
+@media only screen and (max-width: 400px) {
+  .large-display-el {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 401px) {
+  .small-display-el {
+    display: none;
+  }
 }
 
 
@@ -487,10 +539,6 @@ nav {
   box-shadow: inset 0 0 4px #222222;
 }
 
-.user-profile-icon {
-  font-size: 1.2rem;
-}
-
 .open-profile-wrapper {
   position: absolute;
   top: 220px;
@@ -643,18 +691,4 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 0.8em 0.8em;
-}
-
-.delete-btn {
-  transition: 0.6s;
-  border: none;
-  background: #FFD60A;
-}
-
-.delete-btn:hover {
-  background: #FFC300;
-}
-
-.delete-icon {
-  font-size: 1.4rem;
 }

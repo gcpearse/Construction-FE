@@ -1,6 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type ServicesState = {
+  isServiceAdderToggled: boolean
   isImageUpdaterToggled: boolean
   isUpdaterToggled: boolean
   isDeleterToggled: boolean
@@ -8,6 +9,7 @@ type ServicesState = {
 }
 
 const initialState: ServicesState = {
+  isServiceAdderToggled: false,
   isImageUpdaterToggled: false,
   isUpdaterToggled: false,
   isDeleterToggled: false,
@@ -18,6 +20,12 @@ const servicesSlice = createSlice({
   name: "services",
   initialState,
   reducers: {
+    openServiceAdder: (state) => {
+      state.isServiceAdderToggled = true
+    },
+    closeServiceAdder: (state) => {
+      state.isServiceAdderToggled = false
+    },
     openImageUpdater: (state, action: PayloadAction<string>) => {
       state.isImageUpdaterToggled = true
       state.selectedService = action.payload
@@ -46,6 +54,8 @@ const servicesSlice = createSlice({
 })
 
 export const {
+  openServiceAdder,
+  closeServiceAdder,
   openImageUpdater,
   closeImageUpdater,
   openServiceUpdater,
