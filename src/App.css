@@ -410,11 +410,7 @@ nav {
 
 /* For placeholder elements on pages with no current content. */
 .temp-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
+  margin: 12.5% auto;
   box-shadow: 0 0 4px #222222;
   border-radius: 4px;
   width: 360px;
@@ -438,11 +434,7 @@ nav {
 /* || Login */
 
 .login-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  margin: 0;
+  margin: 12.5% auto;
   box-shadow: 0 0 4px #222222;
   border-radius: 4px;
   width: 360px;
