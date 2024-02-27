@@ -511,7 +511,6 @@ nav {
 }
 
 /* Min-width is 980px (width of two divs) minus 8em (128px / 16px * 8) */
-/* Max-width is 1440px (width of three divs) minus 16em (256px / 16px * 16 */
 @media only screen and (min-width: 852px) {
   .dashboard-wrapper {
     display: grid;
@@ -563,6 +562,7 @@ nav {
 /* || UserProfile */
 
 .user-profile-wrapper {
+  /* Div with relative position to allow absolute positioning of open profile */
   position: relative;
 }
 
