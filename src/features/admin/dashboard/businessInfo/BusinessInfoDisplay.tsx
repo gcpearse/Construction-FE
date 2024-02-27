@@ -82,7 +82,11 @@ const BusinessInfoDisplay: React.FC = () => {
   )
 
   return (
-    <div className="dash-comp-wrapper">
+    <div 
+    className="dash-comp-wrapper"
+    style={{
+      gridRow: "1 / 3"
+    }}>
 
       <h3>Your Business Details</h3>
 
