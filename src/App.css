@@ -258,13 +258,13 @@
 
 /* CSS rules for hiding / showing elements on a narrow display */
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 430px) {
   .large-display-el {
     display: none;
   }
 }
 
-@media only screen and (min-width: 401px) {
+@media only screen and (min-width: 431px) {
   .small-display-el {
     display: none;
   }
