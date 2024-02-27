@@ -5,6 +5,8 @@ import SingleService from "./SingleService"
 import ServiceUpdater from "./ServiceUpdater"
 import ServiceDeleter from "./ServiceDeleter"
 import ServiceImageUpdater from "./ServiceImageUpdater"
+import { FaPlus } from "react-icons/fa"
+import { MdDashboard } from "react-icons/md"
 
 const ServicesBoard: React.FC = () => {
 
@@ -46,12 +48,35 @@ const ServicesBoard: React.FC = () => {
     <div className="page-wrapper">
 
       <div className="page-top">
+
         <h2>Services</h2>
-        <Link to="/admin">
-          <button className="blue-btn">
-            Dashboard
+
+        <div style={{ display: "flex" }}>
+
+          <button
+            className="yellow-btn large-display-el"
+            style={{ marginRight: "1em" }}>
+            Add Service
           </button>
-        </Link>
+          <button
+            className="yellow-icon-btn icon-btn small-display-el"
+            style={{ marginRight: "1em" }}>
+            <FaPlus className="btn-icon" />
+          </button>
+
+          <Link to="/admin">
+            <button className="blue-btn large-display-el">
+              <p>Dashboard</p>
+            </button>
+          </Link>
+          <Link to="/admin">
+            <button className="blue-icon-btn icon-btn small-display-el">
+              <MdDashboard className="btn-icon" />
+            </button>
+          </Link>
+
+        </div>
+
       </div>
 
       {content}
