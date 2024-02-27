@@ -37,8 +37,6 @@
 }
 
 .page-els-wrapper {
-  display: flex;
-  flex-wrap: wrap;
   padding: 0 1em;
 }
 
@@ -498,12 +496,31 @@ nav {
 
 /* || Dashboard */
 
+.dashboard-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-width: fit-content;
+}
+
+/* Min-width is 980px (width of two divs) minus 8em (128px / 16px * 8) */
+/* Max-width is 1440px (width of three divs) minus 16em (256px / 16px * 16 */
+@media only screen and (min-width: 852px) {
+  .dashboard-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+
 .dash-comp-wrapper {
-  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 1em;
   box-shadow: 0 0 4px #222222;
   border-radius: 8px;
-  height: fit-content;
+  /* height: fit-content; */
   max-width: 480px;
   background: #FEFEFE;
 }
@@ -521,7 +538,7 @@ nav {
 
 .dashboard-btn {
   transition: 0.6s;
-  margin: 1em 0;
+  margin: 1em auto;
   border: none;
   border-radius: 50px;
   height: 3em;
@@ -631,17 +648,42 @@ nav {
   background: #FEFEFE;
 }
 
+
 /* || ServicesBoard */
+
+.services-board-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 /* Compare to dash-comp-wrapper */
 .services-board-el {
+  flex-grow: 1;
   margin: 1em;
   box-shadow: 0 0 4px #222222;
   border-radius: 8px;
-  /* height: fit-content; */
-  max-width: 380px;
+  width: 380px;
   background: #FEFEFE;
 }
+
+.services-board-final-el {
+  display: grid;
+  align-items: center;
+  flex-grow: 4;
+  margin: 1em;
+  border-radius: 4px;
+  width: 380px;
+  background: linear-gradient(135deg, rgba(0, 29, 61, 0.9), rgba(0, 29, 61, 1));
+  color: #FEFEFE;
+}
+
+.services-board-final-el span {
+  padding: 2em 0;
+  font-size: 3em;
+  font-weight: 600;
+}
+
 
 /* || SingleService */
 
@@ -661,6 +703,7 @@ nav {
   object-fit: cover;
   border-radius: 8px 8px 0 0;
   aspect-ratio: 16 / 9;
+  max-height: 240px;
   width: 100%;
 }
 
