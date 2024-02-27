@@ -293,11 +293,13 @@
     position: absolute;
     /* Z-index needed to stack sidebar above positioned elements e.g. login  */
     z-index: 1;
-    left: -50vw;
-    /* Height of sidebar is 100% minus combined height of header, nav, and footer */
-    height: calc(100% - 208px);
+    top: 0;
+    /* Width minus box-shadow to ensure shadow is concealed */
+    left: calc(-50vw - 30px);
+    box-shadow: 0 0 30px #222222;
+    height: 100%;
     width: 50vw;
-    background: #000814;
+    background: #001D3D;
     text-align: start;
     transition: 0.7s;
     font-size: 1.2rem;
