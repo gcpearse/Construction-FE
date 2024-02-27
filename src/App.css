@@ -258,15 +258,23 @@
 
 /* CSS rules for hiding / showing elements on a narrow display */
 
-@media only screen and (max-width: 430px) {
+@media only screen and (max-width: 440px) {
   .large-display-el {
     display: none;
   }
+
+  .page-top {
+    padding: 1.5em 1em;
+  }
 }
 
-@media only screen and (min-width: 431px) {
+@media only screen and (min-width: 441px) {
   .small-display-el {
     display: none;
+  }
+
+  .page-top {
+    padding: 1.5em 2em;
   }
 }
 
