@@ -562,6 +562,10 @@ nav {
 
 /* || UserProfile */
 
+.user-profile-wrapper {
+  position: relative;
+}
+
 .user-profile-btn {
   border: 1px solid #000814;
   background: #FEFEFE;
@@ -573,28 +577,21 @@ nav {
 
 .open-profile-wrapper {
   position: absolute;
-  top: 220px;
-  right: 32px;
+  top: 50px;
+  right: 0;
   display: flex;
   flex-direction: column;
   box-shadow: 0 0 40px #222222;
   border-radius: 14px;
-  max-width: calc(100% - 96px);
-  min-width: 140px;
+  width: 140px;
   padding: 1em;
   background: #FEFEFE;
 }
 
-@media only screen and (min-width: 480px) {
-  .open-profile-wrapper {
-    max-width: 384px;
-  }
-}
-
 .open-profile-wrapper p {
-  margin: 0.4em auto 1em;
+  margin: 0.7em auto 1em;
   max-width: 100%;
-  text-align: start;
+  text-align: center;
   word-wrap: break-word;
 }
 
