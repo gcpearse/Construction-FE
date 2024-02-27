@@ -7,7 +7,7 @@ const UserProfile: React.FC = () => {
   const [isProfileOpen, setIsProfileOpen] = useState<boolean>(false)
 
   return (
-    <>
+    <div className="user-profile-wrapper">
       <button
         className={!isProfileOpen ? (
           "user-profile-btn icon-btn"
@@ -35,7 +35,7 @@ const UserProfile: React.FC = () => {
       ) : (
         null
       )}
-    </>
+    </div>
   )
 }
 
