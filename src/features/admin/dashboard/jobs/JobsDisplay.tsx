@@ -27,7 +27,11 @@ const JobsDisplay: React.FC = () => {
   )
 
   return (
-    <div className="dash-comp-wrapper">
+    <div
+      className="dash-comp-wrapper"
+      style={{
+        gridColumn: 2
+      }}>
 
       <h3>Jobs Overview</h3>
 

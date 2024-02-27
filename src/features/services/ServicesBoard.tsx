@@ -1,4 +1,4 @@
-import { useGetServicesQuery } from "../api/apiSlice"
+import { useGetBusinessInfoQuery, useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
 import SingleService from "./SingleService"
 import ServiceUpdater from "./ServiceUpdater"
@@ -9,6 +9,10 @@ import AddServiceBtn from "./AddServiceBtn"
 import ServiceAdder from "./ServiceAdder"
 
 const ServicesBoard: React.FC = () => {
+
+  const {
+    data: businessInfo
+  } = useGetBusinessInfoQuery()
 
   const {
     data: services,
@@ -28,7 +32,7 @@ const ServicesBoard: React.FC = () => {
   }
 
   if (isSuccess) content = (
-    <ul className="page-els-wrapper">
+    <ul className="page-els-wrapper services-board-wrapper">
       {services.map((service: Service) => {
         return (
           <li
@@ -41,6 +45,9 @@ const ServicesBoard: React.FC = () => {
           </li>
         )
       })}
+      <div className="services-board-final-el">
+        <span>{businessInfo?.name}</span>
+      </div>
     </ul>
   )
 

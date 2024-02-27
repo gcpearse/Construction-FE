@@ -26,7 +26,11 @@ const ServicesDisplay: React.FC = () => {
   )
 
   return (
-    <div className="dash-comp-wrapper">
+    <div
+      className="dash-comp-wrapper"
+      style={{
+        gridColumn: 2
+      }}>
 
       <h3>Services Overview</h3>
 
