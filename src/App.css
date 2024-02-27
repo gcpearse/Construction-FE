@@ -33,7 +33,13 @@
   align-items: center;
   margin-bottom: 1em;
   border-bottom: 4px solid #f4f5f7;
-  padding: 1.5em 1em;
+  padding: 1em;
+}
+
+@media only screen and (min-width: 441px) {
+  .page-top {
+    padding: 1.5em 2em;
+  }
 }
 
 .page-els-wrapper {
@@ -260,19 +266,11 @@
   .large-display-el {
     display: none;
   }
-
-  .page-top {
-    padding: 1.5em 1em;
-  }
 }
 
 @media only screen and (min-width: 441px) {
   .small-display-el {
     display: none;
-  }
-
-  .page-top {
-    padding: 1.5em 2em;
   }
 }
 
@@ -327,30 +325,28 @@
 
 /* || Header */
 
-@media only screen and (min-width: 480px) {
-  header ul {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-  }
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 2em;
+  background: #000814;
 }
 
-@media only screen and (max-width: 479px) {
-  header ul {
-    display: flex;
-    flex-direction: column;
-  }
-
-  header ul li {
-    padding: 1% 0;
-  }
+header ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 header ul li {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0.5em;
   color: #FEFEFE;
+  font-size: 1.1rem;
 }
 
 .header-icon {
@@ -364,7 +360,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 2em;
+  padding: 1em;
 }
 
 .nav-icon {
@@ -388,17 +384,14 @@ nav {
 }
 
 @media only screen and (max-width: 559px) {
-  nav {
-    margin-right: 1em;
-  }
   nav ul {
     display: none;
   }
 }
 
-@media only screen and (max-width: 440px) {
+@media only screen and (min-width: 441px) {
   nav {
-    margin: 0 1em;
+    padding: 1.5em 2em;
   }
 }
 
