@@ -39,12 +39,12 @@ const SingleService: React.FC<Props> = ({ service }) => {
             Update
           </button>
           <button
-            className="delete-btn icon-btn"
+            className="yellow-icon-btn icon-btn"
             onClick={() => {
               dispatch(openServiceDeleter(service.name))
               document.body.style.overflow = "hidden"
             }}>
-            <FaTrashAlt className="delete-icon" />
+            <FaTrashAlt className="btn-icon" />
           </button>
         </div>
 
