@@ -362,7 +362,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 1em;
+  margin: 0 2em;
 }
 
 .nav-icon {
@@ -374,7 +374,10 @@ nav {
   nav ul {
     display: flex;
     justify-content: space-around;
-    min-width: 50%;
+  }
+
+  nav ul li:not(:last-child) {
+    margin-right: 8vw;
   }
 
   .nav-icon {
@@ -383,8 +386,17 @@ nav {
 }
 
 @media only screen and (max-width: 559px) {
+  nav {
+    margin-right: 1em;
+  }
   nav ul {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  nav {
+    margin: 0 1em;
   }
 }
 
