@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
 import { useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
 import SingleService from "./SingleService"
 import ServiceUpdater from "./ServiceUpdater"
 import ServiceDeleter from "./ServiceDeleter"
 import ServiceImageUpdater from "./ServiceImageUpdater"
-import { FaPlus } from "react-icons/fa"
-import { MdDashboard } from "react-icons/md"
+import DashNavBtn from "../../common/DashNavBtn"
+import AddServiceBtn from "./AddServiceBtn"
+import ServiceAdder from "./ServiceAdder"
 
 const ServicesBoard: React.FC = () => {
 
@@ -48,36 +48,14 @@ const ServicesBoard: React.FC = () => {
     <div className="page-wrapper">
 
       <div className="page-top">
-
         <h2>Services</h2>
-
         <div style={{ display: "flex" }}>
-
-          <button
-            className="yellow-btn large-display-el"
-            style={{ marginRight: "1em" }}>
-            Add Service
-          </button>
-          <button
-            className="yellow-icon-btn icon-btn small-display-el"
-            style={{ marginRight: "1em" }}>
-            <FaPlus className="btn-icon" />
-          </button>
-
-          <Link to="/admin">
-            <button className="blue-btn large-display-el">
-              <p>Dashboard</p>
-            </button>
-          </Link>
-          <Link to="/admin">
-            <button className="blue-icon-btn icon-btn small-display-el">
-              <MdDashboard className="btn-icon" />
-            </button>
-          </Link>
-
+          <AddServiceBtn />
+          <DashNavBtn />
         </div>
-
       </div>
+
+      <ServiceAdder />
 
       {content}
 
