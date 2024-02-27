@@ -410,7 +410,7 @@ nav {
 
 /* For placeholder elements on pages with no current content. */
 .temp-wrapper {
-  margin: 12.5% auto;
+  margin: 5vh auto;
   box-shadow: 0 0 4px #222222;
   border-radius: 4px;
   width: 360px;
@@ -434,7 +434,7 @@ nav {
 /* || Login */
 
 .login-wrapper {
-  margin: 12.5% auto;
+  margin: 5vh auto;
   box-shadow: 0 0 4px #222222;
   border-radius: 4px;
   width: 360px;
