@@ -637,14 +637,6 @@ nav {
 }
 
 
-/* || JobsBoard */
-
-.jobs-board-el {
-  border: 2px solid #000814;
-  background: #FEFEFE;
-}
-
-
 /* || ServicesBoard */
 
 .services-board-wrapper {
@@ -740,6 +732,18 @@ nav {
   align-items: center;
   padding: 0 0.8em 0.8em;
 }
+
+
+/* || JobsBoard */
+
+.service-wrapper-top span {
+  font-weight: 600;
+}
+
+.jobs-board-btn {
+  align-self: flex-end;
+}
+
 
 /* || Footer */
 

@@ -36,7 +36,12 @@ const ServicesBoard: React.FC = () => {
 
   if (isSuccess) content = (
     <ul className="page-els-wrapper services-board-wrapper">
-      {services.map((service: Service) => {
+
+      {[...services].sort((a, b) => {
+        if (a.name > b.name) return 1
+        if (a.name < b.name) return -1
+        return 0
+      }).map((service: Service) => {
         return (
           <li
             key={service.name}
