@@ -7,7 +7,9 @@ import { setCredentials } from "./authSlice"
 import { useCookies } from "react-cookie"
 import { RiAdminFill } from "react-icons/ri"
 
+
 const Login: React.FC = () => {
+
 
   const dispatch = useAppDispatch()
 
@@ -22,33 +24,42 @@ const Login: React.FC = () => {
 
   const [login] = useLoginMutation()
 
+
   const submitForm: SubmitHandler<LoginRequest> = async (request: LoginRequest) => {
+
     try {
       const response: LoginResponse = await login(request).unwrap()
+
       dispatch(setCredentials(response))
+
       setCookie("token", response.token, {
         maxAge: 3600,
         sameSite: "strict"
       })
+
       localStorage.setItem("name", response.name)
       localStorage.setItem("role", response.role)
+
       setErrorMsg("")
+
     } catch (error: any) {
+
       const validationError = error as ValidationError
+
       if (validationError) {
         setErrorMsg(`${error.data}.`)
       } else {
         setErrorMsg("Something went wrong.")
       }
+
     }
   }
+
 
   return (
     <div className="login-wrapper">
 
-      <h2>
-        Admin Portal&nbsp;<RiAdminFill />
-      </h2>
+      <h2>Admin Portal&nbsp;<RiAdminFill /></h2>
 
       <form
         className="login-form"
@@ -82,5 +93,6 @@ const Login: React.FC = () => {
     </div>
   )
 }
+
 
 export default Login

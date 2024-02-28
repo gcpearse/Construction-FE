@@ -8,7 +8,9 @@ import DashNavBtn from "../../common/DashNavBtn"
 import AddServiceBtn from "./AddServiceBtn"
 import ServiceAdder from "./ServiceAdder"
 
+
 const ServicesBoard: React.FC = () => {
+
 
   const {
     data: businessInfo
@@ -21,6 +23,7 @@ const ServicesBoard: React.FC = () => {
     isError,
     error
   } = useGetServicesQuery()
+
 
   let content
 
@@ -45,21 +48,27 @@ const ServicesBoard: React.FC = () => {
           </li>
         )
       })}
+
       <div className="services-board-final-el">
         <span>{businessInfo?.name}</span>
       </div>
+
     </ul>
   )
+
 
   return (
     <div className="page-wrapper">
 
       <div className="page-top">
+
         <h2>Services</h2>
+
         <div style={{ display: "flex" }}>
           <AddServiceBtn />
           <DashNavBtn />
         </div>
+
       </div>
 
       <ServiceAdder />
@@ -69,5 +78,6 @@ const ServicesBoard: React.FC = () => {
     </div>
   )
 }
+
 
 export default ServicesBoard

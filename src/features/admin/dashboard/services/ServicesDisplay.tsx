@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom"
 import { useGetServicesQuery } from "../../../api/apiSlice"
 
+
 const ServicesDisplay: React.FC = () => {
+
+
   const {
     data: services,
     isLoading,
@@ -9,6 +12,7 @@ const ServicesDisplay: React.FC = () => {
     isError,
     error
   } = useGetServicesQuery()
+
 
   let content
 
@@ -24,6 +28,7 @@ const ServicesDisplay: React.FC = () => {
       <p>There are currently {services.length} services listed.</p>
     </div>
   )
+
 
   return (
     <div
@@ -45,5 +50,6 @@ const ServicesDisplay: React.FC = () => {
     </div>
   )
 }
+
 
 export default ServicesDisplay

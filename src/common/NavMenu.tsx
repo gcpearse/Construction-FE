@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom"
 
+
 const NavMenu: React.FC = () => {
+
 
   return (
     <ul className="nav-menu">
@@ -26,5 +28,6 @@ const NavMenu: React.FC = () => {
     </ul>
   )
 }
+
 
 export default NavMenu

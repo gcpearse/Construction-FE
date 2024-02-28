@@ -1,6 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 import { Job, Service, BusinessInfo, LoginResponse, LoginRequest } from "../../models"
 
+
 export const apiSlice = createApi({
 
   reducerPath: "api",
@@ -125,6 +126,7 @@ export const apiSlice = createApi({
 
   })
 })
+
 
 export const {
   useGetJobsQuery,

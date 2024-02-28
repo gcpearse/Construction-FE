@@ -4,7 +4,9 @@ import JobsDisplay from "./jobs/JobsDisplay"
 import ServicesDisplay from "./services/ServicesDisplay"
 import UserProfile from "./userProfile/UserProfile"
 
+
 const Dashboard: React.FC = () => {
+
 
   return (
     <div className="page-wrapper">
@@ -25,5 +27,6 @@ const Dashboard: React.FC = () => {
     </div>
   )
 }
+
 
 export default Dashboard

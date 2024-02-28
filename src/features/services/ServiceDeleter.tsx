@@ -8,6 +8,7 @@ import { useState } from "react"
 import { useCookies } from "react-cookie"
 import { useDeleteServiceMutation } from "../api/apiSlice"
 
+
 type Props = {
   service: Service
 }
@@ -16,7 +17,9 @@ type FormValues = {
   name: string
 }
 
+
 const ServiceDeleter: React.FC<Props> = ({ service }) => {
+
 
   const dispatch = useAppDispatch()
 
@@ -34,26 +37,38 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
     reset
   } = useForm<FormValues>()
 
+
   const submitForm: SubmitHandler<FormValues> = async ({ name }) => {
+
     const currentUser = localStorage.getItem("name")
+
     if (currentUser === name) {
       try {
         await deleteService({
           name: service.name,
           token: token
         }).unwrap()
+
         reset()
+
         dispatch(closeServiceDeleter())
+
         document.body.style.overflow = "auto"
+
         setErrorMsg("")
+
       } catch (error: any) {
+
         console.log(error)
+
         if (error.status === 401) {
           setErrorMsg("Authentication error. Your session has expired. Please log in again.")
         } else {
           setErrorMsg("Oops! Something went wrong...")
         }
+
       }
+
     } else {
       setErrorMsg("Incorrect admin name.")
     }
@@ -69,7 +84,9 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
       <div className="modal-form-wrapper">
 
         <div className="modal-form-top">
+
           <h3>Delete {formatHeader(service.name)}</h3>
+
           <button
             className="window-close-btn"
             onClick={() => {
@@ -78,12 +95,17 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
             }}>
             <FaRegWindowClose className="window-close-icon" />
           </button>
+
         </div>
 
         <div className="modal-form-text-wrapper">
+
           <h4>Warning!</h4>
+
           <p>Deleting this service will also delete <b>all</b> associated jobs. This process is irreversible.</p>
+
           <p>If you are sure you wish to proceed, please enter your admin name and click delete.</p>
+
         </div>
 
         <form
@@ -93,6 +115,7 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
           <label htmlFor={`delete-${service.name}-name-input`}>
             Admin name:
           </label>
+
           <input
             type="text"
             id={`delete-${service.name}-name-input`}
@@ -109,11 +132,10 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
           {errorMsg ? <p className="rtk-query-form-msg">{errorMsg}</p> : null}
 
         </form>
-
       </div>
-
     </div>
   )
 }
+
 
 export default ServiceDeleter

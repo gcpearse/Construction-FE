@@ -1,9 +1,12 @@
 import { useAppSelector } from "../../app/hooks"
 import NavMenu from "../../common/NavMenu"
 
+
 const Sidebar: React.FC = () => {
 
+
   const isSidebarVisible = useAppSelector((state) => state.sidebar.visibleSidebar)
+
 
   return (
     <div className={isSidebarVisible ? (
@@ -15,5 +18,6 @@ const Sidebar: React.FC = () => {
     </div>
   )
 }
+
 
 export default Sidebar
