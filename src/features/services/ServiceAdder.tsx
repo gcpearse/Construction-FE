@@ -3,29 +3,36 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { closeServiceAdder } from "./servicesSlice"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useState } from "react"
-import { useAddServiceMutation } from "../api/apiSlice"
+import { useAddImageMutation, useAddServiceMutation } from "../api/apiSlice"
 import { useCookies } from "react-cookie"
+
 
 type FormValues = {
   name: string
   description: string
   image: string,
-  // image: FileList
   icon: string
 }
 
-const ServiceAdder: React.FC = () => {
 
+const ServiceAdder: React.FC = () => {
+  
   const dispatch = useAppDispatch()
+
 
   const { isServiceAdderToggled } = useAppSelector(state => state.services)
 
+
   const [{ token }] = useCookies(["token"])
+
 
   const [errorMsg, setErrorMsg] = useState<string>("")
   const [charLimit, setCharLimit] = useState<number>(0)
 
+
+  const [addImage] = useAddImageMutation()
   const [addService] = useAddServiceMutation()
+
 
   const {
     register,
@@ -33,20 +40,40 @@ const ServiceAdder: React.FC = () => {
     reset
   } = useForm<FormValues>()
 
-  const submitForm: SubmitHandler<FormValues> = async (service) => {
-    // const formData = new FormData()
-    // formData.append("image", image[0])
+
+  const submitForm: SubmitHandler<FormValues> = async (data) => {
+
+    const formData = new FormData()
+    formData.append("file", data.image[0])
+
     try {
-      await addService({
-        service,
-        token
+      const { imageLink } = await addImage({
+        file: formData,
+        token: token
       }).unwrap()
+
+      await addService({
+        service: {
+          name: data.name,
+          description: data.description,
+          image: imageLink,
+          icon: data.icon
+        },
+        token: token
+      }).unwrap()
+
       reset()
+
       dispatch(closeServiceAdder())
+
       document.body.style.overflow = "auto"
+
       setErrorMsg("")
+
     } catch (error: any) {
+
       console.log(error)
+      
       if (error.status === 401) {
         setErrorMsg("Authentication error. Your session has expired. Please log in again.")
       } else {
@@ -54,6 +81,7 @@ const ServiceAdder: React.FC = () => {
       }
     }
   }
+
 
   return (
     <div className={isServiceAdderToggled ? (
@@ -116,16 +144,6 @@ const ServiceAdder: React.FC = () => {
           <p>{200 - charLimit} characters remaining.</p>
 
           <label htmlFor="service-image-input">
-            Image URL: <span>*</span>
-          </label>
-          <input
-            type="text"
-            id="service-image-input"
-            autoComplete="true"
-            required
-            {...register("image")} />
-
-          {/* <label htmlFor="service-image-input">
             Select an image: <span>*</span>
           </label>
           <input
@@ -139,7 +157,7 @@ const ServiceAdder: React.FC = () => {
             }}
             id="service-image-input"
             required
-            {...register("image")} /> */}
+            {...register("image")} />
 
           <p>* Indicates a required field.</p>
 
