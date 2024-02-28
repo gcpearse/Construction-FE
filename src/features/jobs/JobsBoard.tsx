@@ -1,9 +1,15 @@
-import { Link } from "react-router-dom"
-import { useGetJobsQuery, useGetServicesQuery } from "../api/apiSlice"
+import { useGetBusinessInfoQuery, useGetJobsQuery, useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
-import { formatJobsData } from "../../utils/formattingUtils"
+import DashNavBtn from "../../common/DashNavBtn"
+import JobsBoardService from "./JobsBoardService"
+
 
 const JobsBoard: React.FC = () => {
+
+
+  const {
+    data: businessInfo
+  } = useGetBusinessInfoQuery()
 
   const {
     data: services,
@@ -21,6 +27,7 @@ const JobsBoard: React.FC = () => {
     error: jobsError
   } = useGetJobsQuery()
 
+
   let content
 
   if (isServicesLoading || isJobsLoading) content = <p className="rtk-query-msg">Loading content...</p>
@@ -32,33 +39,41 @@ const JobsBoard: React.FC = () => {
   }
 
   if (isServicesSuccess && isJobsSuccess) content = (
-    <ul className="page-els-wrapper">
-      {services.map((service: Service) => {
+    <ul className="page-els-wrapper services-board-wrapper">
+
+      {[...services].sort((a, b) => {
+        if (a.name > b.name) return 1
+        if (a.name < b.name) return -1
+        return 0
+      }).map((service: Service) => {
         return (
           <li
             key={service.name}
-            className="jobs-board-el">
-            {/* <img src={service.image} alt={`Image for ${service.name}`} /> */}
-            <h3>{service.name}</h3>
-            <p>{service.description}</p>
-            <p>There are currently {formatJobsData(jobs, service)} listed under {service.name}.</p>
-            <button>View jobs</button>
+            className="services-board-el">
+            <JobsBoardService service={service} jobs={jobs} />
           </li>
         )
       })}
+
+      <div className="services-board-final-el">
+        <span>{businessInfo?.name}</span>
+      </div>
+
     </ul>
   )
+
 
   return (
     <div className="page-wrapper">
 
       <div className="page-top">
+
         <h2>Jobs</h2>
-        <Link to="/admin">
-          <button className="blue-btn">
-            Dashboard
-          </button>
-        </Link>
+
+        <div>
+          <DashNavBtn />
+        </div>
+
       </div>
 
       {content}
@@ -66,5 +81,6 @@ const JobsBoard: React.FC = () => {
     </div>
   )
 }
+
 
 export default JobsBoard
