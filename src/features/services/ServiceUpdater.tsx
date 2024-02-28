@@ -8,15 +8,19 @@ import { useCookies } from "react-cookie"
 import { useState } from "react"
 import { useUpdateServiceDescriptionMutation } from "../api/apiSlice"
 
+
 type Props = {
   service: Service
 }
+
 
 type FormValues = {
   description: string
 }
 
+
 const ServiceUpdater: React.FC<Props> = ({ service }) => {
+
 
   const { name, image, icon } = service
 
@@ -44,7 +48,9 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
     }
   })
 
+
   const submitForm: SubmitHandler<FormValues> = async (serviceDetails) => {
+
     try {
       await updateServiceDescription({
         service: {
@@ -55,18 +61,26 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
         },
         token: token
       }).unwrap()
+
       dispatch(closeServiceUpdater())
+
       document.body.style.overflow = "auto"
+
       setErrorMsg("")
+
     } catch (error: any) {
+
       console.log(error)
+
       if (error.status === 401) {
         setErrorMsg("Authentication error. Your session has expired. Please log in again.")
       } else {
         setErrorMsg("Oops! Something went wrong...")
       }
+
     }
   }
+
 
   return (
     <div className={isUpdaterToggled && selectedService === service.name ? (
@@ -78,7 +92,9 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
       <div className="modal-form-wrapper">
 
         <div className="modal-form-top">
+
           <h3>Edit {formatHeader(service.name)} Description</h3>
+
           <button
             className="window-close-btn"
             onClick={() => {
@@ -87,6 +103,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
             }}>
             <FaRegWindowClose className="window-close-icon" />
           </button>
+
         </div>
 
         <form onSubmit={handleSubmit(submitForm)}>
@@ -94,6 +111,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
           <label htmlFor={`${service.name}-description-input`}>
             Service description:
           </label>
+
           <textarea
             rows={5}
             id={`${service.name}-description-input`}
@@ -140,11 +158,10 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
           {errorMsg ? <p className="rtk-query-form-msg">{errorMsg}</p> : null}
 
         </form>
-
       </div>
-
     </div>
   )
 }
+
 
 export default ServiceUpdater

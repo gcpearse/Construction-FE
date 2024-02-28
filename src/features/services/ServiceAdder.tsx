@@ -16,23 +16,19 @@ type FormValues = {
 
 
 const ServiceAdder: React.FC = () => {
-  
-  const dispatch = useAppDispatch()
 
+
+  const dispatch = useAppDispatch()
 
   const { isServiceAdderToggled } = useAppSelector(state => state.services)
 
-
   const [{ token }] = useCookies(["token"])
-
 
   const [errorMsg, setErrorMsg] = useState<string>("")
   const [charLimit, setCharLimit] = useState<number>(0)
 
-
   const [addImage] = useAddImageMutation()
   const [addService] = useAddServiceMutation()
-
 
   const {
     register,
@@ -73,12 +69,13 @@ const ServiceAdder: React.FC = () => {
     } catch (error: any) {
 
       console.log(error)
-      
+
       if (error.status === 401) {
         setErrorMsg("Authentication error. Your session has expired. Please log in again.")
       } else {
         setErrorMsg("Oops! Something went wrong...")
       }
+
     }
   }
 
@@ -93,7 +90,9 @@ const ServiceAdder: React.FC = () => {
       <div className="modal-form-wrapper">
 
         <div className="modal-form-top">
+
           <h3>Create Service</h3>
+
           <button
             className="window-close-btn"
             onClick={() => {
@@ -102,6 +101,7 @@ const ServiceAdder: React.FC = () => {
             }}>
             <FaRegWindowClose className="window-close-icon" />
           </button>
+
         </div>
 
         <form onSubmit={handleSubmit(submitForm)}>
@@ -109,6 +109,7 @@ const ServiceAdder: React.FC = () => {
           <label htmlFor="service-name-input">
             Service name: <span>*</span>
           </label>
+
           <input
             type="text"
             id="service-name-input"
@@ -119,6 +120,7 @@ const ServiceAdder: React.FC = () => {
           <label htmlFor="service-icon-input">
             Service icon: <span>*</span>
           </label>
+
           <input
             type="text"
             id="service-icon-input"
@@ -129,6 +131,7 @@ const ServiceAdder: React.FC = () => {
           <label htmlFor="service-description-input">
             Description of service: <span>*</span>
           </label>
+
           <textarea
             rows={5}
             id="service-description-input"
@@ -146,6 +149,7 @@ const ServiceAdder: React.FC = () => {
           <label htmlFor="service-image-input">
             Select an image: <span>*</span>
           </label>
+
           <input
             type="file"
             style={{
@@ -170,11 +174,10 @@ const ServiceAdder: React.FC = () => {
           {errorMsg ? <p className="rtk-query-form-msg">{errorMsg}</p> : null}
 
         </form>
-
       </div>
-
     </div>
   )
 }
+
 
 export default ServiceAdder

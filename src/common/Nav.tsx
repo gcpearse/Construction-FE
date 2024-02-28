@@ -4,14 +4,18 @@ import { toggleSidebar } from "../features/sidebar/sidebarSlice"
 import NavMenu from "./NavMenu"
 import { useGetBusinessInfoQuery } from "../features/api/apiSlice"
 
+
 const Nav: React.FC = () => {
 
+
   const isSidebarVisible = useAppSelector((state) => state.sidebar.visibleSidebar)
+
   const dispatch = useAppDispatch()
 
   const {
     data: businessInfo
   } = useGetBusinessInfoQuery()
+
 
   return (
     <nav>
@@ -33,5 +37,6 @@ const Nav: React.FC = () => {
     </nav>
   )
 }
+
 
 export default Nav

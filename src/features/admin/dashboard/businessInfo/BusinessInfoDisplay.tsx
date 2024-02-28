@@ -3,7 +3,9 @@ import { useGetBusinessInfoQuery } from "../../../api/apiSlice"
 import { useAppDispatch } from "../../../../app/hooks"
 import { openBusinessInfoForm } from "./businessInfoSlice"
 
+
 const BusinessInfoDisplay: React.FC = () => {
+
 
   const dispatch = useAppDispatch()
 
@@ -14,6 +16,7 @@ const BusinessInfoDisplay: React.FC = () => {
     isError,
     error
   } = useGetBusinessInfoQuery()
+
 
   let content
 
@@ -82,11 +85,11 @@ const BusinessInfoDisplay: React.FC = () => {
   )
 
   return (
-    <div 
-    className="dash-comp-wrapper"
-    style={{
-      gridRow: "1 / 3"
-    }}>
+    <div
+      className="dash-comp-wrapper"
+      style={{
+        gridRow: "1 / 3"
+      }}>
 
       <h3>Your Business Details</h3>
 
@@ -104,5 +107,6 @@ const BusinessInfoDisplay: React.FC = () => {
     </div>
   )
 }
+
 
 export default BusinessInfoDisplay

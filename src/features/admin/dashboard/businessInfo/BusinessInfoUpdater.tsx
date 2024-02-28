@@ -7,7 +7,9 @@ import { useAppDispatch, useAppSelector } from "../../../../app/hooks"
 import { FaRegWindowClose } from "react-icons/fa"
 import { closeBusinessInfoForm } from "./businessInfoSlice"
 
+
 const BusinessInfoUpdater: React.FC = () => {
+
 
   const dispatch = useAppDispatch()
 
@@ -32,22 +34,31 @@ const BusinessInfoUpdater: React.FC = () => {
     values: info
   })
 
+
   const submitForm: SubmitHandler<BusinessInfo> = async (businessInfo: BusinessInfo) => {
+
     try {
       await updateBusinessInfo({
         businessInfo: businessInfo,
         token: token
       }).unwrap()
+
       dispatch(closeBusinessInfoForm())
+
       document.body.style.overflow = "auto"
+
       setErrorMsg("")
+
     } catch (error: any) {
+
       console.log(error)
+
       if (error.status === 401) {
         setErrorMsg("Authentication error. Your session has expired. Please log in again.")
       } else {
         setErrorMsg("Oops! Something went wrong...")
       }
+
     }
   }
 
@@ -61,7 +72,9 @@ const BusinessInfoUpdater: React.FC = () => {
       <div className="modal-form-wrapper">
 
         <div className="modal-form-top">
+
           <h3>Edit Business Details</h3>
+
           <button
             className="window-close-btn"
             onClick={() => {
@@ -70,6 +83,7 @@ const BusinessInfoUpdater: React.FC = () => {
             }}>
             <FaRegWindowClose className="window-close-icon" />
           </button>
+
         </div>
 
         <form onSubmit={handleSubmit(submitForm)}>
@@ -77,6 +91,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-name-input">
             Business name: <span>*</span>
           </label>
+
           <input
             type="text"
             id="business-name-input"
@@ -87,6 +102,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-email-input">
             E-mail address: <span>*</span>
           </label>
+
           <input
             type="text"
             id="business-email-input"
@@ -97,6 +113,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-phone-input">
             Contact number: <span>*</span>
           </label>
+
           <input
             type="text"
             id="business-phone-input"
@@ -107,6 +124,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-address-input">
             Street address: <span>*</span>
           </label>
+
           <input
             type="text"
             id="business-address-input"
@@ -117,6 +135,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-city-input">
             Town / City: <span>*</span>
           </label>
+
           <input
             type="text"
             id="business-city-input"
@@ -127,6 +146,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-info-input">
             Business description: <span>*</span>
           </label>
+
           <textarea
             rows={5}
             id="business-info-input"
@@ -137,6 +157,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-facebook-input">
             Facebook link:
           </label>
+
           <input
             type="text"
             id="business-facebook-input"
@@ -146,6 +167,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-instagram-input">
             Instagram link:
           </label>
+
           <input
             type="text"
             id="business-instagram-input"
@@ -155,6 +177,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-youtube-input">
             YouTube link:
           </label>
+
           <input
             type="text"
             id="business-youtube-input"
@@ -164,6 +187,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-tiktok-input">
             TikTok link:
           </label>
+
           <input
             type="text"
             id="business-tiktok-input"
@@ -173,6 +197,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <label htmlFor="business-linkedin-input">
             LinkedIn link:
           </label>
+
           <input
             type="text"
             id="business-linkedin-input"
@@ -207,11 +232,10 @@ const BusinessInfoUpdater: React.FC = () => {
           {errorMsg ? <p className="rtk-query-form-msg">{errorMsg}</p> : null}
 
         </form>
-
       </div>
-
     </div>
   )
 }
+
 
 export default BusinessInfoUpdater
