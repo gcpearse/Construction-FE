@@ -22,7 +22,6 @@ export const apiSlice = createApi({
       providesTags: ["services"]
     }),
 
-    // May need to change once image file can be uploaded
     addService: builder.mutation<Service, { service: Service, token: string }>({
       query: ({ service, token }) => ({
         url: "/jobtypes",
@@ -95,6 +94,17 @@ export const apiSlice = createApi({
       invalidatesTags: ["businessInfo"]
     }),
 
+    addImage: builder.mutation<{ imageLink: string }, { file: FormData, token: string }>({
+      query: ({ file, token }) => ({
+        url: "/image",
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: file
+      })
+    }),
+
     login: builder.mutation<LoginResponse, LoginRequest>({
       query: (loginDetails) => ({
         url: "/login-admin",
@@ -125,6 +135,7 @@ export const {
   useDeleteServiceMutation,
   useGetBusinessInfoQuery,
   useUpdateBusinessInfoMutation,
+  useAddImageMutation,
   useLoginMutation,
   useTestAuthQuery
 } = apiSlice
