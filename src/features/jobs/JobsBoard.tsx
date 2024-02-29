@@ -3,6 +3,7 @@ import { Service } from "../../models"
 import DashNavBtn from "../../common/DashNavBtn"
 import JobsBoardServiceCard from "./JobsBoardServiceCard"
 import AddJobBtn from "./AddJobBtn"
+import JobAdder from "./JobAdder"
 
 
 const JobsBoard: React.FC = () => {
@@ -77,6 +78,8 @@ const JobsBoard: React.FC = () => {
         </div>
 
       </div>
+
+      <JobAdder />
 
       {content}
 
