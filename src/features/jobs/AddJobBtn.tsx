@@ -1,11 +1,17 @@
 import { FaPlus } from "react-icons/fa"
+import { useAppDispatch } from "../../app/hooks"
+import { openJobAdder } from "./jobsSlice"
 
 
 const AddJobBtn: React.FC = () => {
 
 
+  const dispatch = useAppDispatch()
+
+
   const handleClick = () => {
-    console.log("Clicked")
+    dispatch(openJobAdder())
+    document.body.style.overflow = "hidden"
   }
 
 
