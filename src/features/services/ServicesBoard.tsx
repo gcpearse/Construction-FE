@@ -69,7 +69,7 @@ const ServicesBoard: React.FC = () => {
 
         <h2>Services</h2>
 
-        <div style={{ display: "flex" }}>
+        <div className="page-top-btns">
           <AddServiceBtn />
           <DashNavBtn />
         </div>
