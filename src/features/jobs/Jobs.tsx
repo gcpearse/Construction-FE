@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom"
 import DashNavBtn from "../../common/DashNavBtn"
 import { Job } from "../../models"
 import { formatHeader } from "../../utils/formattingUtils"
 import { useGetJobsQuery } from "../api/apiSlice"
 import AddJobBtn from "./AddJobBtn"
+import JobAdder from "./JobAdder"
 
 
 type Props = {
@@ -64,7 +66,11 @@ const Jobs: React.FC<Props> = ({ service }) => {
 
       <div className="page-top">
 
-        <h2>Jobs / {service ? formatHeader(service) : "Error"}</h2>
+        <h2>
+          <Link to="/admin/jobs">
+            Jobs
+          </Link> / {service ? formatHeader(service) : "Error"}
+        </h2>
 
         <div className="page-top-btns">
           <AddJobBtn />
@@ -72,6 +78,8 @@ const Jobs: React.FC<Props> = ({ service }) => {
         </div>
 
       </div>
+
+      <JobAdder />
 
       {content}
 
