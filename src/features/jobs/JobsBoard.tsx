@@ -1,7 +1,7 @@
 import { useGetBusinessInfoQuery, useGetJobsQuery, useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
 import DashNavBtn from "../../common/DashNavBtn"
-import JobsBoardService from "./JobsBoardService"
+import JobsBoardServiceCard from "./JobsBoardServiceCard"
 
 
 const JobsBoard: React.FC = () => {
@@ -50,7 +50,7 @@ const JobsBoard: React.FC = () => {
           <li
             key={service.name}
             className="services-board-el">
-            <JobsBoardService service={service} jobs={jobs} />
+            <JobsBoardServiceCard service={service} jobs={jobs} />
           </li>
         )
       })}
