@@ -45,7 +45,7 @@ const JobsBoardServiceCard: React.FC<Props> = ({ service, jobs }) => {
         <button 
         className="dashboard-btn jobs-board-btn"
         onClick={() => {
-          dispatch(openJobAdder(service.name))
+          dispatch(openJobAdder())
           document.body.style.overflow = "hidden"
         }}>
           Add a job
