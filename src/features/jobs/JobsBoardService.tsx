@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { Job, Service } from "../../models"
 import { formatHeader, formatJobsData } from "../../utils/formattingUtils"
 import { checkJobs } from "../../utils/logicalUtils"
@@ -12,6 +13,9 @@ type Props = {
 const JobsBoardService: React.FC<Props> = ({ service, jobs }) => {
 
 
+  const navigate = useNavigate()
+
+
   return (
     <div className="service-wrapper">
 
@@ -21,12 +25,16 @@ const JobsBoardService: React.FC<Props> = ({ service, jobs }) => {
 
         <h3>{formatHeader(service.name)}</h3>
 
-        <p>There are currently {formatJobsData(jobs, service)} in the <span>{formatHeader(service.name)}</span> service category.</p>
+        <p>There are {formatJobsData(jobs, service)} in the <span>{formatHeader(service.name)}</span> service category.</p>
 
       </div>
 
       {checkJobs(jobs, service) ? (
-        <button className="dashboard-btn jobs-board-btn">
+        <button
+          className="dashboard-btn jobs-board-btn"
+          onClick={() => {
+            navigate(`/admin/jobs/${service.name}`)
+          }}>
           Manage jobs
         </button>
       ) : (
