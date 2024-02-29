@@ -1,7 +1,9 @@
 import { useGetBusinessInfoQuery, useGetJobsQuery, useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
 import DashNavBtn from "../../common/DashNavBtn"
-import JobsBoardService from "./JobsBoardService"
+import JobsBoardServiceCard from "./JobsBoardServiceCard"
+import AddJobBtn from "./AddJobBtn"
+import JobAdder from "./JobAdder"
 
 
 const JobsBoard: React.FC = () => {
@@ -50,7 +52,7 @@ const JobsBoard: React.FC = () => {
           <li
             key={service.name}
             className="services-board-el">
-            <JobsBoardService service={service} jobs={jobs} />
+            <JobsBoardServiceCard service={service} jobs={jobs} />
           </li>
         )
       })}
@@ -70,11 +72,14 @@ const JobsBoard: React.FC = () => {
 
         <h2>Jobs</h2>
 
-        <div>
+        <div className="page-top-btns">
+          <AddJobBtn />
           <DashNavBtn />
         </div>
 
       </div>
+
+      <JobAdder />
 
       {content}
 

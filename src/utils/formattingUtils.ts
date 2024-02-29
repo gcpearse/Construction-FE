@@ -7,11 +7,11 @@ export const formatJobsData = (jobs: Job[], service: Service): string => {
     return job.job_Type === service.name
   }).length
 
-  if (res === 0) return "no jobs"
+  if (res === 0) return "are no jobs"
 
-  if (res === 1) return "1 job"
+  if (res === 1) return "is 1 job"
 
-  return `${res} jobs`
+  return `are ${res} jobs`
 }
 
 

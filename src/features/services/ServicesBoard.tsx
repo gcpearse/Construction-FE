@@ -1,6 +1,6 @@
 import { useGetBusinessInfoQuery, useGetServicesQuery } from "../api/apiSlice"
 import { Service } from "../../models"
-import SingleService from "./SingleService"
+import ServiceCard from "./ServiceCard"
 import ServiceUpdater from "./ServiceUpdater"
 import ServiceDeleter from "./ServiceDeleter"
 import ServiceImageUpdater from "./ServiceImageUpdater"
@@ -46,7 +46,7 @@ const ServicesBoard: React.FC = () => {
           <li
             key={service.name}
             className="services-board-el">
-            <SingleService service={service} />
+            <ServiceCard service={service} />
             <ServiceImageUpdater service={service} />
             <ServiceUpdater service={service} />
             <ServiceDeleter service={service} />
@@ -69,7 +69,7 @@ const ServicesBoard: React.FC = () => {
 
         <h2>Services</h2>
 
-        <div style={{ display: "flex" }}>
+        <div className="page-top-btns">
           <AddServiceBtn />
           <DashNavBtn />
         </div>

@@ -1,14 +1,11 @@
 import { useCookies } from "react-cookie"
 import Login from "../features/admin/Login"
+import JobsBoard from "../features/jobs/JobsBoard"
 import { useTestAuthQuery } from "../features/api/apiSlice"
-import { useParams } from "react-router-dom"
-import Jobs from "../features/jobs/Jobs"
 
 
-const JobsPagePrivate: React.FC = () => {
+const AllJobsPagePrivate: React.FC = () => {
 
-
-  const { service } = useParams()
 
   const [{ token }] = useCookies(["token"])
 
@@ -22,11 +19,11 @@ const JobsPagePrivate: React.FC = () => {
       {!isSuccess ? (
         <Login />
       ) : (
-        <Jobs service={service} />
+        <JobsBoard />
       )}
     </section>
   )
 }
 
 
-export default JobsPagePrivate
+export default AllJobsPagePrivate

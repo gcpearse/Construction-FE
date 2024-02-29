@@ -42,6 +42,10 @@
   }
 }
 
+.page-top-btns {
+  display: flex;
+}
+
 .page-els-wrapper {
   padding: 0 1em;
 }
@@ -193,7 +197,8 @@
 }
 
 .modal-form-wrapper input,
-.modal-form-wrapper textarea {
+.modal-form-wrapper textarea,
+.modal-form-wrapper select {
   transition: 0.6s;
   margin-bottom: 1.1em;
   box-shadow: inset 0 0 2px #222222;
@@ -201,7 +206,8 @@
   border-radius: 6px;
 }
 
-.modal-form-wrapper input {
+.modal-form-wrapper input,
+.modal-form-wrapper select {
   height: 2rem;
   padding-left: 0.6em;
 }
@@ -673,7 +679,7 @@ nav {
 }
 
 
-/* || SingleService */
+/* || ServiceCard */
 
 .service-wrapper {
   position: relative;
@@ -742,6 +748,14 @@ nav {
 
 .jobs-board-btn {
   align-self: flex-end;
+}
+
+
+/* JobAdder */
+
+/* Prevents disabled input from animating when selected */
+#job-type-input:focus {
+  height: 2rem;
 }
 
 

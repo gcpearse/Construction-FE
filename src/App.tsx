@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
 import "./App.css"
 import AdminPage from "./pages/AdminPage"
-import JobsPagePrivate from "./pages/JobsPagePrivate"
+import AllJobsPagePrivate from "./pages/AllJobsPagePrivate"
 import HomePage from "./pages/HomePage"
 import ServicesPagePublic from "./pages/ServicesPagePublic"
 import Header from "./common/Header"
@@ -11,6 +11,7 @@ import Sidebar from "./features/sidebar/Sidebar"
 import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
 import ServicesPagePrivate from "./pages/ServicesPagePrivate"
+import JobsPagePrivate from "./pages/JobsPagePrivate"
 
 
 const App: React.FC = () => {
@@ -48,6 +49,11 @@ const App: React.FC = () => {
 
           <Route
             path="/admin/jobs"
+            element={<AllJobsPagePrivate />}
+          />
+
+          <Route
+            path="/admin/jobs/:service"
             element={<JobsPagePrivate />}
           />
 
@@ -64,5 +70,6 @@ const App: React.FC = () => {
     </>
   )
 }
+
 
 export default App

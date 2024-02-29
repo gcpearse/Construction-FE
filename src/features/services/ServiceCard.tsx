@@ -10,7 +10,7 @@ type Props = {
 }
 
 
-const SingleService: React.FC<Props> = ({ service }) => {
+const ServiceCard: React.FC<Props> = ({ service }) => {
 
 
   const dispatch = useAppDispatch()
@@ -64,4 +64,4 @@ const SingleService: React.FC<Props> = ({ service }) => {
 }
 
 
-export default SingleService
+export default ServiceCard
