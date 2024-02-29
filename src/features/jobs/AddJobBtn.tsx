@@ -3,19 +3,14 @@ import { useAppDispatch } from "../../app/hooks"
 import { openJobAdder } from "./jobsSlice"
 
 
-type Props = {
-  service: string | undefined
-}
-
-
-const AddJobBtn: React.FC<Props> = ({ service }) => {
+const AddJobBtn: React.FC = () => {
 
 
   const dispatch = useAppDispatch()
 
 
   const handleClick = () => {
-    dispatch(openJobAdder(service))
+    dispatch(openJobAdder())
     document.body.style.overflow = "hidden"
   }
 
