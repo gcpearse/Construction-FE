@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { closeJobAdder } from "./jobsSlice"
 import { useForm } from "react-hook-form"
 import { useState } from "react"
+import { useGetServicesQuery } from "../api/apiSlice"
 
 
 const JobAdder: React.FC = () => {
@@ -10,13 +11,39 @@ const JobAdder: React.FC = () => {
 
   const dispatch = useAppDispatch()
 
-  const { isJobAdderToggled } = useAppSelector(state => state.jobs)
+  const { isJobAdderToggled, selectedService } = useAppSelector(state => state.jobs)
 
   const [charLimit, setCharLimit] = useState<number>(0)
+
+
+  const {
+    data: services,
+    isSuccess
+  } = useGetServicesQuery()
 
   const {
     register
   } = useForm()
+
+
+  let content
+
+  if (isSuccess) content = (
+    [...services].sort((a, b) => {
+      if (a.name > b.name) return 1
+      if (a.name < b.name) return -1
+      return 0
+    }).map((service) => {
+      return (
+        <option
+          key={service.name}
+          value={service.name} >
+          {service.name}
+        </option>
+      )
+    })
+  )
+
 
   return (
     <div className={isJobAdderToggled ? (
@@ -43,6 +70,40 @@ const JobAdder: React.FC = () => {
         </div>
 
         <form>
+
+          {selectedService ? (
+            <>
+              <label htmlFor="job-type-input">
+                Service:
+              </label>
+
+              <input
+                type="text"
+                id="job-type-input"
+                autoComplete="true"
+                value={selectedService}
+                readOnly
+                required
+                {...register("job_Type")} />
+            </>
+          ) : (
+            <>
+              <label htmlFor="job-type-select">
+                Service: <span>*</span>
+              </label>
+
+              <select
+                id="job-type-select"
+                required>
+                <option
+                  value=""
+                  disabled>
+                  Please select a service:
+                </option>
+                {content}
+              </select>
+            </>
+          )}
 
           <label htmlFor="job-title-input">
             Job title: <span>*</span>
@@ -88,7 +149,7 @@ const JobAdder: React.FC = () => {
             required
             {...register("location")} />
 
-          <label htmlFor="service-description-input">
+          <label htmlFor="job-description-input">
             Description of job: <span>*</span>
           </label>
 
