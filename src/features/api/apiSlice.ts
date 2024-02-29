@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { Job, Service, BusinessInfo, LoginResponse, LoginRequest } from "../../models"
+import { Job, Service, BusinessInfo, LoginResponse, LoginRequest, JobRequest } from "../../models"
 
 
 export const apiSlice = createApi({
@@ -10,12 +10,25 @@ export const apiSlice = createApi({
     baseUrl: "http://4.234.160.181:8080/construction/api"
   }),
 
-  tagTypes: ["businessInfo", "services"],
+  tagTypes: ["businessInfo", "jobs", "services"],
 
   endpoints: builder => ({
 
     getJobs: builder.query<Job[], void>({
-      query: () => "/jobs"
+      query: () => "/jobs",
+      providesTags: ["jobs"]
+    }),
+
+    addJob: builder.mutation<Job, {job: JobRequest, token: string}>({
+      query: ({ job, token }) => ({
+        url: "/jobs",
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: job
+      }),
+      invalidatesTags: ["jobs"]
     }),
 
     getServices: builder.query<Service[], void>({
@@ -30,12 +43,7 @@ export const apiSlice = createApi({
         headers: {
           Authorization: `Bearer ${token}`
         },
-        body: {
-          name: service.name,
-          description: service.description,
-          image: service.image,
-          icon: service.icon
-        }
+        body: service
       }),
       invalidatesTags: ["services"]
     }),
@@ -130,6 +138,7 @@ export const apiSlice = createApi({
 
 export const {
   useGetJobsQuery,
+  useAddJobMutation,
   useGetServicesQuery,
   useAddServiceMutation,
   useUpdateServiceImageMutation,
