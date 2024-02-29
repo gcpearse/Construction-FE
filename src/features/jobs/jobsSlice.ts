@@ -1,13 +1,15 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 
 type JobsState = {
   isJobAdderToggled: boolean
+  selectedService: string | undefined
 }
 
 
 const initialState: JobsState= {
-  isJobAdderToggled: false
+  isJobAdderToggled: false,
+  selectedService: undefined
 }
 
 
@@ -17,8 +19,9 @@ const jobsSlice = createSlice({
   initialState,
   reducers: {
 
-    openJobAdder: (state) => {
+    openJobAdder: (state, action: PayloadAction<string | undefined>) => {
       state.isJobAdderToggled = true
+      state.selectedService = action.payload
     },
 
     closeJobAdder: (state) => {
