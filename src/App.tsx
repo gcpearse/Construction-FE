@@ -11,6 +11,7 @@ import Sidebar from "./features/sidebar/Sidebar"
 import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
 import ServicesPagePrivate from "./pages/ServicesPagePrivate"
+import JobsByTypePagePrivate from "./pages/JobsByTypePagePrivate"
 
 
 const App: React.FC = () => {
@@ -52,6 +53,11 @@ const App: React.FC = () => {
           />
 
           <Route
+            path="/admin/jobs/:service"
+            element={<JobsByTypePagePrivate />}
+          />
+
+          <Route
             path="/admin/services"
             element={<ServicesPagePrivate />}
           />
@@ -64,5 +70,6 @@ const App: React.FC = () => {
     </>
   )
 }
+
 
 export default App
