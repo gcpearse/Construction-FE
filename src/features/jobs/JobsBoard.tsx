@@ -73,7 +73,7 @@ const JobsBoard: React.FC = () => {
         <h2>Jobs</h2>
 
         <div className="page-top-btns">
-          <AddJobBtn />
+          <AddJobBtn service={undefined} />
           <DashNavBtn />
         </div>
 
