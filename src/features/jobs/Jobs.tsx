@@ -2,6 +2,7 @@ import DashNavBtn from "../../common/DashNavBtn"
 import { Job } from "../../models"
 import { formatHeader } from "../../utils/formattingUtils"
 import { useGetJobsQuery } from "../api/apiSlice"
+import AddJobBtn from "./AddJobBtn"
 
 
 type Props = {
@@ -36,13 +37,13 @@ const Jobs: React.FC<Props> = ({ service }) => {
         return job.job_Type === service
       }).map((job) => {
         return (
-          <li 
-          key={job.job_Id}
-          style={{
-            margin: "2em",
-            border: "2px solid black",
-            padding: "1em"
-          }}>
+          <li
+            key={job.job_Id}
+            style={{
+              margin: "2em",
+              border: "2px solid black",
+              padding: "1em"
+            }}>
             <p>Id: {job.job_Id}</p>
             <p>Title: {job.title}</p>
             <p>Tagline: {job.tagline}</p>
@@ -65,7 +66,8 @@ const Jobs: React.FC<Props> = ({ service }) => {
 
         <h2>Jobs / {service ? formatHeader(service) : "Error"}</h2>
 
-        <div>
+        <div className="page-top-btns">
+          <AddJobBtn />
           <DashNavBtn />
         </div>
 

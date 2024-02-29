@@ -2,6 +2,7 @@ import { useGetBusinessInfoQuery, useGetJobsQuery, useGetServicesQuery } from ".
 import { Service } from "../../models"
 import DashNavBtn from "../../common/DashNavBtn"
 import JobsBoardServiceCard from "./JobsBoardServiceCard"
+import AddJobBtn from "./AddJobBtn"
 
 
 const JobsBoard: React.FC = () => {
@@ -70,7 +71,8 @@ const JobsBoard: React.FC = () => {
 
         <h2>Jobs</h2>
 
-        <div>
+        <div className="page-top-btns">
+          <AddJobBtn />
           <DashNavBtn />
         </div>
 
