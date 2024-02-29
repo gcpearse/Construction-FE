@@ -42,6 +42,10 @@
   }
 }
 
+.page-top-btns {
+  display: flex;
+}
+
 .page-els-wrapper {
   padding: 0 1em;
 }
