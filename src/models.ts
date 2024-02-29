@@ -9,6 +9,15 @@ export type Job = {
   location: string
 }
 
+export type JobRequest = {
+  title: string
+  tagline: string
+  description: string
+  job_Type: string
+  client: string
+  location: string
+}
+
 export type Service = {
   name: string
   description: string
