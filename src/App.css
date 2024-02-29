@@ -751,6 +751,14 @@ nav {
 }
 
 
+/* JobAdder */
+
+/* Prevents disabled input from animating when selected */
+#job-type-input:focus {
+  height: 2rem;
+}
+
+
 /* || Footer */
 
 .scroll-up-btn {
