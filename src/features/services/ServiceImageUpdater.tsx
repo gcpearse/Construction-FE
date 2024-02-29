@@ -64,7 +64,7 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
       console.log(error)
 
       if (error.status === 401) {
-        setErrorMsg("Authentication error. Your session has expired. Please log in again.")
+        setErrorMsg("Authentication error. Please refresh the page.")
       } else {
         setErrorMsg("Oops! Something went wrong...")
       }

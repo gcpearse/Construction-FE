@@ -71,11 +71,12 @@ const ServiceAdder: React.FC = () => {
       console.log(error)
 
       if (error.status === 401) {
-        setErrorMsg("Authentication error. Your session has expired. Please log in again.")
+        setErrorMsg("Authentication error. Please refresh the page.")
+      } else if (error.data.slice(0, 16) === "23505: duplicate") {
+        setErrorMsg("A service with that name already exists.")
       } else {
         setErrorMsg("Oops! Something went wrong...")
       }
-
     }
   }
 
