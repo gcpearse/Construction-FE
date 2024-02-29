@@ -58,6 +58,12 @@ li {
   list-style-type: none;
 }
 
+select {
+  appearance: none;
+  font-family: "Manrope", sans-serif;
+  font-size: 16px;
+}
+
 textarea {
   appearance: none;
   resize: none;
