@@ -1,9 +1,11 @@
 import { FaRegWindowClose } from "react-icons/fa"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { closeJobAdder } from "./jobsSlice"
-import { useForm } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 import { useState } from "react"
-import { useGetServicesQuery } from "../api/apiSlice"
+import { useAddJobMutation, useGetServicesQuery } from "../api/apiSlice"
+import { useCookies } from "react-cookie"
+import { JobRequest } from "../../models"
 
 
 const JobAdder: React.FC = () => {
@@ -11,19 +13,25 @@ const JobAdder: React.FC = () => {
 
   const dispatch = useAppDispatch()
 
-  const { isJobAdderToggled, selectedService } = useAppSelector(state => state.jobs)
+  const { isJobAdderToggled } = useAppSelector(state => state.jobs)
 
+  const [{ token }] = useCookies(["token"])
+
+  const [errorMsg, setErrorMsg] = useState<string>("")
   const [charLimit, setCharLimit] = useState<number>(0)
-
 
   const {
     data: services,
     isSuccess
   } = useGetServicesQuery()
 
+  const [addJob] = useAddJobMutation()
+
   const {
-    register
-  } = useForm()
+    register,
+    handleSubmit,
+    reset
+  } = useForm<JobRequest>()
 
 
   let content
@@ -43,6 +51,36 @@ const JobAdder: React.FC = () => {
       )
     })
   )
+
+
+  const submitForm: SubmitHandler<JobRequest> = async (job) => {
+
+    try {
+      await addJob({
+        job: job,
+        token: token
+      }).unwrap()
+
+      reset()
+
+      dispatch(closeJobAdder())
+
+      document.body.style.overflow = "auto"
+
+      setErrorMsg("")
+
+    } catch (error: any) {
+
+      console.log(error)
+
+      if (error.status === 401) {
+        setErrorMsg("Authentication error. Please refresh the page.")
+      } else {
+        setErrorMsg("Oops! Something went wrong...")
+      }
+
+    }
+  }
 
 
   return (
@@ -69,41 +107,23 @@ const JobAdder: React.FC = () => {
 
         </div>
 
-        <form>
+        <form onSubmit={handleSubmit(submitForm)}>
 
-          {selectedService ? (
-            <>
-              <label htmlFor="job-type-input">
-                Service:
-              </label>
+          <label htmlFor="job-type-select">
+            Service: <span>*</span>
+          </label>
 
-              <input
-                type="text"
-                id="job-type-input"
-                autoComplete="true"
-                value={selectedService}
-                readOnly
-                required
-                {...register("job_Type")} />
-            </>
-          ) : (
-            <>
-              <label htmlFor="job-type-select">
-                Service: <span>*</span>
-              </label>
-
-              <select
-                id="job-type-select"
-                required>
-                <option
-                  value=""
-                  disabled>
-                  Please select a service:
-                </option>
-                {content}
-              </select>
-            </>
-          )}
+          <select
+            id="job-type-select"
+            required
+            {...register("job_Type")}>
+            <option
+              value=""
+              disabled>
+              Please select a service:
+            </option>
+            {content}
+          </select>
 
           <label htmlFor="job-title-input">
             Job title: <span>*</span>
@@ -174,6 +194,8 @@ const JobAdder: React.FC = () => {
             className="modal-btn">
             Submit
           </button>
+
+          {errorMsg ? <p className="rtk-query-form-msg">{errorMsg}</p> : null}
 
         </form>
       </div>
