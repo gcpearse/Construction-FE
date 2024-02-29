@@ -73,7 +73,7 @@ const Jobs: React.FC<Props> = ({ service }) => {
         </h2>
 
         <div className="page-top-btns">
-          <AddJobBtn />
+          <AddJobBtn service={service} />
           <DashNavBtn />
         </div>
 
