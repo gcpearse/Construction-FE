@@ -3,6 +3,7 @@ import { apiSlice } from "../features/api/apiSlice"
 import sidebarReducer from "../features/sidebar/sidebarSlice"
 import authReducer from "../features/admin/authSlice"
 import businessInfoReducer from "../features/admin/dashboard/businessInfo/businessInfoSlice"
+import jobsReducer from "../features/jobs/jobsSlice"
 import servicesReducer from "../features/services/servicesSlice"
 
 
@@ -12,6 +13,7 @@ export const store = configureStore({
     sidebar: sidebarReducer,
     auth: authReducer,
     businessInfo: businessInfoReducer,
+    jobs: jobsReducer,
     services: servicesReducer,
     [apiSlice.reducerPath]: apiSlice.reducer
   },
@@ -20,6 +22,7 @@ export const store = configureStore({
     getDefaultMiddleware().concat(apiSlice.middleware)
 
 })
+
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
