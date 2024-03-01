@@ -221,7 +221,7 @@ const JobAdder: React.FC = () => {
 
         </form>
       </div>
-    </div >
+    </div>
   )
 }
 
