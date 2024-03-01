@@ -134,11 +134,11 @@ const JobAdder: React.FC = () => {
 
               <select
                 id="job-type-select"
-                defaultValue="default"
+                defaultValue=""
                 required
                 {...register("job_Type")}>
                 <option
-                  value="default"
+                  value=""
                   disabled>
                   Please select a service:
                 </option>
