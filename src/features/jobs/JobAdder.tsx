@@ -6,6 +6,7 @@ import { useState } from "react"
 import { useAddJobMutation, useGetServicesQuery } from "../api/apiSlice"
 import { useCookies } from "react-cookie"
 import { JobRequest } from "../../models"
+import { useParams } from "react-router-dom"
 
 
 const JobAdder: React.FC = () => {
@@ -14,6 +15,8 @@ const JobAdder: React.FC = () => {
   const dispatch = useAppDispatch()
 
   const { isJobAdderToggled } = useAppSelector(state => state.jobs)
+
+  const { service } = useParams()
 
   const [{ token }] = useCookies(["token"])
 
@@ -109,21 +112,40 @@ const JobAdder: React.FC = () => {
 
         <form onSubmit={handleSubmit(submitForm)}>
 
-          <label htmlFor="job-type-select">
-            Service: <span>*</span>
-          </label>
+          {service ? (
+            <>
+              <label htmlFor="job-type-input">
+                Service:
+              </label>
 
-          <select
-            id="job-type-select"
-            required
-            {...register("job_Type")}>
-            <option
-              value=""
-              disabled>
-              Please select a service:
-            </option>
-            {content}
-          </select>
+              <input
+                type="text"
+                id="job-type-input"
+                value={service}
+                readOnly
+                required
+                {...register("job_Type")} />
+            </>
+          ) : (
+            <>
+              <label htmlFor="job-type-select">
+                Select a service: <span>*</span>
+              </label>
+
+              <select
+                id="job-type-select"
+                defaultValue=""
+                required
+                {...register("job_Type")}>
+                <option
+                  value=""
+                  disabled>
+                  Please select a service:
+                </option>
+                {content}
+              </select>
+            </>
+          )}
 
           <label htmlFor="job-title-input">
             Job title: <span>*</span>
