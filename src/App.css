@@ -137,7 +137,7 @@
   display: grid;
   align-items: center;
   overflow: scroll;
-  height: 100svh;
+  height: 100dvh;
   width: 100vw;
   background: rgba(0, 8, 20, 0.7);
 }
