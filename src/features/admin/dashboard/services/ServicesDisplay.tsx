@@ -25,7 +25,7 @@ const ServicesDisplay: React.FC = () => {
 
   if (isSuccess) content = (
     <div className="dash-comp-content">
-      <p>There are currently {services.length} services listed.</p>
+      <p>There are currently <b>{services.length}</b> service categories listed.</p>
     </div>
   )
 
