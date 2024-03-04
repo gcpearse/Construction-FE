@@ -23,6 +23,14 @@ export type Service = {
   description: string
   image: string
   icon: string
+  count: number
+}
+
+export type ServiceRequest = {
+  name: string
+  description: string
+  image: string
+  icon: string
 }
 
 export type BusinessInfo = {
