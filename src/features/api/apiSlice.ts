@@ -28,7 +28,7 @@ export const apiSlice = createApi({
         },
         body: job
       }),
-      invalidatesTags: ["jobs"]
+      invalidatesTags: ["jobs", "services"]
     }),
 
     getServices: builder.query<Service[], void>({
