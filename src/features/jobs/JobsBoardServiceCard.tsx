@@ -2,8 +2,6 @@ import { useNavigate } from "react-router-dom"
 import { Job, Service } from "../../models"
 import { formatHeader, formatJobsData } from "../../utils/formattingUtils"
 import { checkJobs } from "../../utils/logicalUtils"
-import { useAppDispatch } from "../../app/hooks"
-import { openJobAdder } from "./jobsSlice"
 
 
 type Props = {
@@ -14,8 +12,6 @@ type Props = {
 
 const JobsBoardServiceCard: React.FC<Props> = ({ service, jobs }) => {
 
-
-  const dispatch = useAppDispatch()
 
   const navigate = useNavigate()
 
@@ -33,24 +29,11 @@ const JobsBoardServiceCard: React.FC<Props> = ({ service, jobs }) => {
 
       </div>
 
-      {checkJobs(jobs, service) ? (
-        <button
-          className="dashboard-btn jobs-board-btn"
-          onClick={() => {
-            navigate(`/admin/jobs/${service.name}`)
-          }}>
-          Manage jobs
-        </button>
-      ) : (
-        <button 
+      <button
         className="dashboard-btn jobs-board-btn"
-        onClick={() => {
-          dispatch(openJobAdder())
-          document.body.style.overflow = "hidden"
-        }}>
-          Add a job
-        </button>
-      )}
+        onClick={() => navigate(`/admin/jobs/${service.name}`)}>
+        {checkJobs(jobs, service) ? "Manage jobs" : "Add a job"}
+      </button>
 
     </div>
   )
