@@ -102,6 +102,7 @@ const JobAdder: React.FC = () => {
           <button
             className="window-close-btn"
             onClick={() => {
+              reset()
               dispatch(closeJobAdder())
               document.body.style.overflow = "auto"
             }}>

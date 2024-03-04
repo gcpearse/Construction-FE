@@ -137,7 +137,7 @@
   display: grid;
   align-items: center;
   overflow: scroll;
-  height: 100vh;
+  height: 100svh;
   width: 100vw;
   background: rgba(0, 8, 20, 0.7);
 }
@@ -752,6 +752,10 @@ nav {
 
 
 /* JobAdder */
+
+#job-type-input {
+  color: #7F8389;
+}
 
 /* Prevents disabled input from animating when selected */
 #job-type-input:focus {
