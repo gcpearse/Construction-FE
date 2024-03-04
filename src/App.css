@@ -77,10 +77,6 @@
   font-size: 1rem;
 }
 
-.yellow-btn {
-  background: #FFD60A;
-}
-
 .blue-btn {
   background: #003566;
   color: #FEFEFE;
@@ -88,6 +84,10 @@
 
 .blue-btn:hover {
   background: #001D3D;
+}
+
+.yellow-btn {
+  background: #FFD60A;
 }
 
 .yellow-btn:hover {
@@ -129,7 +129,7 @@
 /* CSS rules for modal forms */
 .modal-form-overlay {
   position: fixed;
-  /* Z-index revents later elements from stacking above this overlay */
+  /* Z-index prevents later elements from stacking above this overlay */
   z-index: 1;
   top: 0;
   left: 0;

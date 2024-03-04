@@ -5,6 +5,9 @@ import { formatHeader } from "../../utils/formattingUtils"
 import { useGetJobsQuery } from "../api/apiSlice"
 import AddJobBtn from "./AddJobBtn"
 import JobAdder from "./JobAdder"
+import { useEffect } from "react"
+import { useAppDispatch } from "../../app/hooks"
+import { openJobAdder } from "./jobsSlice"
 
 
 type Props = {
@@ -15,6 +18,8 @@ type Props = {
 const Jobs: React.FC<Props> = ({ service }) => {
 
 
+  const dispatch = useAppDispatch()
+
   const {
     data: jobs,
     isLoading,
@@ -22,6 +27,14 @@ const Jobs: React.FC<Props> = ({ service }) => {
     isError,
     error
   } = useGetJobsQuery()
+  
+  useEffect(() => {
+    if (!jobs?.filter((job: Job) => {
+      return job.job_Type === service
+    }).length) {
+      dispatch(openJobAdder())
+    }
+  }, [])
 
 
   let content

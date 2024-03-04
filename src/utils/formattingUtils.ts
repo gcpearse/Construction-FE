@@ -1,17 +1,10 @@
-import { Job, Service } from "../models"
+export const formatJobsData = (count: number): string => {
 
+  if (count === 0) return "are no jobs"
 
-export const formatJobsData = (jobs: Job[], service: Service): string => {
+  if (count === 1) return "is 1 job"
 
-  const res = jobs.filter((job) => {
-    return job.job_Type === service.name
-  }).length
-
-  if (res === 0) return "are no jobs"
-
-  if (res === 1) return "is 1 job"
-
-  return `are ${res} jobs`
+  return `are ${count} jobs`
 }
 
 
