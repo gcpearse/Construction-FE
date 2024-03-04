@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { Job, Service, BusinessInfo, LoginResponse, LoginRequest, JobRequest } from "../../models"
+import { Job, Service, BusinessInfo, LoginResponse, LoginRequest, JobRequest, ServiceRequest } from "../../models"
 
 
 export const apiSlice = createApi({
@@ -36,7 +36,7 @@ export const apiSlice = createApi({
       providesTags: ["services"]
     }),
 
-    addService: builder.mutation<Service, { service: Service, token: string }>({
+    addService: builder.mutation<Service, { service: ServiceRequest, token: string }>({
       query: ({ service, token }) => ({
         url: "/jobtypes",
         method: "POST",
@@ -60,7 +60,7 @@ export const apiSlice = createApi({
       invalidatesTags: ["services"]
     }),
 
-    updateServiceDescription: builder.mutation<Service, { service: Service, token: string }>({
+    updateServiceDescription: builder.mutation<Service, { service: ServiceRequest, token: string }>({
       query: ({ service, token }) => ({
         url: `/jobtypes/${service.name}`,
         method: "PATCH",
