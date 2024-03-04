@@ -29,7 +29,7 @@ const JobsBoardServiceCard: React.FC<Props> = ({ service, jobs }) => {
 
         <h3>{formatHeader(service.name)}</h3>
 
-        <p>There {formatJobsData(jobs, service)} in the <span>{formatHeader(service.name)}</span> service category.</p>
+        <p>There {formatJobsData(service.count)} in the <span>{formatHeader(service.name)}</span> service category.</p>
 
       </div>
 
