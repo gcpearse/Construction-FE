@@ -27,12 +27,15 @@ const Jobs: React.FC<Props> = ({ service }) => {
     isError,
     error
   } = useGetJobsQuery()
-  
+
   useEffect(() => {
-    if (!jobs?.filter((job: Job) => {
-      return job.job_Type === service
-    }).length) {
-      dispatch(openJobAdder())
+    // First if statement added to prevent JobAdder opening upon page refresh on non-empty jobs page
+    if (jobs) {
+      if (!jobs.filter((job: Job) => {
+        return job.job_Type === service
+      }).length) {
+        dispatch(openJobAdder())
+      }
     }
   }, [])
 
