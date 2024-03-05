@@ -125,7 +125,7 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
 
           <button
             type="submit"
-            className="modal-btn">
+            className="modal-btn blue-btn">
             DELETE
           </button>
 

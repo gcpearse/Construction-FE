@@ -6,7 +6,7 @@ import { useState } from "react"
 import { useAddJobMutation, useGetServicesQuery } from "../api/apiSlice"
 import { useCookies } from "react-cookie"
 import { JobRequest } from "../../models"
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 
 
 const JobAdder: React.FC = () => {
@@ -15,8 +15,6 @@ const JobAdder: React.FC = () => {
   const dispatch = useAppDispatch()
 
   const { isJobAdderToggled } = useAppSelector(state => state.jobs)
-
-  const navigate = useNavigate()
 
   const { service } = useParams()
 
@@ -56,27 +54,6 @@ const JobAdder: React.FC = () => {
       )
     })
   )
-
-
-  const handleClick = () => {
-
-    reset()
-
-    dispatch(closeJobAdder())
-
-    document.body.style.overflow = "auto"
-
-    // First if statement avoids error on page with no :service params
-    if (service) {
-      // Filter used here because GET request to /jobtypes/{name} throws error when {name} is undefined
-      if (!services?.filter((singleService) => {
-        return singleService.name === service
-      })[0].count) {
-        navigate("/admin/jobs")
-      }
-    }
-
-  }
 
 
   const submitForm: SubmitHandler<JobRequest> = async (job) => {
@@ -124,7 +101,11 @@ const JobAdder: React.FC = () => {
 
           <button
             className="window-close-btn"
-            onClick={() => handleClick()}>
+            onClick={() => {
+              reset()
+              dispatch(closeJobAdder())
+              document.body.style.overflow = "auto"
+            }}>
             <FaRegWindowClose className="window-close-icon" />
           </button>
 
@@ -233,7 +214,7 @@ const JobAdder: React.FC = () => {
 
           <button
             type="submit"
-            className="modal-btn">
+            className="modal-btn blue-btn">
             Submit
           </button>
 

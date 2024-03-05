@@ -19,14 +19,14 @@ const AddServiceBtn: React.FC = () => {
     <>
 
       <button
-        className="yellow-btn large-display-el"
+        className="yellow-btn rectangular-btn large-display-el"
         style={{ marginRight: "1em" }}
         onClick={() => handleClick()}>
         Create Service
       </button>
 
       <button
-        className="yellow-icon-btn icon-btn small-display-el"
+        className="yellow-btn icon-btn small-display-el"
         style={{ marginRight: "1em" }}
         onClick={() => handleClick()}>
         <FaPlus className="btn-icon" />

@@ -41,7 +41,7 @@ const ServiceCard: React.FC<Props> = ({ service }) => {
       <div className="service-btn-wrapper">
 
         <button
-          className="blue-btn"
+          className="blue-btn rectangular-btn"
           onClick={() => {
             dispatch(openServiceUpdater(service.name))
             document.body.style.overflow = "hidden"
@@ -50,7 +50,7 @@ const ServiceCard: React.FC<Props> = ({ service }) => {
         </button>
 
         <button
-          className="yellow-icon-btn icon-btn"
+          className="yellow-btn icon-btn"
           onClick={() => {
             dispatch(openServiceDeleter(service.name))
             document.body.style.overflow = "hidden"

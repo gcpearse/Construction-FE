@@ -130,7 +130,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
             <button
               type="button"
-              className="modal-btn-small"
+              className="modal-btn-small yellow-btn"
               onClick={() => {
                 reset({
                   description: service.description
@@ -142,7 +142,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
             <button
               type="reset"
-              className="modal-btn-small"
+              className="modal-btn-small yellow-btn"
               onClick={() => setCharLimit(0)}>
               Clear
             </button>
@@ -151,7 +151,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
           <button
             type="submit"
-            className="modal-btn">
+            className="modal-btn blue-btn">
             Submit
           </button>
 

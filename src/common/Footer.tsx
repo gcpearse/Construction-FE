@@ -24,9 +24,9 @@ const Footer: React.FC = () => {
 
       <button
         className={!isVisible ? (
-          "scroll-up-btn"
+          "scroll-btn"
         ) : (
-          "scroll-up-btn visible-btn"
+          "scroll-btn visible-scroll-btn"
         )}
         onClick={() => {
           window.scrollTo({
