@@ -155,7 +155,8 @@
   background: #FEFEFE;
 }
 
-.modal-form-top {
+.modal-form-top,
+.job-card-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -635,7 +636,8 @@ nav {
 }
 
 /* Compare to dash-comp-wrapper */
-.services-board-el {
+.services-board-el,
+.jobs-board-el {
   flex-grow: 1;
   margin: 1em;
   box-shadow: 0 0 4px #222222;
@@ -742,6 +744,40 @@ nav {
 /* Prevents disabled input from animating when selected */
 #job-type-input:focus {
   height: 2rem;
+}
+
+
+/* JobCard */
+
+.job-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  text-align: start;
+}
+
+.job-card-top>span {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.job-card-content {
+  padding: 1em 1em 0;
+}
+
+.job-card-info-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+}
+
+.job-card-info-row>p {
+  margin-left: 5%;
+}
+
+.job-card-content>*:not(:last-child) {
+  margin-bottom: 1em;
 }
 
 
