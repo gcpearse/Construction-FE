@@ -19,7 +19,11 @@ export const apiSlice = createApi({
       providesTags: ["jobs"]
     }),
 
-    addJob: builder.mutation<Job, {job: JobRequest, token: string}>({
+    getJobById: builder.query<Job, { id: string | undefined }>({
+      query: ({ id }) => `/jobs/${id}`
+    }),
+
+    addJob: builder.mutation<Job, { job: JobRequest, token: string }>({
       query: ({ job, token }) => ({
         url: "/jobs",
         method: "POST",
@@ -138,6 +142,7 @@ export const apiSlice = createApi({
 
 export const {
   useGetJobsQuery,
+  useGetJobByIdQuery,
   useAddJobMutation,
   useGetServicesQuery,
   useAddServiceMutation,
