@@ -12,6 +12,7 @@ import { useAppDispatch } from "./app/hooks"
 import { closeSidebar } from "./features/sidebar/sidebarSlice"
 import ServicesPagePrivate from "./pages/ServicesPagePrivate"
 import JobsPagePrivate from "./pages/JobsPagePrivate"
+import SingleJobPagePrivate from "./pages/SingleJobPagePrivate"
 
 
 const App: React.FC = () => {
@@ -55,6 +56,11 @@ const App: React.FC = () => {
           <Route
             path="/admin/jobs/:service"
             element={<JobsPagePrivate />}
+          />
+
+          <Route
+            path="/admin/jobs/:service/:job_id"
+            element={<SingleJobPagePrivate />}
           />
 
           <Route
