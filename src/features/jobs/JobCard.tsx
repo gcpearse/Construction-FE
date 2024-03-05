@@ -1,6 +1,6 @@
 import { FaMapMarkerAlt, FaUser } from "react-icons/fa"
 import { Job } from "../../models"
-import { formatHeader } from "../../utils/formattingUtils"
+import { formatHeader, lengthenDate } from "../../utils/formattingUtils"
 
 
 type Props = {
@@ -18,12 +18,12 @@ const JobCard: React.FC<Props> = ({ job }) => {
 
         <div className="job-card-top">
           <h3>{formatHeader(job.title)}</h3>
-          <span>#{job.job_Id}</span>
+          <span>ID #{job.job_Id}</span>
         </div>
 
         <div className="job-card-content">
 
-          <p>{job.date}</p>
+          <p>Posted on {lengthenDate(job.date)}</p>
 
           <h4>{job.tagline}</h4>
 
