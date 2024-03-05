@@ -22,6 +22,7 @@
 /* CSS rules for page area between nav and footer */
 .page-wrapper {
   margin: 1em 0;
+  /* Padding-bottom matches margin-bottom applied to page-top */
   padding: 0 0 1em;
   height: 100%;
   background: rgba(254, 254, 254, 0.7);
@@ -31,6 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  /* Margin-bottom matches padding-bottom applied to page-wrapper */
   margin-bottom: 1em;
   border-bottom: 4px solid #f4f5f7;
   padding: 1em;
@@ -73,6 +75,23 @@
   border-radius: 10px;
   padding: 0.7em 1em;
   font-size: 1rem;
+}
+
+.floating-btns-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.floating-btn {
+  margin: 1em;
+  border: none;
+  border-radius: 50px;
+  width: 90vw;
+  max-width: 300px;
+  padding: 1em;
+  font-size: 1rem;;
 }
 
 .blue-btn {
