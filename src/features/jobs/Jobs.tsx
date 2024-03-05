@@ -5,7 +5,7 @@ import { formatHeader } from "../../utils/formattingUtils"
 import { useGetJobsQuery } from "../api/apiSlice"
 import AddJobBtn from "./AddJobBtn"
 import JobAdder from "./JobAdder"
-import { useEffect } from "react"
+import { checkJobsByParams } from "../../utils/logicalUtils"
 import { useAppDispatch } from "../../app/hooks"
 import { openJobAdder } from "./jobsSlice"
 
@@ -28,17 +28,6 @@ const Jobs: React.FC<Props> = ({ service }) => {
     error
   } = useGetJobsQuery()
 
-  useEffect(() => {
-    // First if statement added to prevent JobAdder opening upon page refresh on non-empty jobs page
-    if (jobs) {
-      if (!jobs.filter((job: Job) => {
-        return job.job_Type === service
-      }).length) {
-        dispatch(openJobAdder())
-      }
-    }
-  }, [])
-
 
   let content
 
@@ -49,32 +38,53 @@ const Jobs: React.FC<Props> = ({ service }) => {
     content = <p className="rtk-query-msg">Oops! Something went wrong...</p>
   }
 
-  if (isSuccess) content = (
-    <ul>
-      {jobs.filter((job: Job) => {
-        return job.job_Type === service
-      }).map((job) => {
-        return (
-          <li
-            key={job.job_Id}
-            style={{
-              margin: "2em",
-              border: "2px solid black",
-              padding: "1em"
+  if (isSuccess) {
+    if (checkJobsByParams(jobs, service)) {
+      content = (
+        <ul>
+          {jobs.filter((job: Job) => {
+            return job.job_Type === service
+          }).map((job) => {
+            return (
+              <li
+                key={job.job_Id}
+                style={{
+                  margin: "2em",
+                  border: "2px solid black",
+                  padding: "1em"
+                }}>
+                <p>Id: {job.job_Id}</p>
+                <p>Title: {job.title}</p>
+                <p>Tagline: {job.tagline}</p>
+                <p>Description: {job.description}</p>
+                <p>Service: {job.job_Type}</p>
+                <p>Date: {job.date}</p>
+                <p>Client: {job.client}</p>
+                <p>Location: {job.location}</p>
+              </li>
+            )
+          })}
+        </ul>
+      )
+    } else {
+      content = (
+        <div>
+          <button
+            className="yellow-btn"
+            onClick={() => {
+              dispatch(openJobAdder())
             }}>
-            <p>Id: {job.job_Id}</p>
-            <p>Title: {job.title}</p>
-            <p>Tagline: {job.tagline}</p>
-            <p>Description: {job.description}</p>
-            <p>Service: {job.job_Type}</p>
-            <p>Date: {job.date}</p>
-            <p>Client: {job.client}</p>
-            <p>Location: {job.location}</p>
-          </li>
-        )
-      })}
-    </ul>
-  )
+            Create Job
+          </button>
+          <Link to="/admin/jobs">
+            <button className="blue-btn">
+              Return to Jobs Board
+            </button>
+          </Link>
+        </div>
+      )
+    }
+  }
 
 
   return (
