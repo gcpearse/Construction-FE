@@ -70,14 +70,14 @@ const Jobs: React.FC<Props> = ({ service }) => {
       content = (
         <div>
           <button
-            className="yellow-btn"
+            className="yellow-btn rectangular-btn"
             onClick={() => {
               dispatch(openJobAdder())
             }}>
             Create Job
           </button>
           <Link to="/admin/jobs">
-            <button className="blue-btn">
+            <button className="blue-btn rectangular-btn">
               Return to Jobs Board
             </button>
           </Link>

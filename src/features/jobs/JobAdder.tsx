@@ -214,7 +214,7 @@ const JobAdder: React.FC = () => {
 
           <button
             type="submit"
-            className="modal-btn">
+            className="modal-btn blue-btn">
             Submit
           </button>
 

@@ -9,13 +9,13 @@ const DashNavBtn: React.FC = () => {
     <>
 
       <Link to="/admin">
-        <button className="blue-btn large-display-el">
+        <button className="blue-btn rectangular-btn large-display-el">
           <p>Dashboard</p>
         </button>
       </Link>
 
       <Link to="/admin">
-        <button className="blue-icon-btn icon-btn small-display-el">
+        <button className="blue-btn icon-btn small-display-el">
           <MdDashboard className="btn-icon" />
         </button>
       </Link>

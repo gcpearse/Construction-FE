@@ -17,11 +17,11 @@ const Header: React.FC = () => {
       <ul>
 
         <li>
-          <FaPhone className="header-icon" />&nbsp; {businessInfo?.phone}
+          <FaPhone className="yellow-icon" />&nbsp; {businessInfo?.phone}
         </li>
 
         <li>
-          <FaEnvelope className="header-icon" />&nbsp; {businessInfo?.email}
+          <FaEnvelope className="yellow-icon" />&nbsp; {businessInfo?.email}
         </li>
 
       </ul>

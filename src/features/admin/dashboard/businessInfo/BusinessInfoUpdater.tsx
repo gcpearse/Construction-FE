@@ -210,14 +210,14 @@ const BusinessInfoUpdater: React.FC = () => {
 
             <button
               type="button"
-              className="modal-btn-small"
+              className="modal-btn-small yellow-btn"
               onClick={() => reset(info)}>
               Reset
             </button>
 
             <button
               type="reset"
-              className="modal-btn-small">
+              className="modal-btn-small yellow-btn">
               Clear
             </button>
 
@@ -225,7 +225,7 @@ const BusinessInfoUpdater: React.FC = () => {
 
           <button
             type="submit"
-            className="modal-btn">
+            className="modal-btn blue-btn">
             Submit
           </button>
 

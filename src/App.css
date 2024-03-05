@@ -68,9 +68,7 @@
   font-size: 1.6rem;
 }
 
-.blue-btn,
-.yellow-btn {
-  transition: 0.6s;
+.rectangular-btn {
   border: none;
   border-radius: 10px;
   padding: 0.7em 1em;
@@ -98,28 +96,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.6s;
+  border: none;
   border-radius: 50px;
   padding: 0.6em;
-}
-
-.yellow-icon-btn {
-  border: none;
-  background: #FFD60A;
-}
-
-.yellow-icon-btn:hover {
-  background: #FFC300;
-}
-
-.blue-icon-btn {
-  border: none;
-  background: #003566;
-  color: #FEFEFE;
-}
-
-.blue-icon-btn:hover {
-  background: #001D3D;
 }
 
 .btn-icon {
@@ -234,7 +213,6 @@
 
 .modal-btn,
 .modal-btn-small {
-  transition: 0.6s;
   border: none;
   height: 3em;
   font-size: 1rem;
@@ -243,22 +221,11 @@
 .modal-btn {
   border-radius: 50px;
   width: 100%;
-  background: #003566;
-  color: #FEFEFE;
-}
-
-.modal-btn:hover {
-  background: #001D3D;
 }
 
 .modal-btn-small {
   border-radius: 10px;
   width: calc(50% - 0.5em);
-  background: #FFD60A;
-}
-
-.modal-btn-small:hover {
-  background: #FFC300;
 }
 
 .rtk-query-form-msg {
@@ -355,7 +322,7 @@ header ul li {
   font-size: 1.1rem;
 }
 
-.header-icon {
+.yellow-icon {
   color: #FFC300;
 }
 
@@ -486,7 +453,6 @@ nav {
 }
 
 .login-form button {
-  transition: 0.6s;
   border: none;
   border-radius: 50px;
   height: 3em;
@@ -541,7 +507,6 @@ nav {
 }
 
 .dashboard-btn {
-  transition: 0.6s;
   margin: 1em auto;
   border: none;
   border-radius: 50px;
@@ -604,7 +569,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.6s;
   border: none;
   border-radius: 8px;
   padding: 0.6em 0.8em;
@@ -705,7 +669,6 @@ nav {
   position: absolute;
   top: 0.6em;
   right: 0.6em;
-  transition: 0.6s;
   box-shadow: 0 0 10px #222222;
   border: 3px solid #FEFEFE;
   background: #001D3D;
@@ -765,7 +728,7 @@ nav {
 
 /* || Footer */
 
-.scroll-up-btn {
+.scroll-btn {
   position: fixed;
   bottom: 7px;
   right: -72px;
@@ -779,10 +742,10 @@ nav {
   opacity: 50%;
 }
 
-.visible-btn {
+.visible-scroll-btn {
   right: 7px;
 }
 
-.scroll-up-btn:hover {
+.scroll-btn:hover {
   opacity: 100%;
 }

@@ -117,7 +117,7 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
             required
             {...register("image")} />
 
-          <button className="modal-btn">
+          <button className="modal-btn blue-btn">
             Submit
           </button>
 

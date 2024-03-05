@@ -11,6 +11,7 @@ a {
 }
 
 button {
+  transition: 0.6s;
   cursor: pointer;
   /* Prevent unexpected issues with display on mobile */
   color: inherit;
