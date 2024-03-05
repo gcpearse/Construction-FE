@@ -1,6 +1,7 @@
 import { FaMapMarkerAlt, FaUser } from "react-icons/fa"
 import { Job } from "../../models"
 import { formatHeader, lengthenDate } from "../../utils/formattingUtils"
+import { useNavigate } from "react-router-dom"
 
 
 type Props = {
@@ -9,6 +10,9 @@ type Props = {
 
 
 const JobCard: React.FC<Props> = ({ job }) => {
+
+
+  const navigate = useNavigate()
 
 
   return (
@@ -41,7 +45,9 @@ const JobCard: React.FC<Props> = ({ job }) => {
 
       </div>
 
-      <button className="dashboard-btn">
+      <button
+        className="dashboard-btn"
+        onClick={() => navigate(`/admin/jobs/${job.job_Type}/${job.job_Id}`)}>
         View job
       </button>
 
