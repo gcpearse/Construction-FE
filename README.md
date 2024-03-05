@@ -10,4 +10,4 @@ For this project, I have paired up with a colleague - Chris - who is developing 
 
 ## Tech Stack
 
-I am building this app in React with TypeScript and vanilla CSS. I have used Redux Toolkit to write the requisite Redux logic, including RTK Query for data fetching and caching.
+This application is being built in React with TypeScript and vanilla CSS. Redux Toolkit is used for the requisite Redux logic, including RTK Query for data fetching and caching.
