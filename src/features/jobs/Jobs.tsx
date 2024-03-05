@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import DashNavBtn from "../../common/DashNavBtn"
 import { Job } from "../../models"
 import { formatHeader } from "../../utils/formattingUtils"
@@ -19,6 +19,8 @@ const Jobs: React.FC<Props> = ({ service }) => {
 
 
   const dispatch = useAppDispatch()
+
+  const navigate = useNavigate()
 
   const {
     data: jobs,
@@ -68,19 +70,21 @@ const Jobs: React.FC<Props> = ({ service }) => {
       )
     } else {
       content = (
-        <div>
+        <div className="floating-btns-wrapper">
           <button
-            className="yellow-btn rectangular-btn"
+            className="yellow-btn floating-btn"
             onClick={() => {
               dispatch(openJobAdder())
             }}>
-            Create Job
+            Create New Job
           </button>
-          <Link to="/admin/jobs">
-            <button className="blue-btn rectangular-btn">
-              Return to Jobs Board
-            </button>
-          </Link>
+          <button
+            className="blue-btn floating-btn"
+            onClick={() => {
+              navigate("/admin/jobs")
+            }}>
+            Return to Jobs Board
+          </button>
         </div>
       )
     }
