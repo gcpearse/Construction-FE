@@ -156,7 +156,8 @@
 }
 
 .modal-form-top,
-.job-card-top {
+.job-card-top,
+.single-job-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -757,7 +758,8 @@ nav {
   text-align: start;
 }
 
-.job-card-top>span {
+.job-card-top>span,
+.single-job-top>span {
   font-size: 1.15rem;
   font-weight: 500;
 }
@@ -778,6 +780,55 @@ nav {
 
 .job-card-content>*:not(:last-child) {
   margin-bottom: 1em;
+}
+
+
+/* || SingleJob */
+
+.single-job-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-job-wrapper {
+  margin: 1em auto;
+  box-shadow: 0 0 4px #222222;
+  border-radius: 8px;
+  max-width: 95vw;
+  background: #FEFEFE;
+  text-align: start;
+}
+
+.single-job-content {
+  padding: 1em;
+}
+
+.single-job-content>*:not(:last-child) {
+  padding-bottom: 1em;
+}
+
+.single-job-content h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.single-job-content h5 {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.single-job-content h6 {
+  margin-bottom: 0.2em;
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: #7F8389;
+}
+
+.single-job-btns-wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
 }
 
 
