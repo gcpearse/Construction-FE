@@ -25,7 +25,7 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
   const dispatch = useAppDispatch()
 
   const {
-    isImageUpdaterToggled,
+    isServiceImageUpdaterToggled,
     selectedService
   } = useAppSelector(state => state.services)
 
@@ -74,7 +74,7 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
 
 
   return (
-    <div className={isImageUpdaterToggled && selectedService === service.name ? (
+    <div className={isServiceImageUpdaterToggled && selectedService === service.name ? (
       "modal-form-overlay"
     ) : (
       "modal-form-overlay closed-modal"

@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom"
 import { useGetJobByIdQuery } from "../api/apiSlice"
 import DashNavBtn from "../../common/DashNavBtn"
-import { formatHeader } from "../../utils/formattingUtils"
+import { formatHeader, lengthenDate } from "../../utils/formattingUtils"
+import { FaTrashAlt } from "react-icons/fa"
 
 
 const SingleJob: React.FC = () => {
@@ -30,7 +31,58 @@ const SingleJob: React.FC = () => {
   }
 
   if (isSuccess) content = (
-    <p>Details of job #{job.job_Id} will go here.</p>
+    <div className="single-job-container">
+
+      <article className="single-job-wrapper">
+
+        <div className="single-job-top">
+          <h3>{formatHeader(job.job_Type)}</h3>
+          <span>ID #{job.job_Id}</span>
+        </div>
+
+        <div className="single-job-content">
+
+          <h4>{job.title}</h4>
+
+          <h5>{job.tagline}</h5>
+
+          <div>
+            <h6>Date posted:</h6>
+            <p>{lengthenDate(job.date)}</p>
+          </div>
+
+          <div>
+            <h6>Client:</h6>
+            <p>{job.client}</p>
+          </div>
+
+          <div>
+            <h6>Location:</h6>
+            <p>{job.location}</p>
+          </div>
+
+          <div>
+            <h6>Description:</h6>
+            <p>{job.description}</p>
+          </div>
+
+          <div className="single-job-btns-wrapper">
+
+            <button
+              className="blue-btn rectangular-btn">
+              Update
+            </button>
+
+            <button
+              className="yellow-btn icon-btn">
+              <FaTrashAlt className="btn-icon" />
+            </button>
+
+          </div>
+
+        </div>
+      </article>
+    </div>
   )
 
 

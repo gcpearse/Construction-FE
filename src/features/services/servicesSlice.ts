@@ -3,18 +3,18 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit"
 
 type ServicesState = {
   isServiceAdderToggled: boolean
-  isImageUpdaterToggled: boolean
-  isUpdaterToggled: boolean
-  isDeleterToggled: boolean
+  isServiceImageUpdaterToggled: boolean
+  isServiceUpdaterToggled: boolean
+  isServiceDeleterToggled: boolean
   selectedService: string | undefined
 }
 
 
 const initialState: ServicesState = {
   isServiceAdderToggled: false,
-  isImageUpdaterToggled: false,
-  isUpdaterToggled: false,
-  isDeleterToggled: false,
+  isServiceImageUpdaterToggled: false,
+  isServiceUpdaterToggled: false,
+  isServiceDeleterToggled: false,
   selectedService: undefined
 }
 
@@ -34,32 +34,32 @@ const servicesSlice = createSlice({
     },
 
     openImageUpdater: (state, action: PayloadAction<string>) => {
-      state.isImageUpdaterToggled = true
+      state.isServiceImageUpdaterToggled = true
       state.selectedService = action.payload
     },
 
     closeImageUpdater: (state) => {
-      state.isImageUpdaterToggled = false
+      state.isServiceImageUpdaterToggled = false
       state.selectedService = undefined
     },
 
     openServiceUpdater: (state, action: PayloadAction<string>) => {
-      state.isUpdaterToggled = true
+      state.isServiceUpdaterToggled = true
       state.selectedService = action.payload
     },
 
     closeServiceUpdater: (state) => {
-      state.isUpdaterToggled = false
+      state.isServiceUpdaterToggled = false
       state.selectedService = undefined
     },
 
     openServiceDeleter: (state, action: PayloadAction<string>) => {
-      state.isDeleterToggled = true
+      state.isServiceDeleterToggled = true
       state.selectedService = action.payload
     },
 
     closeServiceDeleter: (state) => {
-      state.isDeleterToggled = false
+      state.isServiceDeleterToggled = false
       state.selectedService = undefined
     }
 

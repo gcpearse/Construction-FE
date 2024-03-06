@@ -26,7 +26,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
   const dispatch = useAppDispatch()
 
-  const { isUpdaterToggled, selectedService } = useAppSelector(state => state.services)
+  const { isServiceUpdaterToggled, selectedService } = useAppSelector(state => state.services)
 
   const [{ token }] = useCookies(["token"])
 
@@ -83,7 +83,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
 
   return (
-    <div className={isUpdaterToggled && selectedService === service.name ? (
+    <div className={isServiceUpdaterToggled && selectedService === service.name ? (
       "modal-form-overlay"
     ) : (
       "modal-form-overlay closed-modal"

@@ -23,7 +23,7 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
 
   const dispatch = useAppDispatch()
 
-  const { isDeleterToggled, selectedService } = useAppSelector(state => state.services)
+  const { isServiceDeleterToggled, selectedService } = useAppSelector(state => state.services)
 
   const [{ token }] = useCookies(["token"])
 
@@ -75,7 +75,7 @@ const ServiceDeleter: React.FC<Props> = ({ service }) => {
   }
 
   return (
-    <div className={isDeleterToggled && selectedService === service.name ? (
+    <div className={isServiceDeleterToggled && selectedService === service.name ? (
       "modal-form-overlay"
     ) : (
       "modal-form-overlay closed-modal"
