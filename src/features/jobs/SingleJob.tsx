@@ -82,6 +82,7 @@ const SingleJob: React.FC = () => {
               className="yellow-btn icon-btn"
               onClick={() => {
                 dispatch(openJobDeleter())
+                document.body.style.overflow = "hidden"
               }}>
               <FaTrashAlt className="btn-icon" />
             </button>
