@@ -3,10 +3,15 @@ import { useGetJobByIdQuery } from "../api/apiSlice"
 import DashNavBtn from "../../common/DashNavBtn"
 import { formatHeader, lengthenDate } from "../../utils/formattingUtils"
 import { FaTrashAlt } from "react-icons/fa"
+import { useAppDispatch } from "../../app/hooks"
+import { openJobDeleter } from "./jobsSlice"
+import JobDeleter from "./JobDeleter"
 
 
 const SingleJob: React.FC = () => {
 
+
+  const dispatch = useAppDispatch()
 
   const { service, job_id } = useParams()
 
@@ -74,14 +79,21 @@ const SingleJob: React.FC = () => {
             </button>
 
             <button
-              className="yellow-btn icon-btn">
+              className="yellow-btn icon-btn"
+              onClick={() => {
+                dispatch(openJobDeleter())
+              }}>
               <FaTrashAlt className="btn-icon" />
             </button>
 
           </div>
 
         </div>
+
       </article>
+
+      <JobDeleter job={job} />
+
     </div>
   )
 
