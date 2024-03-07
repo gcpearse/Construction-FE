@@ -3,11 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 type JobsState = {
   isJobAdderToggled: boolean
+  isJobDeleterToggled: boolean
 }
 
 
 const initialState: JobsState = {
-  isJobAdderToggled: false
+  isJobAdderToggled: false,
+  isJobDeleterToggled: false
 }
 
 
@@ -23,14 +25,25 @@ const jobsSlice = createSlice({
 
     closeJobAdder: (state) => {
       state.isJobAdderToggled = false
+    },
+
+    openJobDeleter: (state) => {
+      state.isJobDeleterToggled = true
+    },
+
+    closeJobDeleter: (state) => {
+      state.isJobDeleterToggled = false
     }
+
   }
 })
 
 
 export const {
   openJobAdder,
-  closeJobAdder
+  closeJobAdder,
+  openJobDeleter,
+  closeJobDeleter
 } = jobsSlice.actions
 
 export default jobsSlice.reducer
