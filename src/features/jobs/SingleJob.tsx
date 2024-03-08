@@ -4,8 +4,9 @@ import DashNavBtn from "../../common/DashNavBtn"
 import { formatHeader, lengthenDate } from "../../utils/formattingUtils"
 import { FaTrashAlt } from "react-icons/fa"
 import { useAppDispatch } from "../../app/hooks"
-import { openJobDeleter } from "./jobsSlice"
+import { openJobDeleter, openJobUpdater } from "./jobsSlice"
 import JobDeleter from "./JobDeleter"
+import JobUpdater from "./JobUpdater"
 
 
 const SingleJob: React.FC = () => {
@@ -74,7 +75,11 @@ const SingleJob: React.FC = () => {
           <div className="single-job-btns-wrapper">
 
             <button
-              className="blue-btn rectangular-btn">
+              className="blue-btn rectangular-btn"
+              onClick={() => {
+                dispatch(openJobUpdater())
+                document.body.style.overflow = "hidden"
+              }}>
               Update
             </button>
 
@@ -93,6 +98,7 @@ const SingleJob: React.FC = () => {
 
       </article>
 
+      <JobUpdater job={job} />
       <JobDeleter job={job} />
 
     </div>
