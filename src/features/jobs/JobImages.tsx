@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { JobImage } from "../../models"
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa"
+import { FaAngleLeft, FaAngleRight, FaTrashAlt } from "react-icons/fa"
 
 
 type Props = {
@@ -16,10 +16,19 @@ const JobImages: React.FC<Props> = ({ images }) => {
 
   if (images) return (
     <>
-      <img
-        src={images[currentImage].image}
-        alt="An image related to the job."
-        className="job-img" />
+      <div className="job-img-wrapper">
+
+        <img
+          src={images[currentImage].image}
+          alt="An image related to the job."
+          className="job-img" />
+
+        <button
+          className="yellow-btn icon-btn delete-img-btn">
+          <FaTrashAlt className="btn-icon" />
+        </button>
+
+      </div>
 
       <div className="job-images-btns-wrapper">
 
