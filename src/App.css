@@ -815,7 +815,7 @@ nav {
 .single-job-wrapper {
   box-shadow: 0 0 4px #222222;
   border-radius: 8px;
-  max-width: 720px;
+  max-width: 600px;
   background: #FEFEFE;
   text-align: start;
 }
