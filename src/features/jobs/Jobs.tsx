@@ -47,6 +47,10 @@ const Jobs: React.FC<Props> = ({ service }) => {
 
           {jobs.filter((job: Job) => {
             return job.job_Type === service
+          }).sort((a, b) => {
+            if (a.job_Id < b.job_Id) return 1
+            if (a.job_Id > b.job_Id) return -1
+            return 0
           }).map((job) => {
             return (
               <li
