@@ -46,6 +46,7 @@
 
 .page-top-btns {
   display: flex;
+  margin-left: 1em;
 }
 
 .page-els-wrapper {
@@ -276,13 +277,13 @@
 
 /* CSS rules for hiding / showing elements on a narrow display */
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 720px) {
   .large-display-el {
     display: none;
   }
 }
 
-@media only screen and (min-width: 441px) {
+@media only screen and (min-width: 721px) {
   .small-display-el {
     display: none;
   }
