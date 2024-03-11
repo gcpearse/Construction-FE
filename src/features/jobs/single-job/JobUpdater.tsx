@@ -1,11 +1,11 @@
 import { FaRegWindowClose } from "react-icons/fa"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { closeJobUpdater } from "./jobsSlice"
-import { Job, JobUpdate } from "../../models"
-import { formatHeader } from "../../utils/formattingUtils"
+import { useAppDispatch, useAppSelector } from "../../../app/hooks"
+import { closeJobUpdater } from "../jobsSlice"
+import { Job, JobUpdate } from "../../../models"
+import { formatHeader } from "../../../utils/formattingUtils"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useState } from "react"
-import { useUpdateJobMutation } from "../api/apiSlice"
+import { useUpdateJobMutation } from "../../api/apiSlice"
 import { useCookies } from "react-cookie"
 
 

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { JobImage } from "../../models"
+import { JobImage } from "../../../models"
 import { FaAngleLeft, FaAngleRight, FaTrashAlt } from "react-icons/fa"
 
 
