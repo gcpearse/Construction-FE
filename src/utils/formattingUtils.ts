@@ -1,10 +1,10 @@
-export const formatJobsData = (count: number): string => {
+export const formatPlural = (count: number | undefined, word: string): string => {
 
-  if (count === 0) return "are no jobs"
+  if (!count) return `are no ${word}s`
 
-  if (count === 1) return "is 1 job"
+  if (count === 1) return `is 1 ${word}`
 
-  return `are ${count} jobs`
+  return `are ${count} ${word}s`
 }
 
 
