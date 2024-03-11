@@ -110,7 +110,7 @@ const SingleJob: React.FC = () => {
 
             <button
               className="yellow-btn icon-btn"
-              style={{ marginLeft: "0.5em" }}>
+              style={{ marginLeft: "1em" }}>
               <FaPlus className="btn-icon" />
             </button>
 
