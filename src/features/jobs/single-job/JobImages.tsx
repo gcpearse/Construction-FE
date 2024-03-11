@@ -19,7 +19,7 @@ const JobImages: React.FC<Props> = ({ images }) => {
   const [currentImage, setCurrentImage] = useState<number>(0)
 
 
-  if (images) return (
+  if (images?.length) return (
     <>
       <div className="job-img-wrapper">
 

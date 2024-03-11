@@ -66,6 +66,8 @@ const ServiceAdder: React.FC = () => {
 
       setErrorMsg("")
 
+      setCharLimit(0)
+
     } catch (error: any) {
 
       console.log(error)

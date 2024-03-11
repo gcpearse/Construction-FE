@@ -13,7 +13,6 @@ type Props = {
   service: Service
 }
 
-
 type FormValues = {
   description: string
 }
@@ -99,6 +98,7 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
               reset({
                 description: service.description
               })
+              setCharLimit(service.description.length)
               dispatch(closeServiceUpdater())
               document.body.style.overflow = "auto"
             }}>

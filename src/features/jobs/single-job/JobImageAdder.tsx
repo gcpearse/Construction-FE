@@ -1,16 +1,15 @@
 import { FaRegWindowClose } from "react-icons/fa"
-import { Service } from "../../models"
-import { formatHeader } from "../../utils/formattingUtils"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { closeImageUpdater } from "./servicesSlice"
+import { useAppDispatch, useAppSelector } from "../../../app/hooks"
+import { Job } from "../../../models"
+import { closeJobImageAdder } from "../jobsSlice"
 import { SubmitHandler, useForm } from "react-hook-form"
+import { useAddJobImageMutation } from "../../api/apiSlice"
 import { useCookies } from "react-cookie"
-import { useUpdateServiceImageMutation } from "../api/apiSlice"
 import { useState } from "react"
 
 
 type Props = {
-  service: Service
+  job: Job
 }
 
 type FormValues = {
@@ -18,21 +17,12 @@ type FormValues = {
 }
 
 
-const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
+const JobImageAdder: React.FC<Props> = ({ job }) => {
 
 
   const dispatch = useAppDispatch()
 
-  const {
-    isServiceImageUpdaterToggled,
-    selectedService
-  } = useAppSelector(state => state.services)
-
-  const [{ token }] = useCookies()
-
-  const [errorMsg, setErrorMsg] = useState<string>("")
-
-  const [updateServiceImage] = useUpdateServiceImageMutation()
+  const { isJobImageAdderToggled } = useAppSelector(state => state.jobs)
 
   const {
     register,
@@ -40,22 +30,28 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
     reset
   } = useForm<FormValues>()
 
+  const [{ token }] = useCookies()
 
+  const [errorMsg, setErrorMsg] = useState<string>("")
+
+  const [addJobImage] = useAddJobImageMutation()
+
+  
   const submitForm: SubmitHandler<FormValues> = async ({ image }) => {
 
     const formData = new FormData()
     formData.append("image", image[0])
 
     try {
-      await updateServiceImage({
-        name: service.name,
+      await addJobImage({
         image: formData,
+        id: job.job_Id,
         token: token
       }).unwrap()
 
       reset()
 
-      dispatch(closeImageUpdater())
+      dispatch(closeJobImageAdder())
 
       document.body.style.overflow = "auto"
 
@@ -76,7 +72,7 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
 
 
   return (
-    <div className={isServiceImageUpdaterToggled && selectedService === service.name ? (
+    <div className={isJobImageAdderToggled ? (
       "modal-form-overlay"
     ) : (
       "modal-form-overlay closed-modal"
@@ -86,12 +82,12 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
 
         <div className="modal-form-top">
 
-          <h3>Change {formatHeader(service.name)} Image</h3>
+          <h3>Add Image</h3>
 
           <button
             className="window-close-btn"
             onClick={() => {
-              dispatch(closeImageUpdater())
+              dispatch(closeJobImageAdder())
               document.body.style.overflow = "auto"
             }}>
             <FaRegWindowClose className="window-close-icon" />
@@ -101,13 +97,13 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
 
         <form onSubmit={handleSubmit(submitForm)}>
 
-          <label htmlFor={`${service.name}-image-input`}>
+          <label htmlFor="job-image-input">
             Select an image:
           </label>
 
-          {/* Inline styling required because of dynamic ID */}
           <input
             type="file"
+            className="image-input"
             style={{
               marginTop: "0.5em",
               border: "none",
@@ -115,7 +111,7 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
               boxShadow: "none",
               padding: 0
             }}
-            id={`${service.name}-image-input`}
+            id="job-image-input"
             required
             {...register("image")} />
 
@@ -132,4 +128,4 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
 }
 
 
-export default ServiceImageUpdater
+export default JobImageAdder

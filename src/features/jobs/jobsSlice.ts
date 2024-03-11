@@ -5,6 +5,7 @@ type JobsState = {
   isJobAdderToggled: boolean
   isJobUpdaterToggled: boolean
   isJobDeleterToggled: boolean
+  isJobImageAdderToggled: boolean
   isJobImageDeleterToggled: boolean
 }
 
@@ -13,6 +14,7 @@ const initialState: JobsState = {
   isJobAdderToggled: false,
   isJobUpdaterToggled: false,
   isJobDeleterToggled: false,
+  isJobImageAdderToggled: false,
   isJobImageDeleterToggled: false
 }
 
@@ -47,6 +49,14 @@ const jobsSlice = createSlice({
       state.isJobDeleterToggled = false
     },
 
+    openJobImageAdder: (state) => {
+      state.isJobImageAdderToggled = true
+    },
+
+    closeJobImageAdder: (state) => {
+      state.isJobImageAdderToggled = false
+    },
+
     openJobImageDeleter: (state) => {
       state.isJobImageDeleterToggled = true
     },
@@ -66,6 +76,8 @@ export const {
   closeJobUpdater,
   openJobDeleter,
   closeJobDeleter,
+  openJobImageAdder,
+  closeJobImageAdder,
   openJobImageDeleter,
   closeJobImageDeleter
 } = jobsSlice.actions
