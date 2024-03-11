@@ -9,6 +9,14 @@ export type Job = {
   location: string
 }
 
+export type JobUpdate = {
+  title: string
+  tagline: string
+  description: string
+  client: string
+  location: string
+}
+
 export type JobRequest = {
   title: string
   tagline: string
