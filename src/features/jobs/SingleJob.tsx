@@ -1,12 +1,16 @@
 import { Link, useParams } from "react-router-dom"
 import { useGetJobByIdQuery } from "../api/apiSlice"
 import DashNavBtn from "../../common/DashNavBtn"
-import { formatHeader, lengthenDate } from "../../utils/formattingUtils"
-import { FaTrashAlt } from "react-icons/fa"
+import { formatHeader, formatPlural, lengthenDate } from "../../utils/formattingUtils"
+import { FaPlus, FaTrashAlt } from "react-icons/fa"
 import { useAppDispatch } from "../../app/hooks"
 import { openJobDeleter, openJobUpdater } from "./jobsSlice"
 import JobDeleter from "./JobDeleter"
 import JobUpdater from "./JobUpdater"
+import { LuChevronDown, LuChevronUp } from "react-icons/lu"
+import { useState } from "react"
+import JobImageViewer from "./JobImageViewer"
+import JobImages from "./JobImages"
 
 
 const SingleJob: React.FC = () => {
@@ -15,6 +19,8 @@ const SingleJob: React.FC = () => {
   const dispatch = useAppDispatch()
 
   const { service, job_id } = useParams()
+
+  const [showImages, setShowImages] = useState<boolean>(false)
 
   const {
     data: job,
@@ -93,6 +99,41 @@ const SingleJob: React.FC = () => {
             </button>
 
           </div>
+
+        </div>
+
+        <div className="single-job-lower-content">
+
+          <div className="single-job-lower-content-top">
+
+            <p>There {formatPlural(job.images?.length, "image")} for this job.</p>
+
+            <button
+              className="yellow-btn icon-btn"
+              style={{ marginLeft: "0.5em" }}>
+              <FaPlus className="btn-icon" />
+            </button>
+
+          </div>
+
+          {job.images?.length ? (
+            <button
+              className="grey-btn expand-btn"
+              style={{ marginTop: "1em" }}
+              onClick={() => setShowImages(!showImages)}>
+              {showImages ? (
+                <LuChevronUp style={{ fontSize: "1.4rem" }} />
+              ) : (
+                <LuChevronDown style={{ fontSize: "1.4rem" }} />
+              )}
+            </button>
+          ) : (
+            null
+          )}
+
+          <JobImageViewer showImages={showImages}>
+            <JobImages images={job.images} />
+          </JobImageViewer>
 
         </div>
 

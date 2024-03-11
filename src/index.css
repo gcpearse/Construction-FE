@@ -18,6 +18,12 @@ button {
   font-weight: inherit;
 }
 
+button:disabled,
+button:disabled:hover {
+  cursor: auto;
+  opacity: 0.3;
+}
+
 input {
   /* Prevent unexpected issues with display on mobile */
   appearance: none;

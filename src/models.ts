@@ -7,6 +7,13 @@ export type Job = {
   date: string
   client: string
   location: string
+  images?: JobImage[]
+}
+
+export type JobImage = {
+  image_Id: number
+  job_Id: number
+  image: string
 }
 
 export type JobUpdate = {
