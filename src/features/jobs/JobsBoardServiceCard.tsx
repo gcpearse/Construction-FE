@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { Job, Service } from "../../models"
-import { formatHeader, formatJobsData } from "../../utils/formattingUtils"
+import { formatHeader, formatPlural } from "../../utils/formattingUtils"
 import { checkJobs } from "../../utils/logicalUtils"
 
 
@@ -25,7 +25,7 @@ const JobsBoardServiceCard: React.FC<Props> = ({ service, jobs }) => {
 
         <h3>{formatHeader(service.name)}</h3>
 
-        <p>There {formatJobsData(service.count)} in the <span>{formatHeader(service.name)}</span> service category.</p>
+        <p>There {formatPlural(service.count, "job")} in the <span>{formatHeader(service.name)}</span> service category.</p>
 
       </div>
 
