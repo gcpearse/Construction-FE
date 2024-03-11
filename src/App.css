@@ -889,8 +889,8 @@ nav {
 
 .delete-img-btn {
   position: absolute;
-  top: 24px;
-  right: 18px;
+  bottom: 24px;
+  right: 16px;
   box-shadow: 0 0 10px #222222;
   border: 3px solid #FEFEFE;
 }
