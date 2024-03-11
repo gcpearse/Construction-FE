@@ -4,13 +4,14 @@ import DashNavBtn from "../../../common/DashNavBtn"
 import { formatHeader, formatPlural, lengthenDate } from "../../../utils/formattingUtils"
 import { FaPlus, FaTrashAlt } from "react-icons/fa"
 import { useAppDispatch } from "../../../app/hooks"
-import { openJobDeleter, openJobUpdater } from "../jobsSlice"
+import { openJobDeleter, openJobImageAdder, openJobUpdater } from "../jobsSlice"
 import JobDeleter from "./JobDeleter"
 import JobUpdater from "./JobUpdater"
 import { LuChevronDown, LuChevronUp } from "react-icons/lu"
 import { useState } from "react"
 import JobImageViewer from "./JobImageViewer"
 import JobImages from "./JobImages"
+import JobImageAdder from "./JobImageAdder"
 
 
 const SingleJob: React.FC = () => {
@@ -110,7 +111,11 @@ const SingleJob: React.FC = () => {
 
             <button
               className="yellow-btn icon-btn"
-              style={{ marginLeft: "1em" }}>
+              style={{ marginLeft: "1em" }}
+              onClick={() => {
+                dispatch(openJobImageAdder())
+                document.body.style.overflow = "hidden"
+              }}>
               <FaPlus className="btn-icon" />
             </button>
 
@@ -141,6 +146,7 @@ const SingleJob: React.FC = () => {
 
       <JobUpdater job={job} />
       <JobDeleter job={job} />
+      <JobImageAdder job={job} />
 
     </div>
   )
