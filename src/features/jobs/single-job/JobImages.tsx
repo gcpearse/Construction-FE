@@ -1,6 +1,9 @@
 import { useState } from "react"
 import { JobImage } from "../../../models"
 import { FaAngleLeft, FaAngleRight, FaTrashAlt } from "react-icons/fa"
+import JobImageDeleter from "./JobImageDeleter"
+import { useAppDispatch } from "../../../app/hooks"
+import { openJobImageDeleter } from "../jobsSlice"
 
 
 type Props = {
@@ -10,6 +13,8 @@ type Props = {
 
 const JobImages: React.FC<Props> = ({ images }) => {
 
+
+  const dispatch = useAppDispatch()
 
   const [currentImage, setCurrentImage] = useState<number>(0)
 
@@ -24,7 +29,11 @@ const JobImages: React.FC<Props> = ({ images }) => {
           className="job-img" />
 
         <button
-          className="yellow-btn icon-btn delete-img-btn">
+          className="yellow-btn icon-btn delete-img-btn"
+          onClick={() => {
+            dispatch(openJobImageDeleter())
+            document.body.style.overflow = "hidden"
+          }}>
           <FaTrashAlt className="btn-icon" />
         </button>
 
@@ -49,6 +58,8 @@ const JobImages: React.FC<Props> = ({ images }) => {
         </button>
 
       </div>
+
+      <JobImageDeleter image={images[currentImage]} />
     </>
   )
 }
