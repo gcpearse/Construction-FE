@@ -35,7 +35,7 @@ const BusinessInfoUpdater: React.FC = () => {
   })
 
 
-  const submitForm: SubmitHandler<BusinessInfo> = async (businessInfo: BusinessInfo) => {
+  const submitForm: SubmitHandler<BusinessInfo> = async (businessInfo) => {
 
     try {
       await updateBusinessInfo({
@@ -78,6 +78,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <button
             className="window-close-btn"
             onClick={() => {
+              reset(info)
               dispatch(closeBusinessInfoForm())
               document.body.style.overflow = "auto"
             }}>

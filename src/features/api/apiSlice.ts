@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
-import { Job, Service, BusinessInfo, LoginResponse, LoginRequest, JobRequest, ServiceRequest } from "../../models"
+import { Job, Service, BusinessInfo, LoginResponse, LoginRequest, JobRequest, ServiceRequest, JobUpdate } from "../../models"
 
 
 export const apiSlice = createApi({
@@ -10,7 +10,7 @@ export const apiSlice = createApi({
     baseUrl: "http://4.234.160.181:8080/construction/api"
   }),
 
-  tagTypes: ["businessInfo", "jobs", "services"],
+  tagTypes: ["businessInfo", "jobs", "job", "services"],
 
   endpoints: builder => ({
 
@@ -20,7 +20,8 @@ export const apiSlice = createApi({
     }),
 
     getJobById: builder.query<Job, { id: string | undefined }>({
-      query: ({ id }) => `/jobs/${id}`
+      query: ({ id }) => `/jobs/${id}`,
+      providesTags: ["job"]
     }),
 
     addJob: builder.mutation<Job, { job: JobRequest, token: string }>({
@@ -33,6 +34,18 @@ export const apiSlice = createApi({
         body: job
       }),
       invalidatesTags: ["jobs", "services"]
+    }),
+
+    updateJob: builder.mutation<Job, { job: JobUpdate, id: number, token: string }>({
+      query: ({ job, id, token }) => ({
+        url: `/jobs/${id}`,
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        body: job
+      }),
+      invalidatesTags: ["jobs", "job", "services"]
     }),
 
     deleteJob: builder.mutation<void, { id: number, token: string }>({
@@ -155,6 +168,7 @@ export const {
   useGetJobsQuery,
   useGetJobByIdQuery,
   useAddJobMutation,
+  useUpdateJobMutation,
   useDeleteJobMutation,
   useGetServicesQuery,
   useAddServiceMutation,
