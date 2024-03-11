@@ -59,6 +59,17 @@ export const apiSlice = createApi({
       invalidatesTags: ["jobs", "services"]
     }),
 
+    deleteJobImage: builder.mutation<void, { id: number, token: string }>({
+      query: ({ id, token }) => ({
+        url: `/jobs/image/${id}`,
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }),
+      invalidatesTags: ["job"]
+    }),
+
     getServices: builder.query<Service[], void>({
       query: () => "/jobtypes",
       providesTags: ["services"]
@@ -170,6 +181,7 @@ export const {
   useAddJobMutation,
   useUpdateJobMutation,
   useDeleteJobMutation,
+  useDeleteJobImageMutation,
   useGetServicesQuery,
   useAddServiceMutation,
   useUpdateServiceImageMutation,
