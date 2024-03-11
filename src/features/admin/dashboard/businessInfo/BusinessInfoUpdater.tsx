@@ -78,6 +78,7 @@ const BusinessInfoUpdater: React.FC = () => {
           <button
             className="window-close-btn"
             onClick={() => {
+              reset(info)
               dispatch(closeBusinessInfoForm())
               document.body.style.overflow = "auto"
             }}>

@@ -96,6 +96,9 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
           <button
             className="window-close-btn"
             onClick={() => {
+              reset({
+                description: service.description
+              })
               dispatch(closeServiceUpdater())
               document.body.style.overflow = "auto"
             }}>
