@@ -35,7 +35,7 @@ const BusinessInfoUpdater: React.FC = () => {
   })
 
 
-  const submitForm: SubmitHandler<BusinessInfo> = async (businessInfo: BusinessInfo) => {
+  const submitForm: SubmitHandler<BusinessInfo> = async (businessInfo) => {
 
     try {
       await updateBusinessInfo({
