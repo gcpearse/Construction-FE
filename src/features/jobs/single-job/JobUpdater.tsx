@@ -93,6 +93,7 @@ const JobUpdater: React.FC<Props> = ({ job }) => {
             className="window-close-btn"
             onClick={() => {
               reset(currentData)
+              setCharLimit(currentData.description.length)
               dispatch(closeJobUpdater())
               document.body.style.overflow = "auto"
             }}>
