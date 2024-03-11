@@ -46,6 +46,7 @@
 
 .page-top-btns {
   display: flex;
+  margin-left: 1em;
 }
 
 .page-els-wrapper {
@@ -190,6 +191,7 @@
 
 .modal-form-text-wrapper h4 {
   font-size: 1.2rem;
+  text-align: center;
 }
 
 .modal-form-text-wrapper p {
@@ -269,18 +271,19 @@
 
 .rtk-query-form-msg {
   margin-top: 1em;
+  text-align: center;
   color: #FF4300;
 }
 
 /* CSS rules for hiding / showing elements on a narrow display */
 
-@media only screen and (max-width: 440px) {
+@media only screen and (max-width: 720px) {
   .large-display-el {
     display: none;
   }
 }
 
-@media only screen and (min-width: 441px) {
+@media only screen and (min-width: 721px) {
   .small-display-el {
     display: none;
   }
@@ -815,7 +818,7 @@ nav {
 .single-job-wrapper {
   box-shadow: 0 0 4px #222222;
   border-radius: 8px;
-  max-width: 720px;
+  max-width: 600px;
   background: #FEFEFE;
   text-align: start;
 }

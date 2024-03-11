@@ -1,7 +1,7 @@
 import { useCookies } from "react-cookie"
 import Login from "../features/admin/Login"
 import { useTestAuthQuery } from "../features/api/apiSlice"
-import SingleJob from "../features/jobs/SingleJob"
+import SingleJob from "../features/jobs/single-job/SingleJob"
 
 
 const SingleJobPagePrivate: React.FC = () => {

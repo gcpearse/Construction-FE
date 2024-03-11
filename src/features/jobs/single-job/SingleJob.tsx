@@ -1,10 +1,10 @@
 import { Link, useParams } from "react-router-dom"
-import { useGetJobByIdQuery } from "../api/apiSlice"
-import DashNavBtn from "../../common/DashNavBtn"
-import { formatHeader, formatPlural, lengthenDate } from "../../utils/formattingUtils"
+import { useGetJobByIdQuery } from "../../api/apiSlice"
+import DashNavBtn from "../../../common/DashNavBtn"
+import { formatHeader, formatPlural, lengthenDate } from "../../../utils/formattingUtils"
 import { FaPlus, FaTrashAlt } from "react-icons/fa"
-import { useAppDispatch } from "../../app/hooks"
-import { openJobDeleter, openJobUpdater } from "./jobsSlice"
+import { useAppDispatch } from "../../../app/hooks"
+import { openJobDeleter, openJobUpdater } from "../jobsSlice"
 import JobDeleter from "./JobDeleter"
 import JobUpdater from "./JobUpdater"
 import { LuChevronDown, LuChevronUp } from "react-icons/lu"
@@ -110,7 +110,7 @@ const SingleJob: React.FC = () => {
 
             <button
               className="yellow-btn icon-btn"
-              style={{ marginLeft: "0.5em" }}>
+              style={{ marginLeft: "1em" }}>
               <FaPlus className="btn-icon" />
             </button>
 

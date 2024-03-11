@@ -1,17 +1,15 @@
 import { FaRegWindowClose } from "react-icons/fa"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { Job } from "../../models"
-import { closeJobDeleter } from "./jobsSlice"
-import { formatHeader } from "../../utils/formattingUtils"
+import { useAppDispatch, useAppSelector } from "../../../app/hooks"
+import { JobImage } from "../../../models"
+import { closeJobImageDeleter } from "../jobsSlice"
 import { SubmitHandler, useForm } from "react-hook-form"
-import { useCookies } from "react-cookie"
 import { useState } from "react"
-import { useDeleteJobMutation } from "../api/apiSlice"
-import { useNavigate } from "react-router-dom"
+import { useDeleteJobImageMutation } from "../../api/apiSlice"
+import { useCookies } from "react-cookie"
 
 
 type Props = {
-  job: Job
+  image: JobImage
 }
 
 type FormValues = {
@@ -19,20 +17,18 @@ type FormValues = {
 }
 
 
-const JobDeleter: React.FC<Props> = ({ job }) => {
+const JobImageDeleter: React.FC<Props> = ({ image }) => {
 
 
   const dispatch = useAppDispatch()
 
-  const { isJobDeleterToggled } = useAppSelector(state => state.jobs)
-
-  const navigate = useNavigate()
+  const { isJobImageDeleterToggled } = useAppSelector(state => state.jobs)
 
   const [{ token }] = useCookies(["token"])
 
   const [errorMsg, setErrorMsg] = useState<string>("")
 
-  const [deleteJob] = useDeleteJobMutation()
+  const [deleteJobImage] = useDeleteJobImageMutation()
 
   const {
     register,
@@ -47,20 +43,18 @@ const JobDeleter: React.FC<Props> = ({ job }) => {
 
     if (currentUser === name) {
       try {
-        await deleteJob({
-          id: job.job_Id,
+        await deleteJobImage({
+          id: image.image_Id,
           token: token
         }).unwrap()
 
         reset()
 
-        dispatch(closeJobDeleter())
+        dispatch(closeJobImageDeleter())
 
         document.body.style.overflow = "auto"
 
         setErrorMsg("")
-
-        navigate(`/admin/jobs/${job.job_Type}`)
 
       } catch (error: any) {
 
@@ -81,7 +75,7 @@ const JobDeleter: React.FC<Props> = ({ job }) => {
 
 
   return (
-    <div className={isJobDeleterToggled ? (
+    <div className={isJobImageDeleterToggled ? (
       "modal-form-overlay"
     ) : (
       "modal-form-overlay closed-modal"
@@ -91,12 +85,12 @@ const JobDeleter: React.FC<Props> = ({ job }) => {
 
         <div className="modal-form-top">
 
-          <h3>{formatHeader(job.job_Type)} ID #{job.job_Id}</h3>
+          <h3>Delete Image</h3>
 
           <button
             className="window-close-btn"
             onClick={() => {
-              dispatch(closeJobDeleter())
+              dispatch(closeJobImageDeleter())
               document.body.style.overflow = "auto"
             }}>
             <FaRegWindowClose className="window-close-icon" />
@@ -106,7 +100,7 @@ const JobDeleter: React.FC<Props> = ({ job }) => {
 
         <div className="modal-form-text-wrapper">
 
-          <h4>Delete this job?</h4>
+          <h4>Delete this image?</h4>
 
           <p>This process is irreversible. If you are sure you wish to proceed, please enter your admin name and click delete.</p>
 
@@ -142,4 +136,4 @@ const JobDeleter: React.FC<Props> = ({ job }) => {
 }
 
 
-export default JobDeleter
+export default JobImageDeleter
