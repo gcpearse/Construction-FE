@@ -22,8 +22,6 @@ type FormValues = {
 const ServiceUpdater: React.FC<Props> = ({ service }) => {
 
 
-  const { name, image, icon } = service
-
   const dispatch = useAppDispatch()
 
   const { isServiceUpdaterToggled, selectedService } = useAppSelector(state => state.services)
@@ -54,10 +52,10 @@ const ServiceUpdater: React.FC<Props> = ({ service }) => {
     try {
       await updateServiceDescription({
         service: {
-          name: name,
+          name: service.name,
           description: serviceDetails.description,
-          image: image,
-          icon: icon
+          image: service.image,
+          icon: service.icon
         },
         token: token
       }).unwrap()
