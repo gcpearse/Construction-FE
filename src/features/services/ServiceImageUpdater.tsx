@@ -36,7 +36,8 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
 
   const {
     register,
-    handleSubmit
+    handleSubmit,
+    reset
   } = useForm<FormValues>()
 
 
@@ -51,6 +52,8 @@ const ServiceImageUpdater: React.FC<Props> = ({ service }) => {
         image: formData,
         token: token
       }).unwrap()
+
+      reset()
 
       dispatch(closeImageUpdater())
 
