@@ -1,23 +1,16 @@
 import { FaRegWindowClose } from "react-icons/fa"
 import { useAppDispatch, useAppSelector } from "../../app/hooks"
 import { closeJobUpdater } from "./jobsSlice"
-import { Job } from "../../models"
+import { Job, JobUpdate } from "../../models"
 import { formatHeader } from "../../utils/formattingUtils"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { useState } from "react"
+import { useUpdateJobMutation } from "../api/apiSlice"
+import { useCookies } from "react-cookie"
 
 
 type Props = {
   job: Job
-}
-
-
-type FormValues = {
-  title: string
-  tagline: string
-  description: string
-  client: string
-  location: string
 }
 
 
@@ -37,20 +30,49 @@ const JobUpdater: React.FC<Props> = ({ job }) => {
 
   const { isJobUpdaterToggled } = useAppSelector(state => state.jobs)
 
+  const [{ token }] = useCookies(["token"])
+
+  const [errorMsg, setErrorMsg] = useState<string>("")
   const [charLimit, setCharLimit] = useState<number>(job.description.length)
+
+  const [updateJob] = useUpdateJobMutation()
 
   const {
     register,
     handleSubmit,
     reset
-  } = useForm<FormValues>({
+  } = useForm<JobUpdate>({
     defaultValues: currentData,
     values: currentData
   })
 
 
-  const submitForm: SubmitHandler<FormValues> = (data) => {
-    console.log(data)
+  const submitForm: SubmitHandler<JobUpdate> = async (data) => {
+
+    try {
+      await updateJob({
+        job: data,
+        id: job.job_Id,
+        token: token
+      }).unwrap()
+
+      dispatch(closeJobUpdater())
+
+      document.body.style.overflow = "auto"
+
+      setErrorMsg("")
+
+    } catch (error: any) {
+
+      console.log(error)
+
+      if (error.status === 401) {
+        setErrorMsg("Authentication error. Please refresh the page.")
+      } else {
+        setErrorMsg("Oops! Something went wrong...")
+      }
+
+    }
   }
 
 
@@ -143,6 +165,8 @@ const JobUpdater: React.FC<Props> = ({ job }) => {
 
           <p>{200 - charLimit} characters remaining.</p>
 
+          <p>* Indicates a required field.</p>
+
           <div className="modal-btn-wrapper">
 
             <button
@@ -169,6 +193,8 @@ const JobUpdater: React.FC<Props> = ({ job }) => {
             className="modal-btn blue-btn">
             Submit
           </button>
+
+          {errorMsg ? <p className="rtk-query-form-msg">{errorMsg}</p> : null}
 
         </form>
       </div>
