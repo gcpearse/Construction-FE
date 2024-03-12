@@ -898,6 +898,28 @@ nav {
   border: 3px solid #FEFEFE;
 }
 
+
+/* || Error */
+
+.error-wrapper {
+  margin: 1em auto;
+  padding: 1em;
+  background: #FEFEFE;
+}
+
+.error-wrapper>* {
+  margin: 12px auto;
+}
+
+.error-wrapper h2 {
+  font-size: 2.9rem;
+}
+
+.error-wrapper p {
+  font-size: 1.4rem;
+}
+
+
 /* || Footer */
 
 .scroll-btn {
