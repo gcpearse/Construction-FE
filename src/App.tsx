@@ -13,6 +13,7 @@ import { closeSidebar } from "./features/sidebar/sidebarSlice"
 import ServicesPagePrivate from "./pages/ServicesPagePrivate"
 import JobsPagePrivate from "./pages/JobsPagePrivate"
 import SingleJobPagePrivate from "./pages/SingleJobPagePrivate"
+import Error from "./common/Error"
 
 
 const App: React.FC = () => {
@@ -66,6 +67,11 @@ const App: React.FC = () => {
           <Route
             path="/admin/services"
             element={<ServicesPagePrivate />}
+          />
+
+          <Route
+            path="/*"
+            element={<Error statusCode={404} message="Page not found" btnText="Back" nav={-1} />}
           />
         </Routes>
 
