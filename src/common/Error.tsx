@@ -18,8 +18,11 @@ const Error: React.FC<Props> = ({ statusCode, message, btnText, nav, url }) => {
 
   return (
     <div className="error-wrapper">
+
       <h2>{statusCode}</h2>
+
       <p>{message}</p>
+
       <button
         className="blue-btn rectangular-btn"
         onClick={() => {
@@ -28,6 +31,7 @@ const Error: React.FC<Props> = ({ statusCode, message, btnText, nav, url }) => {
         }}>
         {btnText}
       </button>
+
     </div>
   )
 }
