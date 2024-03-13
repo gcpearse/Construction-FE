@@ -53,7 +53,7 @@ const ServiceAdder: React.FC = () => {
           name: data.name,
           description: data.description,
           image: imageLink,
-          icon: data.icon
+          icon: "Icon"
         },
         token: token
       }).unwrap()
@@ -119,17 +119,6 @@ const ServiceAdder: React.FC = () => {
             autoComplete="true"
             required
             {...register("name")} />
-
-          <label htmlFor="service-icon-input">
-            Service icon: <span>*</span>
-          </label>
-
-          <input
-            type="text"
-            id="service-icon-input"
-            autoComplete="true"
-            required
-            {...register("icon")} />
 
           <label htmlFor="service-description-input">
             Description of service: <span>*</span>
