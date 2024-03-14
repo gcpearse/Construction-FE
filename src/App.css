@@ -681,7 +681,8 @@ nav {
   color: #FEFEFE;
 }
 
-.services-board-final-el span {
+.services-board-final-el span,
+.public-service-final-el span {
   padding: 2em 0.5em;
   font-size: 3em;
   font-weight: 600;
@@ -896,6 +897,56 @@ nav {
   right: 16px;
   box-shadow: 0 0 10px #222222;
   border: 3px solid #FEFEFE;
+}
+
+
+/* || ServicePagePublic */
+
+.service-page-public-wrapper {
+  margin: 1em 0 7em;
+  background: rgba(254, 254, 254, 0.9);
+}
+
+.service-page-public-wrapper h2 {
+  padding: 1em;
+  font-size: 2rem;
+}
+
+
+/* || PublicService */
+
+.public-service-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 7em;
+  background: #FFD60A;
+}
+
+.public-service-text {
+  padding: 24px 24px 32px;
+}
+
+.public-service-wrapper h3 {
+  padding-bottom: 32px;
+  font-size: 2rem;
+  text-align: start;
+}
+
+.public-service-wrapper p {
+  font-size: 1.1rem;
+  text-align: justify;
+}
+
+.public-service-wrapper img {
+  object-fit: cover;
+  height: 33vh;
+}
+
+.public-service-final-el {
+  display: grid;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(0, 29, 61, 0.9), rgba(0, 29, 61, 1));
+  color: #FEFEFE;
 }
 
 
