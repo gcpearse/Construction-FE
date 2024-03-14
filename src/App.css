@@ -940,6 +940,7 @@ nav {
 .public-service-wrapper img {
   object-fit: cover;
   height: 33vh;
+  min-height: 12em;
 }
 
 .public-service-final-el {
