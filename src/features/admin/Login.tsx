@@ -33,7 +33,6 @@ const Login: React.FC = () => {
       dispatch(setCredentials(response))
 
       setCookie("token", response.token, {
-        maxAge: 3600,
         sameSite: "strict"
       })
 
